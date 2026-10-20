@@ -41,7 +41,7 @@
 页面用 `fetch()` 读取 `data/*.json`，浏览器不允许直接用 `file://` 打开，所以需要一个静态服务器：
 
 ```bash
-git clone <本仓库地址>
+git clone https://github.com/zhujiuyi/jiaocaitupu.git
 cd jiaocaitupu
 python3 -m http.server 8000
 ```
