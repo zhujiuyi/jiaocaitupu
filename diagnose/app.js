@@ -244,7 +244,7 @@
   function makeOracle(targets, mode) {
     const G = D.graph;
     if (mode === 'screen') {
-      // 整体筛查：按知识点序号，约 1/6 不会、1/6 不稳，其余都会（与 scripts/demo_grade.js 相同）
+      // 整体筛查：按知识点序号，约 1/6 不会、1/6 不稳，其余都会
       return function (id, attempt) {
         const i = G.index[id];
         if (i % 6 === 0) return 'wrong';

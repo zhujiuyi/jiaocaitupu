@@ -108,18 +108,10 @@ diagnose/index.html   页面骨架（引用 ../assets/site.css、style.css、图
 diagnose/engine.js    核心算法与判题（纯函数，浏览器 / Node 通用）
 diagnose/app.js       界面：数据加载、开始页 / 出题页 / 结果页、Cytoscape 路径图、localStorage、导出、打印
 diagnose/style.css    诊断页布局（含 @media print）；配色和导航在 ../assets/site.css
-tests/test_engine.js  Node 测试（无依赖）：node tests/test_engine.js
-scripts/screenshot.js 无头 Chrome 冒烟测试 + 截图：node scripts/screenshot.js
-screenshots/          诊断流程 01–05，首页 / 图谱 / 窄屏 06–16，全部祖先与长名称 17–20，高中 21–27，选择性必修 28–31，小学英语 32–35
-data/questions.json   题库（4143 题：数学 3355 + 小学英语 788，见 docs/questions.md）
+data/questions.json   题库（4143 题：数学 3355 + 小学英语 788）
 ```
 
-### 测试
-
-```bash
-node tests/test_engine.js      # 手造图 + 两题判定 + 真实数据 + 小学回溯 + 旧 id 别名 + 题库；含随机“一致学生”性质测试
-node scripts/screenshot.js     # 需要本机 Chrome/Chromium（可用 CHROME=… 指定）；会临时起 http.server（PORT，默认 8765）
-```
+`engine.js` 是纯函数模块，不依赖 DOM，可以直接在 Node 里 `require` 来自测或复用到别的界面。
 
 性质测试里，“一致的学生”指已掌握集合对祖先封闭；题量不限时，诊断出的薄弱集合应恰好等于该学生不会的点，根因应恰好是“自己不会、先修都会”的点。
 
@@ -129,7 +121,7 @@ node scripts/screenshot.js     # 需要本机 Chrome/Chromium（可用 CHROME=�
 
 ## 局限
 
-- **每个知识点最多 2 题**：题库每个知识点 4–5 题，由 AI 生成、未经教师审核（核验方法与局限见 [../docs/questions.md](../docs/questions.md)）。两题仍然很少：选择题有 25%–33% 的蒙对概率，一对一错的「不稳」只是提示，结果是“线索”不是“结论”。重测多次会遇到重复的题。
+- **每个知识点最多 2 题**：题库每个知识点 4–5 题，由 AI 生成、未经教师审核。两题仍然很少：选择题有 25%–33% 的蒙对概率，一对一错的「不稳」只是提示，结果是“线索”不是“结论”。重测多次会遇到重复的题。
 - **不稳不回溯**是一个设计取舍：第一题错第二题对时不继续追查先修，可能漏掉真正的薄弱先修；它们会在路径里标出，建议自查。
 - 答对一个点就推断它的所有祖先已掌握，依赖先修图的准确性；先修边是 AI 生成、未经教师审核的初稿。
 - 小学、初中、高中必修和选择性必修在同一张图上。题量上限默认 16，一次诊断往往问不到一条很长的先修链的最前面；把上限调大，或对结果里的「未测」点再诊断一次，才能走到一年级。旧链接 `cnm_ext_*` 只跳到别名文件里的代表知识点，不是该主题的全部小学知识点。选择性必修的 `grade` 12–14 只用来分册，不是教学年份。

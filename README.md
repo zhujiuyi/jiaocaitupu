@@ -17,7 +17,6 @@
 - [数据文件](#数据文件)
 - [知识覆盖](#知识覆盖)
 - [诊断是怎么判的](#诊断是怎么判的)
-- [校验与测试](#校验与测试)
 - [部署](#部署)
 - [可选：打包成单文件桌面版](#可选打包成单文件桌面版)
 - [已知局限](#已知局限)
@@ -140,10 +139,8 @@ python3 -m http.server 8000
 | `data/questions.json` | 题库：题干、答案、解析、难度、类型，数字题带 `verify` 表达式 |
 | `data/cn-curriculum-standards.json` | 课标条文：id 形如 `cms-2022:4.NA.27`，含原文与出处 |
 | `data/id-aliases.json` | 旧编号到现行编号的跳转，避免老链接失效 |
-| `data/verification_report.json` | 最近一次题目核验的结果摘要 |
-| `data/second_pass_log.json` | 人工/AI 复核记录 |
 
-`scripts/` 里是**离线生成数据**的脚本（建点、建边、出题、对齐课标），不参与站点运行；页面只读 `data/`。
+这 5 个文件就是页面的全部数据来源（合计约 3.1 MB）。数据是离线生成好后提交进仓库的，站点运行时不需要任何脚本或构建步骤。
 
 ## 知识覆盖
 
@@ -172,31 +169,14 @@ python3 -m http.server 8000
 
 ⚠️ 自动判题是近似的：数字、分数、多个答案会做规范化后比较，判错了可以手动更正，一切以参考答案为准。诊断结果是**线索**，不是结论。
 
-## 校验与测试
-
-```bash
-# 数据自检：JSON 合法、id 唯一、字段齐全、枚举合法、无自环/重边/环、
-# 课标引用存在、覆盖率统计
-python3 scripts/validate.py
-
-# 诊断引擎（纯函数，浏览器与 Node 通用）
-node tests/test_engine.js
-
-# 冒烟测试 + 截图（需要本机 Chrome）
-node scripts/screenshot.js
-```
-
-`validate.py` 全部通过时输出 `VALIDATION PASSED` 并以 0 退出。设置 `STRICT_STANDARDS=1` 会把"正式知识点没有课标映射"当成错误。
-
 ## 部署
 
 仓库是纯静态文件，任何静态托管都能用：
 
-- **Cloudflare Pages / Netlify / Vercel**：把 `index.html`、`assets/`、`explore/`、`diagnose/`、`data/` 里的 5 个文件一起上传即可，`.nojekyll` 保留。
-- 仓库里有 `scripts/deploy-cf.sh`，是原作者用的 Cloudflare Pages 脚本，**里面的账号 ID 和项目名要换成自己的**，并设置 `CLOUDFLARE_API_TOKEN`。
-- 也可以用 GitHub Pages：推到仓库后开启 Pages，选根目录。
+- **GitHub Pages**：推到仓库后开启 Pages，源选根目录即可（`.nojekyll` 已就位）。
+- **Cloudflare Pages / Netlify / Vercel**：把 `index.html`、`assets/`、`explore/`、`diagnose/` 和 `data/` 里的 5 个文件一起上传。
 
-部署只需要这 22 个文件（约 3.9 MB），`screenshots/`、`scripts/`、`tests/` 不必上传。
+部署只需要这 22 个文件（约 3.9 MB）；`screenshots/` 只是给 README 用的，不必上传。
 
 ## 可选：打包成单文件桌面版
 
