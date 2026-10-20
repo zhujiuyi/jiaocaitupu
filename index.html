@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>中小学知识图谱</title>
 <meta name="description" content="数学（小学到高中）和小学英语的知识图谱。沿先修关系自适应出题，从选中的知识点往回找到薄弱根因。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Ccircle cx='9' cy='21' r='2.5' fill='white'/%3E%3Ccircle cx='17' cy='11' r='2.5' fill='white'/%3E%3Ccircle cx='24' cy='20' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0d10'/%3E%3Ccircle cx='9' cy='21' r='2.5' fill='%236fe3ff'/%3E%3Ccircle cx='17' cy='11' r='2.5' fill='%23d5ff4b'/%3E%3Ccircle cx='24' cy='20' r='2.5' fill='%236fe3ff'/%3E%3C/svg%3E">
 <script>
 (function () {
   var id = location.hash.replace(/^#/, '');
@@ -24,7 +24,7 @@
 <body class="page-home">
 <header class="site-header">
   <a class="brand" href="./">
-    <svg class="logo" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><circle cx="9" cy="21" r="2.5" fill="#fff"/><circle cx="17" cy="11" r="2.5" fill="#fff"/><circle cx="24" cy="20" r="2.5" fill="#fff"/><path d="M11.2 19.2 15.2 12.8M18.6 12.6 22.2 18.2" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>
+    <svg class="logo" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><circle cx="9" cy="21" r="2.5" fill="#0b0d10"/><circle cx="17" cy="11" r="2.5" fill="#0b0d10"/><circle cx="24" cy="20" r="2.5" fill="#0b0d10"/><path d="M11.2 19.2 15.2 12.8M18.6 12.6 22.2 18.2" stroke="#0b0d10" stroke-width="1.7" stroke-linecap="round"/></svg>
     <span class="brand-name">中小学知识图谱</span>
   </a>
   <nav class="site-nav" aria-label="主导航">
@@ -38,47 +38,66 @@
 </header>
 <main class="home">
   <section class="hero">
-    <p class="eyebrow">数学：小学到高中 · 英语：三到六年级（人教 PEP）</p>
-    <h1>先找到真正没学会的那一步</h1>
-    <p class="lede">沿着先修关系自适应出题。数学从小学追到高中，英语覆盖三到六年级。从你选的知识点往回追，定位薄弱根因，并给出一条按学习顺序排起的路径。</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary btn-lg" href="diagnose/">开始诊断</a>
-      <a class="btn btn-lg" href="explore/">浏览知识图谱</a>
+    <div class="hero-copy">
+      <p class="eyebrow">数学：小学到高中 · 英语：三到六年级（人教 PEP）</p>
+      <h1>先找到真正没学会的<span class="hi">那一步</span></h1>
+      <p class="lede">沿着先修关系自适应出题。数学从小学追到高中，英语覆盖三到六年级。从你选的知识点往回追，定位薄弱根因，并给出一条按学习顺序排起的路径。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="diagnose/">
+          开始诊断
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-lg" href="explore/">浏览知识图谱</a>
+      </div>
+      <p class="quiet-link"><a href="diagnose/?target=cnm_221&amp;demo=1">先看一遍演示：配方法</a></p>
     </div>
-    <p class="quiet-link"><a href="diagnose/?target=cnm_221&amp;demo=1">先看一遍演示：配方法</a></p>
+
+    <aside class="hero-panel" aria-label="图谱数据概览">
+      <div class="panel-head">
+        <span>Graph index</span>
+        <span class="live">实时统计</span>
+      </div>
+      <div class="stat-grid" id="stats">
+        <div class="stat-card"><div class="stat-num" id="n-topics">…</div><div class="stat-label">知识点</div></div>
+        <div class="stat-card"><div class="stat-num" id="n-edges">…</div><div class="stat-label">先修边</div></div>
+        <div class="stat-card"><div class="stat-num" id="n-questions">…</div><div class="stat-label">题目</div></div>
+        <div class="stat-card"><div class="stat-num" id="n-standards">…</div><div class="stat-label">课标条目</div></div>
+      </div>
+      <div class="panel-foot">
+        <p class="stat-note">以上数字在打开页面时从当前学科的知识点、先修、题库和课标统计。默认是数学。</p>
+        <div id="load-error" class="load-error" hidden></div>
+      </div>
+    </aside>
   </section>
 
-  <h2 class="section-title">三步</h2>
+  <div class="section-head">
+    <h2 class="section-title">三步</h2>
+    <span class="sec-index">01 / Flow</span>
+  </div>
   <ol class="steps">
     <li>
-      <span class="step-no">1</span>
+      <span class="step-no">01</span>
       <h3>选知识点</h3>
       <p>数学从一年级到高中必修和选择性必修，英语从三年级到六年级。搜索或按册、章找到想检查的内容。</p>
     </li>
     <li>
-      <span class="step-no">2</span>
+      <span class="step-no">02</span>
       <h3>自适应答题</h3>
       <p>先问目标本身。答错再出一道同级或更容易的题，仍然错才沿着先修往回追。</p>
     </li>
     <li>
-      <span class="step-no">3</span>
+      <span class="step-no">03</span>
       <h3>找到根因和学习路径</h3>
       <p>标出薄弱根因和不稳的点，并按年级从低到高排出建议补学的顺序。</p>
     </li>
   </ol>
 
-  <h2 class="section-title">图谱里有什么</h2>
-  <div class="stat-grid" id="stats">
-    <div class="stat-card"><div class="stat-num" id="n-topics">…</div><div class="stat-label">知识点</div></div>
-    <div class="stat-card"><div class="stat-num" id="n-edges">…</div><div class="stat-label">先修边</div></div>
-    <div class="stat-card"><div class="stat-num" id="n-questions">…</div><div class="stat-label">题目</div></div>
-    <div class="stat-card"><div class="stat-num" id="n-standards">…</div><div class="stat-label">课标条目</div></div>
+  <div class="section-head">
+    <h2 class="section-title">按年级进入</h2>
+    <span class="sec-index">02 / Grade</span>
   </div>
-  <p class="stat-note">以上数字在打开页面时从当前学科的知识点、先修、题库和课标统计。默认是数学。</p>
-  <div id="load-error" class="load-error" hidden></div>
-
-  <h2 class="section-title">按年级进入</h2>
   <div class="grade-grid" id="grades" aria-busy="true"></div>
+
   <a class="iq-card" href="https://test.pansgo.com/?from=math-home" target="_blank" rel="noopener">
     <strong>🧠 儿童智商测试</strong>
     <span class="iq-sub">找规律 · 补图案 · 空间想象，约 12–15 分钟，免费</span>
@@ -88,6 +107,7 @@
 <footer class="site-footer">
   <p>AI 生成初稿，未经教师审核。<a href="https://github.com/xiaoyang111222/cn-math-taxonomy/issues/new/choose">提交 Issue</a></p>
 </footer>
+<script src="assets/motion.js"></script>
 <script src="assets/home.js"></script>
 </body>
 </html>
