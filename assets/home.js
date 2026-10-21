@@ -14,12 +14,14 @@
   }
 
   document.body.classList.toggle('subject-english', subject === 'english');
-  // 学科是「知识图谱」的二级菜单：只切二级项的选中态；一级菜单链接跟随当前学科
-  document.querySelectorAll('.subject-link').forEach(function (link) {
-    var on = link.getAttribute('data-subject') === subject;
-    link.classList.toggle('on', on);
-    if (on) link.setAttribute('aria-current', 'true');
-    else link.removeAttribute('aria-current');
+  // 学科是「知识图谱 / 诊断」各自的二级菜单：两个菜单都只高亮当前学科那一个
+  document.querySelectorAll('.nav-menu[data-group]').forEach(function (menu) {
+    menu.querySelectorAll('.subject-link').forEach(function (link) {
+      var on = link.getAttribute('data-subject') === subject;
+      link.classList.toggle('on', on);
+      if (on) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
   });
   document.querySelectorAll('.site-nav a:not(.subject-link), a.brand').forEach(function (link) {
     var href = link.getAttribute('href');

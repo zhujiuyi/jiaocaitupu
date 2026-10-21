@@ -1,47 +1,71 @@
-/* 导航二级菜单：触屏没有 hover，改为点按「知识图谱 / 诊断」展开，
-   再点一次或点页面其它地方收起。桌面端仍交给 CSS :hover。 */
+/* 导航二级菜单：一级项（知识图谱 / 诊断）只展开菜单、不跳转，
+   跳转只发生在点二级菜单里的具体学科。桌面靠 CSS :hover，同时支持点按；
+   触屏没有 hover，完全靠点按。 */
 (function () {
   'use strict';
-  var menus = document.querySelectorAll('.nav-item.has-menu');
-  if (!menus.length) return;
-  var coarse = window.matchMedia('(hover: none)').matches;
+  var menuItems = document.querySelectorAll('.nav-item.has-menu');
+  if (!menuItems.length) return;
+
+  function triggerOf(item) { return item.querySelector(':scope > .nav-link'); }
+  function menuOf(item) { return item.querySelector(':scope > .nav-menu'); }
+
+  function setOpen(item, open) {
+    item.classList.toggle('open', open);
+    var trigger = triggerOf(item);
+    if (trigger) {
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      trigger.classList.toggle('active', open && trigger.dataset.wasActive === 'true');
+    }
+  }
 
   function closeAll(except) {
-    menus.forEach(function (item) {
-      if (item === except) return;
-      item.classList.remove('open');
-      var trigger = item.querySelector(':scope > .nav-link');
-      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    menuItems.forEach(function (item) {
+      if (item !== except) setOpen(item, false);
     });
   }
 
-  menus.forEach(function (item) {
-    var trigger = item.querySelector(':scope > .nav-link');
+  menuItems.forEach(function (item) {
+    var trigger = triggerOf(item);
     if (!trigger) return;
-    trigger.setAttribute('aria-expanded', 'false');
     trigger.setAttribute('aria-haspopup', 'true');
+    if (!trigger.hasAttribute('aria-expanded')) trigger.setAttribute('aria-expanded', 'false');
+    // 页面本身就在这一区时，保留 active 外观
+    trigger.dataset.wasActive = trigger.classList.contains('active') ? 'true' : 'false';
 
-    // 触屏：点一级项不跳转，先展开菜单
+    // 一级项只负责展开/收起，不跳转
     trigger.addEventListener('click', function (event) {
-      if (!coarse) return;                 // 桌面保持原来的直接跳转
       event.preventDefault();
       var willOpen = !item.classList.contains('open');
       closeAll(item);
-      item.classList.toggle('open', willOpen);
-      trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      setOpen(item, willOpen);
     });
 
-    // 键盘：Esc 收起
+    // 点菜单里的学科后收起
+    menuOf(item).addEventListener('click', function (event) {
+      if (event.target.closest('a')) setOpen(item, false);
+    });
+
+    // 键盘：Esc 收起并把焦点还给一级项
     item.addEventListener('keydown', function (event) {
       if (event.key !== 'Escape') return;
-      item.classList.remove('open');
-      trigger.setAttribute('aria-expanded', 'false');
+      setOpen(item, false);
       trigger.focus();
     });
   });
 
+  // 点页面其它地方收起
   document.addEventListener('click', function (event) {
     if (event.target.closest('.nav-item.has-menu')) return;
     closeAll(null);
   });
+
+  // 鼠标离开菜单区域后收起（仅桌面；触屏靠点按切换）
+  if (window.matchMedia('(hover: hover)').matches) {
+    menuItems.forEach(function (item) {
+      item.addEventListener('mouseleave', function () {
+        if (item.contains(document.activeElement)) return; // 键盘正在操作时不收
+        setOpen(item, false);
+      });
+    });
+  }
 })();

@@ -100,16 +100,19 @@
   }
   function applySubjectChrome() {
     document.body.classList.toggle('subject-english', subject === 'english');
-    document.querySelectorAll('.site-nav a:not(.subject-link), a.brand').forEach(function (link) {
+    document.querySelectorAll('.site-nav a[href]:not(.subject-link), a.brand').forEach(function (link) {
       const href = link.getAttribute('href');
       const next = withSubject(href);
       if (next && next !== href) link.setAttribute('href', next);
     });
-    document.querySelectorAll('.subject-link').forEach(function (link) {
-      const on = link.getAttribute('data-subject') === subject;
-      link.classList.toggle('on', on);
-      if (on) link.setAttribute('aria-current', 'true');
-      else link.removeAttribute('aria-current');
+    // 两个二级菜单各自只高亮当前学科那一个
+    document.querySelectorAll('.nav-menu[data-group]').forEach(function (menu) {
+      menu.querySelectorAll('.subject-link').forEach(function (link) {
+        const on = link.getAttribute('data-subject') === subject;
+        link.classList.toggle('on', on);
+        if (on) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
     });
     if (subject === 'english') {
       document.title = '诊断 · 小学英语';

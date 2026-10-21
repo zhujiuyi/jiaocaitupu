@@ -1,10 +1,9 @@
-/* 页面切换兜底：支持 View Transitions 的浏览器由 CSS 处理，
-   其余浏览器在跳转前淡出当前页。 */
+/* 页面切换：跳转前淡出当前页（跨文档 View Transition 已弃用，见 site.css）。 */
 (function () {
   'use strict';
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || 'startViewTransition' in document) return;
+  if (reduce) return;
 
   function isHtmlTarget(url) {
     return /\.html?$/.test(url.pathname) || url.pathname === '/' || /\/$/.test(url.pathname);

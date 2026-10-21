@@ -827,16 +827,19 @@
 
   function configureSubject() {
     document.body.classList.toggle('subject-english', subject === 'english');
-    document.querySelectorAll('.site-nav a:not(.subject-link), a.brand').forEach(function (link) {
+    document.querySelectorAll('.site-nav a[href]:not(.subject-link), a.brand').forEach(function (link) {
       var href = link.getAttribute('href');
       var next = withSubject(href);
       if (next && next !== href) link.setAttribute('href', next);
     });
-    document.querySelectorAll('.subject-link').forEach(function (link) {
-      var on = link.getAttribute('data-subject') === subject;
-      link.classList.toggle('on', on);
-      if (on) link.setAttribute('aria-current', 'true');
-      else link.removeAttribute('aria-current');
+    // 两个二级菜单各自只高亮当前学科那一个
+    document.querySelectorAll('.nav-menu[data-group]').forEach(function (menu) {
+      menu.querySelectorAll('.subject-link').forEach(function (link) {
+        var on = link.getAttribute('data-subject') === subject;
+        link.classList.toggle('on', on);
+        if (on) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
     });
     if (subject === 'english') {
       // 英语现在也有小学 / 初中 / 高中三学段，学段标签与数学保持一致（HTML 里本来就有四个按钮）

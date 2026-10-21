@@ -178,14 +178,9 @@ code {
   overflow-wrap: anywhere;
 }
 
-/* 页面切换 */
-@view-transition { navigation: auto; }
-
-::view-transition-old(root) { animation: vt-out 180ms cubic-bezier(0.4, 0, 1, 1) both; }
-::view-transition-new(root) { animation: vt-in 320ms var(--ease-out) both; }
-
-@keyframes vt-out { to { opacity: 0; transform: translateY(-6px); } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+/* 页面切换交给 assets/motion.js：跳转前淡出。
+   跨文档 @view-transition 在跳转被打断时会抛 InvalidStateError，不采用。 */
+html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0, 1, 1); }
 
 html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0, 1, 1); }
 
@@ -268,6 +263,38 @@ html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0
 
 .nav-link:hover { background: var(--bg-muted); color: var(--text); }
 
+/* 「知识图谱 / 诊断」两个一级项只负责展开二级菜单，不跳转：
+   用 button 渲染，并抹掉按钮的默认边框与背景，外观与 .nav-link 一致 */
+.nav-item > button.nav-link {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.94rem;
+  min-height: 44px;
+  padding: 6px 12px;
+  border-radius: 7px;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-item > button.nav-link:hover { background: var(--bg-muted); color: var(--text); }
+.nav-item > button.nav-link .caret {
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform var(--dur) var(--ease-out);
+}
+.nav-item.has-menu:hover > button.nav-link .caret,
+.nav-item.has-menu:focus-within > button.nav-link .caret,
+.nav-item.has-menu.open > button.nav-link .caret {
+  transform: translateY(0) rotate(225deg);
+}
+
 /* 「知识图谱」带学科二级菜单：鼠标悬停或键盘聚焦时展开 */
 .nav-item { position: relative; display: inline-flex; align-items: center; }
 .nav-item .nav-menu {
@@ -345,7 +372,8 @@ html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0
 }
 
 .nav-link.active,
-.nav-link[aria-current="page"] {
+.nav-link[aria-current="page"],
+.nav-item > button.nav-link.active {
   background: var(--bg-muted);
   color: var(--text);
   box-shadow: inset 0 -2px 0 var(--accent);
