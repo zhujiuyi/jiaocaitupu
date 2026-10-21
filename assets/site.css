@@ -290,8 +290,19 @@ html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0
   transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out), visibility var(--dur);
   z-index: 60;
 }
+/* 菜单与「知识图谱」之间有 6px 间隙，鼠标穿过时会丢掉 :hover。
+   用一层透明伪元素把这段空白补上，移向子项时菜单不会消失。 */
+.nav-item.has-menu .nav-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
+}
 .nav-item.has-menu:hover .nav-menu,
-.nav-item.has-menu:focus-within .nav-menu {
+.nav-item.has-menu:focus-within .nav-menu,
+.nav-item.has-menu.open .nav-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -302,6 +313,35 @@ html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0
   background: var(--bg-muted);
   color: var(--text);
   box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+
+/* 触屏设备没有 hover：点按展开，展开时把子项竖排在下方 */
+@media (hover: none) {
+  .nav-item.has-menu { position: relative; }
+  .nav-item .nav-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    transform: none;
+    min-width: 120px;
+    padding: 6px;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .nav-item.has-menu.open .nav-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .nav-item .nav-menu::before { display: none; }
+  .nav-item .nav-menu .nav-link { width: 100%; }
 }
 
 .nav-link.active,
