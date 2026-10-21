@@ -15,12 +15,16 @@
     <span class="brand-name">中小学知识图谱</span>
   </a>
   <nav class="site-nav" aria-label="主导航">
-    <a class="nav-link subject-link on" data-subject="math" href="./">数学</a>
-    <a class="nav-link subject-link" data-subject="english" href="./?subject=english">英语</a>
     <a class="nav-link" href="../">首页</a>
-    <a class="nav-link back active" href="./" aria-current="page">知识图谱</a>
+    <div class="nav-item has-menu">
+      <a class="nav-link back active" href="./" aria-current="page">知识图谱</a>
+      <div class="nav-menu" role="menu" aria-label="知识图谱学科">
+        <a class="nav-link subject-link on" data-subject="math" role="menuitem" href="./">数学</a>
+        <a class="nav-link subject-link" data-subject="english" role="menuitem" href="./?subject=english">英语</a>
+      </div>
+    </div>
     <a class="nav-link" href="../diagnose/">诊断</a>
-    <a class="nav-link" href="https://github.com/xiaoyang111222/cn-math-taxonomy" target="_blank" rel="noopener noreferrer">关于</a>
+    <a class="nav-link" href="https://github.com/zhujiuyi/jiaocaitupu" target="_blank" rel="noopener noreferrer">关于</a>
   </nav>
 </header>
 <div class="explore">
@@ -88,9 +92,6 @@
   </section>
   <aside id="detail" class="detail"><p class="muted">正在加载…</p></aside>
 </div>
-<footer class="site-footer">
-  <p>AI 生成初稿，未经教师审核。<a href="https://github.com/xiaoyang111222/cn-math-taxonomy/issues/new/choose">提交 Issue</a></p>
-</footer>
 <script src="../assets/vendor/cytoscape.min.js"></script>
 <script src="../assets/vendor/dagre.min.js"></script>
 <script src="../assets/vendor/cytoscape-dagre.js"></script>

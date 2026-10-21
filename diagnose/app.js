@@ -382,10 +382,36 @@
     return gradeSel + (volSel ? volSel : '年级');
   }
 
+  // 「学段」筛选后，整体诊断里可选的年级也要跟着变
+  function gradeOptions() {
+    const primary = (subject === 'english' ? '三四五六' : '一二三四五六').split('').map(function (x) { return [x, x + '年级']; });
+    const junior = '七八九'.split('').map(function (x) { return [x, x + '年级']; });
+    const senior = subject === 'english'
+      ? [['必修一', '必修一'], ['必修二', '必修二'], ['必修三', '必修三'],
+         ['选必一', '选必一'], ['选必二', '选必二'], ['选必三', '选必三'], ['选必四', '选必四']]
+      : [['高一', '高一'], ['高二', '高二'], ['选必一', '选必一'], ['选必二', '选必二'], ['选必三', '选必三']];
+    let out = [];
+    if (!startStage || startStage === 'p') out = out.concat(primary);
+    if (!startStage || startStage === 'j') out = out.concat(junior);
+    if (!startStage || startStage === 'h') out = out.concat(senior);
+    return out;
+  }
+
   function gradeCard() {
     const box = h('div', { class: 'card', id: 'grade-card' });
     const fill = function () {
       while (box.firstChild) box.removeChild(box.firstChild);
+      // 学段变了之后，原来选中的年级可能不在范围内，回落到该学段的第一个年级
+      const options = gradeOptions();
+      const stillValid = options.some(function (o) { return o[0] === gradeSel; });
+      if (!stillValid) {
+        gradeSel = options.length ? options[0][0] : '';
+        volSel = (subject === 'english' && gradeSel === '九') ? '全' : '';
+      }
+      // 年级是「高中」类（高一/高二/必修X/选必X）时，范围只能是整册
+      if (seniorGrade(gradeSel)) volSel = '';
+      else if (subject === 'english' && gradeSel === '九') volSel = '全';
+      else if (volSel === '全') volSel = '';
       const g = E.gradeTargets(D.graph, gradeScope(), subject);
       const tabs = function (label, items, current, set) {
         return h('div', { class: 'stage-tabs', role: 'tablist', 'aria-label': label }, items.map(function (it) {
@@ -409,14 +435,7 @@
       box.append(
         h('h2', { text: '按年级整体诊断' }),
         h('p', { class: 'muted' }, '不选具体知识点，在一个年级（或一册）里抽查：每个知识点最多问 2 题，答错只在所选范围内回溯先修，最后按章汇总出哪几章薄弱。适合期初摸底、学期末复习。'),
-        tabs('年级', subject === 'english'
-          ? '三四五六七八九'.split('').map(function (x) { return [x, x + '年级']; }).concat([
-            ['必修一', '必修一'], ['必修二', '必修二'], ['必修三', '必修三'],
-            ['选必一', '选必一'], ['选必二', '选必二'], ['选必三', '选必三'], ['选必四', '选必四']
-          ])
-          : GRADES.map(function (x) { return [x, x + '年级']; }).concat([
-            ['高一', '高一'], ['高二', '高二'], ['选必一', '选必一'], ['选必二', '选必二'], ['选必三', '选必三']
-          ]), gradeSel, function (v) {
+        tabs('年级', options, gradeSel, function (v) {
           gradeSel = v;
           if (seniorGrade(v)) volSel = '';
           else if (subject === 'english' && v === '九') volSel = '全';

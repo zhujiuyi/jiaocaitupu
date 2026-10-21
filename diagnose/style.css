@@ -1,16 +1,14 @@
 /* 诊断页布局。配色、字号和导航来自 assets/site.css。
    石墨深色仪表台：平面容器、发丝线分隔、选项按钮 52px。 */
 
-/* 内容不足一屏时把页脚压到底部 */
+/* 内容不足一屏时让 main 撑满剩余高度（页脚已移除） */
 body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
 
-.site-header,
-.site-footer { flex: none; }
-.site-footer { margin-top: auto; }
+.site-header { flex: none; }
 
 main#root {
   flex: 1 0 auto;

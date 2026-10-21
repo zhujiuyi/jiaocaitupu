@@ -14,6 +14,7 @@
   }
 
   document.body.classList.toggle('subject-english', subject === 'english');
+  // 学科是「知识图谱」的二级菜单：只切二级项的选中态；一级菜单链接跟随当前学科
   document.querySelectorAll('.subject-link').forEach(function (link) {
     var on = link.getAttribute('data-subject') === subject;
     link.classList.toggle('on', on);
