@@ -195,6 +195,50 @@ button.bad:hover { filter: brightness(1.08); }
 
 .choices { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
 
+/* 题干 / 选项里的内联 SVG 图示：数据里用 currentColor，自动跟随深浅色主题 */
+.q-figure {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  background: var(--bg-muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-align: center;
+  color: var(--text);
+}
+.q-figure svg {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto;
+}
+button.choice .q-figure {
+  flex: 0 0 auto;
+  width: 132px;
+  margin: 0;
+  padding: 4px;
+  background: transparent;
+  border: 0;
+}
+button.choice .q-figure svg { width: 100%; height: auto; max-width: none; max-height: none; }
+
+/* 选项本身就是图（hideChoiceText）：改成网格平铺，只留选项字母 */
+.choices.fig-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+.choices.fig-icons button.choice {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+.choices.fig-icons button.choice .q-figure { width: 100%; }
+.choices.fig-icons button.choice .choice-key { align-self: flex-start; }
+
+
 button.choice {
   display: flex;
   align-items: flex-start;

@@ -14,10 +14,11 @@
     ['三上', '三年级上册'], ['三下', '三年级下册'], ['四上', '四年级上册'], ['四下', '四年级下册'],
     ['五上', '五年级上册'], ['五下', '五年级下册'], ['六上', '六年级上册'], ['六下', '六年级下册'],
     ['七上', '七年级上册'], ['七下', '七年级下册'], ['八上', '八年级上册'], ['八下', '八年级下册'],
-    ['九上', '九年级上册'], ['九下', '九年级下册'],
+    ['九上', '九年级上册'], ['九下', '九年级下册'], ['九全', '九年级全一册'],
+    ['必修一', '必修一 · 必修第一册'], ['必修二', '必修二 · 必修第二册'], ['必修三', '必修三 · 必修第三册'],
     ['高一', '高一 · 必修第一册'], ['高二', '高二 · 必修第二册'],
     ['选必一', '选必一 · 选择性必修第一册'], ['选必二', '选必二 · 选择性必修第二册'],
-    ['选必三', '选必三 · 选择性必修第三册']
+    ['选必三', '选必三 · 选择性必修第三册'], ['选必四', '选必四 · 选择性必修第四册']
   ];
   const RESULT_LABEL = { correct: '对', wrong: '错', skip: '不会' };
   const STATUS_LABEL = { mastered: '已掌握', shaky: '不稳', weak: '薄弱', unknown: '未测' };
@@ -61,6 +62,22 @@
     if (c == null || c === false) return;
     if (Array.isArray(c)) { c.forEach(function (x) { append(el, x); }); return; }
     el.append(c.nodeType ? c : document.createTextNode(String(c)));
+  }
+  // 题干 / 选项配图：上游数据里是内联 SVG，颜色写 currentColor，能跟随深色主题。
+  // 只接受以 <svg 开头且不含脚本、foreignObject、外链图片的字符串。
+  function figureEl(svg) {
+    if (typeof svg !== 'string' || svg.indexOf('<svg') !== 0) return null;
+    if (/<\s*script|foreignObject|<\s*image\b|https?:\/\//i.test(svg.replace('xmlns="http://www.w3.org/2000/svg"', ''))) return null;
+    const wrap = h('div', { class: 'q-figure' });
+    wrap.innerHTML = svg;
+    const node = wrap.querySelector('svg');
+    if (!node) return null;
+    node.removeAttribute('width');
+    node.removeAttribute('height');
+    node.setAttribute('role', 'img');
+    node.setAttribute('aria-hidden', 'true');
+    node.setAttribute('focusable', 'false');
+    return wrap;
   }
   function sessionKey() { return subject === 'english' ? LS_SESSION_EN : LS_SESSION; }
   function withSubject(href) {
@@ -331,9 +348,7 @@
         ? '选一个想学会或想检查的英语知识点。第一题答对就算掌握；答错会再出一道同级或更容易的题——第二题也错才算薄弱，并回溯到先修；第二题答对则标为「不稳」。'
         : '选一个想学会或想检查的知识点。第一题答对就算掌握；答错会再出一道同级或更容易的题——第二题也错才算薄弱，并回溯到先修；第二题答对则标为「不稳」。'),
       h('div', { class: 'stage-tabs', role: 'tablist', 'aria-label': '学段' },
-        subject === 'english'
-          ? [stageButton('', '全部'), stageButton('p', '小学')]
-          : [stageButton('', '全部'), stageButton('p', '小学'), stageButton('j', '初中'), stageButton('h', '高中')]),
+        [stageButton('', '全部'), stageButton('p', '小学'), stageButton('j', '初中'), stageButton('h', '高中')]),
       h('input', {
         type: 'search', class: 'search-lg', id: 'search',
         placeholder: subject === 'english' ? '搜索知识点，例如：现在进行时、颜色、there is' : '搜索知识点，例如：配方法、20 以内加法、一次函数',
@@ -358,7 +373,8 @@
   }
 
   function seniorGrade(sel) {
-    return sel === '高一' || sel === '高二' || sel === '选必一' || sel === '选必二' || sel === '选必三';
+    return sel === '高一' || sel === '高二' || sel === '选必一' || sel === '选必二' || sel === '选必三' ||
+      sel === '选必四' || sel === '必修一' || sel === '必修二' || sel === '必修三';
   }
   function seniorRangeLabel(sel) { return String(sel).indexOf('选必') === 0 ? '整册' : '必修整册'; }
   function gradeScope() {
@@ -394,17 +410,24 @@
         h('h2', { text: '按年级整体诊断' }),
         h('p', { class: 'muted' }, '不选具体知识点，在一个年级（或一册）里抽查：每个知识点最多问 2 题，答错只在所选范围内回溯先修，最后按章汇总出哪几章薄弱。适合期初摸底、学期末复习。'),
         tabs('年级', subject === 'english'
-          ? '三四五六'.split('').map(function (x) { return [x, x + '年级']; })
+          ? '三四五六七八九'.split('').map(function (x) { return [x, x + '年级']; }).concat([
+            ['必修一', '必修一'], ['必修二', '必修二'], ['必修三', '必修三'],
+            ['选必一', '选必一'], ['选必二', '选必二'], ['选必三', '选必三'], ['选必四', '选必四']
+          ])
           : GRADES.map(function (x) { return [x, x + '年级']; }).concat([
             ['高一', '高一'], ['高二', '高二'], ['选必一', '选必一'], ['选必二', '选必二'], ['选必三', '选必三']
           ]), gradeSel, function (v) {
           gradeSel = v;
           if (seniorGrade(v)) volSel = '';
+          else if (subject === 'english' && v === '九') volSel = '全';
+          else if (volSel === '全') volSel = '';
         }),
         h('div', { style: 'margin-top:8px' }),
         seniorGrade(gradeSel)
           ? tabs('范围', [['', seniorRangeLabel(gradeSel)]], '', function () { volSel = ''; })
-          : tabs('范围', [['', '整年级'], ['上', '上册'], ['下', '下册']], volSel, function (v) { volSel = v; }),
+          : (subject === 'english' && gradeSel === '九')
+            ? tabs('范围', [['全', '全一册']], '全', function () { volSel = '全'; })
+            : tabs('范围', [['', '整年级'], ['上', '上册'], ['下', '下册']], volSel, function (v) { volSel = v; }),
         h('p', { class: 'muted', id: 'grade-info' }, g ? g.label + '：' + g.ids.length + ' 个知识点。' : '这个范围没有知识点。'),
         h('div', { class: 'row' },
           h('label', null, '题量上限（' + SCREEN_MIN + '–' + SCREEN_MAX + '）', limitInput),
@@ -423,7 +446,7 @@
     const q = startQuery.trim().toLowerCase();
     let shown = 0;
     function volumeStage(key) {
-      if (key === '高一' || key === '高二' || key.indexOf('选必') === 0) return 'h';
+      if (key === '高一' || key === '高二' || key.indexOf('选必') === 0 || key.indexOf('必修') === 0) return 'h';
       if ('一二三四五六'.indexOf(key.charAt(0)) >= 0) return 'p';
       return 'j';
     }
@@ -444,7 +467,7 @@
       const count = chapters.reduce(function (n, c) { return n + c.rows.length; }, 0);
       shown += count;
       const openVol = subject === 'english' ? '三上' : '一上';
-      const det = h('details', { class: 'vol', open: !!q || (startStage === 'j' ? vv[0] === '七上' : startStage === 'h' ? vv[0] === '高一' : vv[0] === openVol) },
+      const det = h('details', { class: 'vol', open: !!q || (startStage === 'j' ? vv[0] === '七上' : startStage === 'h' ? vv[0] === (subject === 'english' ? '必修一' : '高一') : vv[0] === openVol) },
         h('summary', null, vv[1] + '（' + count + ' 个知识点）'));
       chapters.forEach(function (c) {
         const ch = c.ch;
@@ -532,13 +555,28 @@
       h('div', { class: 'reason', text: reasonFor(item) }),
       h('div', { class: 'q-text', id: 'q-text', text: q.prompt }));
 
+    const stemFig = figureEl(q.figure);
+    if (stemFig) {
+      const qt = card.querySelector('#q-text');
+      if (qt) qt.insertAdjacentElement('afterend', stemFig);
+    }
+
     if (ui.phase === 'ask') {
       if (q.type === 'choice') {
-        card.append(h('div', { class: 'choices', id: 'choices' }, (q.choices || []).map(function (c) {
+        card.append(h('div', { class: 'choices' + (q.hideChoiceText ? ' fig-icons' : ''), id: 'choices' }, (q.choices || []).map(function (c) {
+          const hideName = !!(q.hideChoiceText && c.figure);
+          const kids = [h('b', { class: 'choice-key', text: hideName ? c.key : (c.key + '.') })];
+          if (!hideName) kids.push(document.createTextNode(' ' + c.text));
+          if (c.figure) {
+            const fig = figureEl(c.figure);
+            if (fig) kids.push(fig);
+          }
           return h('button', {
-            class: 'choice' + (ui.picked === c.key ? ' picked' : ''), id: 'choice-' + c.key, 'data-key': c.key,
+            class: 'choice' + (c.figure ? ' fig-choice' : '') + (ui.picked === c.key ? ' picked' : ''),
+            id: 'choice-' + c.key, 'data-key': c.key,
+            'aria-label': hideName ? ('选项 ' + c.key) : null,
             onclick: function () { ui.picked = c.key; ui.answer = c.key; renderQuestion(item); }
-          }, h('b', { text: c.key + '.' }), ' ', c.text);
+          }, kids);
         })));
       } else if (q.type === 'self') {
         card.append(h('textarea', {

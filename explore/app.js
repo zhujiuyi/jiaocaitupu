@@ -4,6 +4,16 @@
 
   var FONT = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif';
   var CN = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+  // 英语高中不是「十年级」而是册次：必修一~三、选必一~四
+  var EN_BOOK = {
+    10: ['必修一', '必修一 · 必修第一册'],
+    11: ['必修二', '必修二 · 必修第二册'],
+    12: ['必修三', '必修三 · 必修第三册'],
+    13: ['选必一', '选必一 · 选择性必修第一册'],
+    14: ['选必二', '选必二 · 选择性必修第二册'],
+    15: ['选必三', '选必三 · 选择性必修第三册'],
+    16: ['选必四', '选必四 · 选择性必修第四册']
+  };
   var TYPE_ZH = {
     conceptual: '概念理解', procedural: '程序性技能', reasoning: '推理证明',
     application: '应用', modeling: '建模'
@@ -66,6 +76,7 @@
     return '高中';
   }
   function gradeWord(grade) {
+    if (subject === 'english' && EN_BOOK[grade]) return EN_BOOK[grade][0];
     if (grade === 10) return '高一';
     if (grade === 11) return '高二';
     if (grade === 12) return '选必一';
@@ -74,11 +85,13 @@
     return CN[grade] + '年级';
   }
   function gradeLabel(topic) {
+    if (subject === 'english' && EN_BOOK[topic.grade]) return EN_BOOK[topic.grade][1];
     if (topic.grade === 10) return '高一 · 必修第一册';
     if (topic.grade === 11) return '高二 · 必修第二册';
     if (topic.grade === 12) return '选必一 · 选择性必修第一册';
     if (topic.grade === 13) return '选必二 · 选择性必修第二册';
     if (topic.grade === 14) return '选必三 · 选择性必修第三册';
+    if (topic.semester === '全') return CN[topic.grade] + '年级全一册';
     return CN[topic.grade] + '年级' + topic.semester + '册';
   }
   function paint(grade, colors) {
@@ -203,14 +216,9 @@
   }
 
   function passFilter(topic) {
-    if (subject === 'english') {
-      if (stage === 'up' && topic.semester !== '上') return false;
-      if (stage === 'down' && topic.semester !== '下') return false;
-    } else {
-      if (stage === 'p' && topic.grade > 6) return false;
-      if (stage === 'j' && (topic.grade < 7 || topic.grade > 9)) return false;
-      if (stage === 'h' && topic.grade < 10) return false;
-    }
+    if (stage === 'p' && topic.grade > 6) return false;
+    if (stage === 'j' && (topic.grade < 7 || topic.grade > 9)) return false;
+    if (stage === 'h' && topic.grade < 10) return false;
     if (grade && String(topic.grade) !== grade) return false;
     if (domain && topic.domain !== domain) return false;
     if (query) {
@@ -813,38 +821,29 @@
       else link.removeAttribute('aria-current');
     });
     if (subject !== 'english') return;
-    var tabs = document.querySelectorAll('#stage-tabs [data-stage]');
-    var spec = [['', '全部'], ['up', '上册'], ['down', '下册']];
-    tabs.forEach(function (button, index) {
-      if (index < spec.length) {
-        button.setAttribute('data-stage', spec[index][0]);
-        button.textContent = spec[index][1];
-        button.hidden = false;
-      } else {
-        button.hidden = true;
-      }
+    // 英语现在也有小学 / 初中 / 高中三学段，学段标签与数学保持一致（HTML 里本来就有四个按钮）
+    document.querySelectorAll('#stage-tabs [data-stage]').forEach(function (button) {
+      button.hidden = false;
     });
-    $('stage-tabs').setAttribute('aria-label', '册次');
+    $('stage-tabs').setAttribute('aria-label', '学段');
     var gradeSelect = $('fGrade');
     gradeSelect.replaceChildren();
     gradeSelect.append(el('option', { value: '', text: '全部年级' }));
-    [3, 4, 5, 6].forEach(function (g) {
-      gradeSelect.append(el('option', { value: String(g), text: CN[g] + '年级' }));
-    });
+    for (var g = 3; g <= 16; g++) {
+      gradeSelect.append(el('option', { value: String(g), text: gradeWord(g) }));
+    }
     var sample = $('pick-sample');
     if (sample) sample.textContent = '先看看「现在进行时」';
-    document.title = '知识图谱 · 小学英语';
+    document.title = '知识图谱 · 英语';
   }
 
   function applyQuery() {
     var params = new URLSearchParams(location.search);
     var gradeValue = params.get('grade') || '';
-    var gradeOk = subject === 'english' ? /^[3-6]$/ : /^(?:[1-9]|1[0-4])$/;
+    var gradeOk = subject === 'english' ? /^(?:[3-9]|1[0-6])$/ : /^(?:[1-9]|1[0-4])$/;
     if (gradeOk.test(gradeValue)) grade = gradeValue;
     var stageValue = params.get('stage') || '';
-    if (subject === 'english') {
-      if (stageValue === 'up' || stageValue === 'down') stage = stageValue;
-    } else if (stageValue === 'p' || stageValue === 'j' || stageValue === 'h') stage = stageValue;
+    if (stageValue === 'p' || stageValue === 'j' || stageValue === 'h') stage = stageValue;
     domain = params.get('domain') || '';
   }
 
@@ -869,12 +868,6 @@
       var button = event.target.closest('[data-stage]');
       if (!button || button.hidden) return;
       stage = button.getAttribute('data-stage');
-      if (subject === 'english') {
-        syncControls();
-        renderList();
-        highlight(false);
-        return;
-      }
       var gradeNumber = parseInt(grade, 10);
       if (stage === 'p' && gradeNumber >= 7) grade = '';
       if (stage === 'j' && (gradeNumber <= 6 || gradeNumber >= 10)) grade = '';
@@ -885,12 +878,6 @@
     });
     $('fGrade').addEventListener('change', function () {
       grade = $('fGrade').value;
-      if (subject === 'english') {
-        syncControls();
-        renderList();
-        highlight(false);
-        return;
-      }
       var gradeNumber = parseInt(grade, 10);
       if (gradeNumber >= 1 && gradeNumber <= 6 && (stage === 'j' || stage === 'h')) stage = 'p';
       if (gradeNumber >= 7 && gradeNumber <= 9 && (stage === 'p' || stage === 'h')) stage = 'j';
