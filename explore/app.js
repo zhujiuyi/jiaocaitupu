@@ -807,6 +807,24 @@
     return 'math';
   }
 
+  // 学段与年级联动：先选学段，年级下拉里只保留该学段的年级
+  var GRADE_RANGE = { '': [1, 14], p: [1, 6], j: [7, 9], h: [10, 14] };
+  var EN_GRADE_RANGE = { '': [3, 16], p: [3, 6], j: [7, 9], h: [10, 16] };
+  function syncGradeOptions() {
+    var table = subject === 'english' ? EN_GRADE_RANGE : GRADE_RANGE;
+    var range = table[stage] || table[''];
+    var select = $('fGrade');
+    if (!select) return;
+    select.replaceChildren();
+    select.append(el('option', { value: '', text: '全部年级' }));
+    for (var g = range[0]; g <= range[1]; g++) {
+      select.append(el('option', { value: String(g), text: gradeWord(g) }));
+    }
+    var n = parseInt(grade, 10);
+    if (grade && (isNaN(n) || n < range[0] || n > range[1])) grade = '';
+    select.value = grade;
+  }
+
   function configureSubject() {
     document.body.classList.toggle('subject-english', subject === 'english');
     document.querySelectorAll('.site-nav a:not(.subject-link), a.brand').forEach(function (link) {
@@ -820,21 +838,17 @@
       if (on) link.setAttribute('aria-current', 'true');
       else link.removeAttribute('aria-current');
     });
-    if (subject !== 'english') return;
-    // 英语现在也有小学 / 初中 / 高中三学段，学段标签与数学保持一致（HTML 里本来就有四个按钮）
-    document.querySelectorAll('#stage-tabs [data-stage]').forEach(function (button) {
-      button.hidden = false;
-    });
-    $('stage-tabs').setAttribute('aria-label', '学段');
-    var gradeSelect = $('fGrade');
-    gradeSelect.replaceChildren();
-    gradeSelect.append(el('option', { value: '', text: '全部年级' }));
-    for (var g = 3; g <= 16; g++) {
-      gradeSelect.append(el('option', { value: String(g), text: gradeWord(g) }));
+    if (subject === 'english') {
+      // 英语现在也有小学 / 初中 / 高中三学段，学段标签与数学保持一致（HTML 里本来就有四个按钮）
+      document.querySelectorAll('#stage-tabs [data-stage]').forEach(function (button) {
+        button.hidden = false;
+      });
+      $('stage-tabs').setAttribute('aria-label', '学段');
+      var sample = $('pick-sample');
+      if (sample) sample.textContent = '先看看「现在进行时」';
+      document.title = '知识图谱 · 英语';
     }
-    var sample = $('pick-sample');
-    if (sample) sample.textContent = '先看看「现在进行时」';
-    document.title = '知识图谱 · 英语';
+    syncGradeOptions();
   }
 
   function applyQuery() {
@@ -844,6 +858,7 @@
     if (gradeOk.test(gradeValue)) grade = gradeValue;
     var stageValue = params.get('stage') || '';
     if (stageValue === 'p' || stageValue === 'j' || stageValue === 'h') stage = stageValue;
+    syncGradeOptions();
     domain = params.get('domain') || '';
   }
 
@@ -868,10 +883,8 @@
       var button = event.target.closest('[data-stage]');
       if (!button || button.hidden) return;
       stage = button.getAttribute('data-stage');
-      var gradeNumber = parseInt(grade, 10);
-      if (stage === 'p' && gradeNumber >= 7) grade = '';
-      if (stage === 'j' && (gradeNumber <= 6 || gradeNumber >= 10)) grade = '';
-      if (stage === 'h' && gradeNumber <= 9) grade = '';
+      // 年级下拉随学段收窄；原来选的年级不在新学段里就清空
+      syncGradeOptions();
       syncControls();
       renderList();
       highlight(false);
