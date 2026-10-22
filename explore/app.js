@@ -206,13 +206,27 @@
     });
   }
 
-  function isEnglishTopic(topic) {
-    return !!(topic && (topic.subject === 'english' || String(topic.id || '').indexOf('cne_') === 0));
+  // 学科由 id 前缀判定：cnp_ 物理、cne_ 英语，其余是数学
+  function subjectOfId(id) {
+    var s = String(id || '');
+    if (s.indexOf('cnp_') === 0) return 'physics';
+    if (s.indexOf('cne_') === 0) return 'english';
+    return 'math';
+  }
+  function subjectOfTopic(topic) {
+    if (topic && (topic.subject === 'english' || topic.subject === 'physics')) return topic.subject;
+    return subjectOfId(topic && topic.id);
+  }
+  function standardSubject(id) {
+    var s = String(id || '');
+    if (s.indexOf('cps-') === 0) return 'physics';
+    if (s.indexOf('ces-') === 0) return 'english';
+    return 'math';
   }
 
   function withSubject(href) {
-    if (subject !== 'english' || !href || href.indexOf('subject=') >= 0 || href.indexOf('http') === 0) return href;
-    return href + (href.indexOf('?') >= 0 ? '&' : '?') + 'subject=english';
+    if (subject === 'math' || !href || href.indexOf('subject=') >= 0 || href.indexOf('http') === 0) return href;
+    return href + (href.indexOf('?') >= 0 ? '&' : '?') + 'subject=' + subject;
   }
 
   function passFilter(topic) {
@@ -345,7 +359,7 @@
       box.replaceChildren(el('div', { class: 'detail-empty' },
         el('h1', { text: '选择一个知识点' }),
         el('p', { text: '可以搜索，也可以按年级、册、章展开。选中之后，中间只画它附近的先修，以及后面一层会用到它的知识点。' })));
-      document.title = subject === 'english' ? '知识图谱 · 小学英语' : '知识图谱 · 中小学知识图谱';
+      document.title = subject === 'english' ? '知识图谱 · 英语' : subject === 'physics' ? '知识图谱 · 物理' : '知识图谱 · 中小学知识图谱';
       return;
     }
     var topic = byId.get(selected);
@@ -362,7 +376,7 @@
       el('span', { class: 'pill pill-' + (kind === 'primary' ? 'p' : kind === 'junior' ? 'j' : 'h'), text: stageLabel(topic.grade) }),
       el('code', { class: 'id-code', text: topic.id })));
     var diagHref = '../diagnose/?target=' + encodeURIComponent(topic.id);
-    if (subject === 'english') diagHref = '../diagnose/?subject=english&target=' + encodeURIComponent(topic.id);
+    if (subject !== 'math') diagHref = '../diagnose/?subject=' + subject + '&target=' + encodeURIComponent(topic.id);
     parts.push(el('a', {
       class: 'btn btn-primary btn-lg diag-btn',
       href: diagHref
@@ -797,8 +811,14 @@
   function readSubject() {
     var params = new URLSearchParams(location.search);
     var explicit = params.get('subject');
-    if (explicit === 'english' || explicit === 'math') return explicit;
+    if (explicit === 'english' || explicit === 'math' || explicit === 'physics') return explicit;
     var hash = readHash();
+    // 从 hash 的 id 前缀推断学科
+    if (/^cnp_[A-Za-z0-9]+$/.test(hash)) {
+      params.set('subject', 'physics');
+      history.replaceState(null, '', location.pathname + '?' + params.toString() + '#' + hash);
+      return 'physics';
+    }
     if (/^cne_[A-Za-z0-9]+$/.test(hash)) {
       params.set('subject', 'english');
       history.replaceState(null, '', location.pathname + '?' + params.toString() + '#' + hash);
@@ -810,8 +830,15 @@
   // 学段与年级联动：先选学段，年级下拉里只保留该学段的年级
   var GRADE_RANGE = { '': [1, 14], p: [1, 6], j: [7, 9], h: [10, 14] };
   var EN_GRADE_RANGE = { '': [3, 16], p: [3, 6], j: [7, 9], h: [10, 16] };
+  // 物理只有八年级（八上/八下）和九年级（全一册）
+  var PHY_GRADE_RANGE = { '': [8, 9], p: [8, 8], j: [8, 9], h: [9, 9] };
+  function gradeRangeTable() {
+    if (subject === 'physics') return PHY_GRADE_RANGE;
+    if (subject === 'english') return EN_GRADE_RANGE;
+    return GRADE_RANGE;
+  }
   function syncGradeOptions() {
-    var table = subject === 'english' ? EN_GRADE_RANGE : GRADE_RANGE;
+    var table = gradeRangeTable();
     var range = table[stage] || table[''];
     var select = $('fGrade');
     if (!select) return;
@@ -826,7 +853,9 @@
   }
 
   function configureSubject() {
-    document.body.classList.toggle('subject-english', subject === 'english');
+    ['english', 'physics'].forEach(function (s) {
+      document.body.classList.toggle('subject-' + s, subject === s);
+    });
     document.querySelectorAll('.site-nav a[href]:not(.subject-link), a.brand').forEach(function (link) {
       var href = link.getAttribute('href');
       var next = withSubject(href);
@@ -841,15 +870,16 @@
         else link.removeAttribute('aria-current');
       });
     });
-    if (subject === 'english') {
-      // 英语现在也有小学 / 初中 / 高中三学段，学段标签与数学保持一致（HTML 里本来就有四个按钮）
+    if (subject === 'english' || subject === 'physics') {
+      // 英语有小学/初中/高中三学段；物理只有初中，高中段没内容就隐藏
       document.querySelectorAll('#stage-tabs [data-stage]').forEach(function (button) {
-        button.hidden = false;
+        var value = button.getAttribute('data-stage');
+        button.hidden = subject === 'physics' && (value === 'p' || value === 'h');
       });
       $('stage-tabs').setAttribute('aria-label', '学段');
       var sample = $('pick-sample');
-      if (sample) sample.textContent = '先看看「现在进行时」';
-      document.title = '知识图谱 · 英语';
+      if (sample) sample.textContent = subject === 'physics' ? '先看看「欧姆定律」' : '先看看「现在进行时」';
+      document.title = '知识图谱 · ' + (subject === 'physics' ? '物理' : '英语');
     }
     syncGradeOptions();
   }
@@ -857,7 +887,7 @@
   function applyQuery() {
     var params = new URLSearchParams(location.search);
     var gradeValue = params.get('grade') || '';
-    var gradeOk = subject === 'english' ? /^(?:[3-9]|1[0-6])$/ : /^(?:[1-9]|1[0-4])$/;
+    var gradeOk = subject === 'english' ? /^(?:[3-9]|1[0-6])$/ : subject === 'physics' ? /^[89]$/ : /^(?:[1-9]|1[0-4])$/;
     if (gradeOk.test(gradeValue)) grade = gradeValue;
     var stageValue = params.get('stage') || '';
     if (stageValue === 'p' || stageValue === 'j' || stageValue === 'h') stage = stageValue;
@@ -947,6 +977,11 @@
         if (hit) select(hit.id, 'user');
         return;
       }
+      if (subject === 'physics') {
+        var phy = topics.find(function (topic) { return String(topic.name).indexOf('欧姆定律') >= 0; });
+        if (phy) select(phy.id, 'user');
+        return;
+      }
       select('cnm_221', 'user');
     });
     document.body.addEventListener('click', function (event) {
@@ -978,7 +1013,7 @@
       if (!response.ok) throw new Error(files[responseIndex] + ' HTTP ' + response.status);
     });
     var json = await Promise.all(responses.map(function (response) { return response.json(); }));
-    topics = json[0].filter(function (topic) { return isEnglishTopic(topic) === (subject === 'english'); });
+    topics = json[0].filter(function (topic) { return subjectOfTopic(topic) === subject; });
     var allow = {};
     topics.forEach(function (topic) { allow[topic.id] = true; });
     deps = json[1].filter(function (edge) { return allow[edge.topicId] && allow[edge.prerequisiteId]; });

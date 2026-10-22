@@ -361,9 +361,9 @@
   },
   {
     "topicId": "cnm_p048",
-    "prerequisiteId": "cnm_p042",
+    "prerequisiteId": "cnm_p039",
     "strength": "hard",
-    "reason": "学习「表内乘法解决实际问题」需要先掌握「7、8、9的乘法口诀」。"
+    "reason": "学习「表内乘法解决实际问题」需要先掌握「2到6的乘法口诀」。"
   },
   {
     "topicId": "cnm_p049",
@@ -691,9 +691,9 @@
   },
   {
     "topicId": "cnm_p089",
-    "prerequisiteId": "cnm_p086",
+    "prerequisiteId": "cnm_p074",
     "strength": "hard",
-    "reason": "学习「长方形和正方形的面积」需要先掌握「两位数乘两位数」。"
+    "reason": "学习「长方形和正方形的面积」需要先掌握「多位数乘一位数」。"
   },
   {
     "topicId": "cnm_p090",
@@ -769,21 +769,15 @@
   },
   {
     "topicId": "cnm_p099",
-    "prerequisiteId": "cnm_p077",
+    "prerequisiteId": "cnm_p040",
     "strength": "hard",
-    "reason": "学习「线段、直线和射线」需要先掌握「长方形和正方形的特征」。"
+    "reason": "学习「线段、直线和射线」需要先掌握「认识厘米」。"
   },
   {
     "topicId": "cnm_p100",
     "prerequisiteId": "cnm_p099",
     "strength": "hard",
     "reason": "学习「角的度量」需要先掌握「线段、直线和射线」。"
-  },
-  {
-    "topicId": "cnm_p101",
-    "prerequisiteId": "cnm_p100",
-    "strength": "hard",
-    "reason": "学习「锐角、直角和钝角」需要先掌握「角的度量」。"
   },
   {
     "topicId": "cnm_p102",
@@ -850,12 +844,6 @@
     "prerequisiteId": "cnm_p059",
     "strength": "hard",
     "reason": "学习「四则运算各部分间的关系」需要先掌握「两步加减应用」。"
-  },
-  {
-    "topicId": "cnm_p111",
-    "prerequisiteId": "cnm_p110",
-    "strength": "hard",
-    "reason": "学习「常见数量关系」需要先掌握「四则运算各部分间的关系」。"
   },
   {
     "topicId": "cnm_p111",
@@ -1032,16 +1020,10 @@
     "reason": "学习「复式条形统计图」需要先掌握「条形统计图」。"
   },
   {
-    "topicId": "cnm_p130",
-    "prerequisiteId": "cnm_p129",
-    "strength": "soft",
-    "reason": "「平均数」对学习「复式条形统计图」有帮助，但不会前者也可以开始学后者。"
-  },
-  {
     "topicId": "cnm_p131",
-    "prerequisiteId": "cnm_p112",
+    "prerequisiteId": "cnm_p087",
     "strength": "hard",
-    "reason": "学习「鸡兔同笼」需要先掌握「整数四则混合运算」。"
+    "reason": "学习「鸡兔同笼」需要先掌握「两位数乘法的应用」。"
   },
   {
     "topicId": "cnm_p131",
@@ -1579,9 +1561,9 @@
   },
   {
     "topicId": "cnm_p189",
-    "prerequisiteId": "cnm_p185",
+    "prerequisiteId": "cnm_p138",
     "strength": "hard",
-    "reason": "学习「圆周率」需要先掌握「比的意义」。"
+    "reason": "学习「圆周率」需要先掌握「一个数除以小数」。"
   },
   {
     "topicId": "cnm_p190",
@@ -1627,9 +1609,9 @@
   },
   {
     "topicId": "cnm_p194",
-    "prerequisiteId": "cnm_p185",
+    "prerequisiteId": "cnm_p165",
     "strength": "hard",
-    "reason": "学习「百分数的意义」需要先掌握「比的意义」。"
+    "reason": "学习「百分数的意义」需要先掌握「分数的意义」。"
   },
   {
     "topicId": "cnm_p195",
@@ -7801,9 +7783,9 @@
   },
   {
     "topicId": "cne_p004",
-    "prerequisiteId": "cne_p003",
+    "prerequisiteId": "cne_p002",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「元音字母」，再学「辅音字母 b 的开头音」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「字母的大写和小写」，再学「辅音字母 b 的开头音」。"
   },
   {
     "topicId": "cne_p005",
@@ -7855,9 +7837,9 @@
   },
   {
     "topicId": "cne_p014",
-    "prerequisiteId": "cne_p013",
+    "prerequisiteId": "cne_p036",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「身体部位」，再学「This is 与 That is」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「Who is 询问是谁」，再学「This is 与 That is」。"
   },
   {
     "topicId": "cne_p015",
@@ -7873,9 +7855,9 @@
   },
   {
     "topicId": "cne_p017",
-    "prerequisiteId": "cne_p016",
+    "prerequisiteId": "cne_p038",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂五官介绍」，再学「动物」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂家人介绍」，再学「动物」。"
   },
   {
     "topicId": "cne_p018",
@@ -7909,9 +7891,9 @@
   },
   {
     "topicId": "cne_p024",
-    "prerequisiteId": "cne_p023",
+    "prerequisiteId": "cne_p003",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂喜好短文」，再学「1 到 10」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「元音字母」，再学「1 到 10」。"
   },
   {
     "topicId": "cne_p025",
@@ -7921,9 +7903,9 @@
   },
   {
     "topicId": "cne_p026",
-    "prerequisiteId": "cne_p025",
+    "prerequisiteId": "cne_p003",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「玩具和礼物」，再学「How many 问数量」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「元音字母」，再学「How many 问数量」。"
   },
   {
     "topicId": "cne_p027",
@@ -7975,9 +7957,9 @@
   },
   {
     "topicId": "cne_p035",
-    "prerequisiteId": "cne_p034",
+    "prerequisiteId": "cne_p008",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「短元音 e」，再学「家庭成员」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂自我介绍」，再学「家庭成员」。"
   },
   {
     "topicId": "cne_p036",
@@ -8005,9 +7987,9 @@
   },
   {
     "topicId": "cne_p040",
-    "prerequisiteId": "cne_p039",
+    "prerequisiteId": "cne_p018",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「短元音 i」，再学「大小和高矮」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「用 This is a 介绍动物」，再学「大小和高矮」。"
   },
   {
     "topicId": "cne_p042",
@@ -8041,15 +8023,15 @@
   },
   {
     "topicId": "cne_p048",
-    "prerequisiteId": "cne_p047",
+    "prerequisiteId": "cne_p065",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂位置」，再学「短元音 u」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂书包里的物品」，再学「短元音 u」。"
   },
   {
     "topicId": "cne_p050",
-    "prerequisiteId": "cne_p049",
+    "prerequisiteId": "cne_p042",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「五个短元音复习」，再学「水果」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂动物园的句子」，再学「水果」。"
   },
   {
     "topicId": "cne_p051",
@@ -8059,9 +8041,9 @@
   },
   {
     "topicId": "cne_p052",
-    "prerequisiteId": "cne_p051",
+    "prerequisiteId": "cne_p050",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「Do you like 一般疑问句」，再学「可数名词复数」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「水果」，再学「可数名词复数」。"
   },
   {
     "topicId": "cne_p053",
@@ -8089,9 +8071,9 @@
   },
   {
     "topicId": "cne_p057",
-    "prerequisiteId": "cne_p056",
+    "prerequisiteId": "cne_p029",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂 11 到 20 的数量」，再学「a-e 的读音」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「短元音 a」，再学「a-e 的读音」。"
   },
   {
     "topicId": "cne_p058",
@@ -8119,9 +8101,9 @@
   },
   {
     "topicId": "cne_p062",
-    "prerequisiteId": "cne_p061",
+    "prerequisiteId": "cne_p039",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂教室短文」，再学「i-e 的读音」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「短元音 i」，再学「i-e 的读音」。"
   },
   {
     "topicId": "cne_p063",
@@ -8143,9 +8125,9 @@
   },
   {
     "topicId": "cne_p066",
-    "prerequisiteId": "cne_p065",
+    "prerequisiteId": "cne_p043",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂书包里的物品」，再学「o-e 的读音」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「短元音 o」，再学「o-e 的读音」。"
   },
   {
     "topicId": "cne_p067",
@@ -8173,9 +8155,9 @@
   },
   {
     "topicId": "cne_p071",
-    "prerequisiteId": "cne_p070",
+    "prerequisiteId": "cne_p048",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂朋友介绍」，再学「u-e 的读音」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「短元音 u」，再学「u-e 的读音」。"
   },
   {
     "topicId": "cne_p072",
@@ -8203,15 +8185,15 @@
   },
   {
     "topicId": "cne_p076",
-    "prerequisiteId": "cne_p075",
+    "prerequisiteId": "cne_p034",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂家里的位置」，再学「长元音 e」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「短元音 e」，再学「长元音 e」。"
   },
   {
     "topicId": "cne_p077",
-    "prerequisiteId": "cne_p076",
+    "prerequisiteId": "cne_p023",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「长元音 e」，再学「晚餐食物」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂喜好短文」，再学「晚餐食物」。"
   },
   {
     "topicId": "cne_p078",
@@ -8299,9 +8281,9 @@
   },
   {
     "topicId": "cne_p092",
-    "prerequisiteId": "cne_p091",
+    "prerequisiteId": "cne_p087",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂作息时刻」，再学「天气」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂学校平面说明」，再学「天气」。"
   },
   {
     "topicId": "cne_p094",
@@ -8341,9 +8323,9 @@
   },
   {
     "topicId": "cne_p100",
-    "prerequisiteId": "cne_p099",
+    "prerequisiteId": "cne_p095",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂农场短文」，再学「衣服」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂天气预报」，再学「衣服」。"
   },
   {
     "topicId": "cne_p101",
@@ -8467,9 +8449,9 @@
   },
   {
     "topicId": "cne_p121",
-    "prerequisiteId": "cne_p120",
+    "prerequisiteId": "cne_p177",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂点餐」，再学「能力动词」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「询问感受并建议」，再学「能力动词」。"
   },
   {
     "topicId": "cne_p122",
@@ -8641,9 +8623,9 @@
   },
   {
     "topicId": "cne_p151",
-    "prerequisiteId": "cne_p150",
+    "prerequisiteId": "cne_p103",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂正在做的事」，再学「规则用词」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂衣服是谁的」，再学「规则用词」。"
   },
   {
     "topicId": "cne_p152",
@@ -8713,9 +8695,9 @@
   },
   {
     "topicId": "cne_p163",
-    "prerequisiteId": "cne_p162",
+    "prerequisiteId": "cne_p191",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂交通规则」，再学「周末计划」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂旅行日记」，再学「周末计划」。"
   },
   {
     "topicId": "cne_p164",
@@ -8737,9 +8719,9 @@
   },
   {
     "topicId": "cne_p167",
-    "prerequisiteId": "cne_p166",
+    "prerequisiteId": "cne_p124",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂周末计划」，再学「爱好」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂能力短文」，再学「爱好」。"
   },
   {
     "topicId": "cne_p168",
@@ -8785,9 +8767,9 @@
   },
   {
     "topicId": "cne_p175",
-    "prerequisiteId": "cne_p174",
+    "prerequisiteId": "cne_p112",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂职业短文」，再学「感受」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂老师介绍」，再学「感受」。"
   },
   {
     "topicId": "cne_p176",
@@ -8797,9 +8779,9 @@
   },
   {
     "topicId": "cne_p177",
-    "prerequisiteId": "cne_p176",
+    "prerequisiteId": "cne_p175",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「should 提建议」，再学「询问感受并建议」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「感受」，再学「询问感受并建议」。"
   },
   {
     "topicId": "cne_p178",
@@ -8839,9 +8821,9 @@
   },
   {
     "topicId": "cne_p185",
-    "prerequisiteId": "cne_p184",
+    "prerequisiteId": "cne_p158",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂比较短文」，再学「规则动词过去式」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「读懂指路」，再学「规则动词过去式」。"
   },
   {
     "topicId": "cne_p187",
@@ -8857,9 +8839,9 @@
   },
   {
     "topicId": "cne_p189",
-    "prerequisiteId": "cne_p188",
+    "prerequisiteId": "cne_p185",
     "strength": "soft",
-    "reason": "按三年级起点的常见教学顺序，先学「读懂上周末日记」，再学「不规则动词过去式」。"
+    "reason": "按人教版 PEP 新版的单元顺序，先学「规则动词过去式」，再学「不规则动词过去式」。"
   },
   {
     "topicId": "cne_p190",
@@ -9019,9 +9001,9 @@
   },
   {
     "topicId": "cne_p014",
-    "prerequisiteId": "cne_p010",
+    "prerequisiteId": "cne_p006",
     "strength": "hard",
-    "reason": "用 This is 介绍物品之前，要先会 It is。"
+    "reason": "This is 里的 is 和 I am 的 am 一样是 be 动词，先会 I am 再学 This is。"
   },
   {
     "topicId": "cne_p036",
@@ -9067,9 +9049,9 @@
   },
   {
     "topicId": "cne_p021",
-    "prerequisiteId": "cne_p020",
+    "prerequisiteId": "cne_p050",
     "strength": "hard",
-    "reason": "用 I like 说喜好之前，要先认识食物单词。"
+    "reason": "新版三上在 Plants around us 单元用 I like 说喜欢的水果，要先认识水果单词。"
   },
   {
     "topicId": "cne_p026",
@@ -9139,9 +9121,9 @@
   },
   {
     "topicId": "cne_p168",
-    "prerequisiteId": "cne_p114",
+    "prerequisiteId": "cne_p051",
     "strength": "hard",
-    "reason": "用 does 提问之前，要先会 do 引导的疑问句。"
+    "reason": "用 does 提问之前，要先会 Do you like 这样由 do 引导的疑问句。"
   },
   {
     "topicId": "cne_p172",
@@ -9229,9 +9211,9 @@
   },
   {
     "topicId": "cne_j005",
-    "prerequisiteId": "cne_j004",
+    "prerequisiteId": "cne_j003",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「be 动词 am、is、are」，再学「问候与自我介绍」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「姓名与称呼」，再学「问候与自我介绍」。"
   },
   {
     "topicId": "cne_j006",
@@ -9247,9 +9229,9 @@
   },
   {
     "topicId": "cne_j008",
-    "prerequisiteId": "cne_j007",
+    "prerequisiteId": "cne_j021",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「家庭成员」，再学「This is 与 These are」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读房间描述」，再学「This is 与 These are」。"
   },
   {
     "topicId": "cne_j009",
@@ -9271,9 +9253,9 @@
   },
   {
     "topicId": "cne_j013",
-    "prerequisiteId": "cne_j012",
+    "prerequisiteId": "cne_j005",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读家庭介绍」，再学「学习用品」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「问候与自我介绍」，再学「学习用品」。"
   },
   {
     "topicId": "cne_j014",
@@ -9289,9 +9271,9 @@
   },
   {
     "topicId": "cne_j016",
-    "prerequisiteId": "cne_j015",
+    "prerequisiteId": "cne_j013",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「be 动词一般疑问句」，再学「认领失物」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「学习用品」，再学「认领失物」。"
   },
   {
     "topicId": "cne_j017",
@@ -9313,9 +9295,9 @@
   },
   {
     "topicId": "cne_j020",
-    "prerequisiteId": "cne_j019",
+    "prerequisiteId": "cne_j018",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「方位介词」，再学「询问位置」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「房间与家具」，再学「询问位置」。"
   },
   {
     "topicId": "cne_j021",
@@ -9337,9 +9319,9 @@
   },
   {
     "topicId": "cne_j024",
-    "prerequisiteId": "cne_j023",
+    "prerequisiteId": "cne_j007",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「have 与 has」，再学「do 与 does」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「家庭成员」，再学「do 与 does」。"
   },
   {
     "topicId": "cne_j025",
@@ -9367,9 +9349,9 @@
   },
   {
     "topicId": "cne_j029",
-    "prerequisiteId": "cne_j028",
+    "prerequisiteId": "cne_j040",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「可数与不可数名词」，再学「like 的句型」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「学科词汇」，再学「like 的句型」。"
   },
   {
     "topicId": "cne_j030",
@@ -9385,9 +9367,9 @@
   },
   {
     "topicId": "cne_j032",
-    "prerequisiteId": "cne_j031",
+    "prerequisiteId": "cne_j039",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读饮食短文」，再学「衣物与颜色」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读活动安排」，再学「衣物与颜色」。"
   },
   {
     "topicId": "cne_j033",
@@ -9409,9 +9391,9 @@
   },
   {
     "topicId": "cne_j036",
-    "prerequisiteId": "cne_j035",
+    "prerequisiteId": "cne_j056",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读购物对话」，再学「月份与序数词」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读上学方式」，再学「月份与序数词」。"
   },
   {
     "topicId": "cne_j037",
@@ -9433,9 +9415,9 @@
   },
   {
     "topicId": "cne_j040",
-    "prerequisiteId": "cne_j039",
+    "prerequisiteId": "cne_j098",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读活动安排」，再学「学科词汇」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「辅音与元音连读」，再学「学科词汇」。"
   },
   {
     "topicId": "cne_j041",
@@ -9499,9 +9481,9 @@
   },
   {
     "topicId": "cne_j051",
-    "prerequisiteId": "cne_j050",
+    "prerequisiteId": "cne_j049",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「频度副词」，再学「谈论作息时间」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「时刻表达」，再学「谈论作息时间」。"
   },
   {
     "topicId": "cne_j052",
@@ -9565,9 +9547,9 @@
   },
   {
     "topicId": "cne_j062",
-    "prerequisiteId": "cne_j061",
+    "prerequisiteId": "cne_j035",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读校规」，再学「动物」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读购物对话」，再学「动物」。"
   },
   {
     "topicId": "cne_j063",
@@ -9631,9 +9613,9 @@
   },
   {
     "topicId": "cne_j073",
-    "prerequisiteId": "cne_j072",
+    "prerequisiteId": "cne_j071",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「感叹句」，再学「谈论天气」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「天气」，再学「谈论天气」。"
   },
   {
     "topicId": "cne_j074",
@@ -9643,9 +9625,9 @@
   },
   {
     "topicId": "cne_j075",
-    "prerequisiteId": "cne_j074",
+    "prerequisiteId": "cne_j082",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读天气消息」，再学「场所」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读人物外貌」，再学「场所」。"
   },
   {
     "topicId": "cne_j076",
@@ -9667,9 +9649,9 @@
   },
   {
     "topicId": "cne_j079",
-    "prerequisiteId": "cne_j078",
+    "prerequisiteId": "cne_j012",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读路线说明」，再学「外貌」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读家庭介绍」，再学「外貌」。"
   },
   {
     "topicId": "cne_j080",
@@ -9775,9 +9757,9 @@
   },
   {
     "topicId": "cne_j098",
-    "prerequisiteId": "cne_j097",
+    "prerequisiteId": "cne_j078",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读周末日记」，再学「辅音与元音连读」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读路线说明」，再学「辅音与元音连读」。"
   },
   {
     "topicId": "cne_j099",
@@ -9805,9 +9787,9 @@
   },
   {
     "topicId": "cne_j103",
-    "prerequisiteId": "cne_j102",
+    "prerequisiteId": "cne_j061",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读假期短文」，再学「运动习惯」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读校规」，再学「运动习惯」。"
   },
   {
     "topicId": "cne_j104",
@@ -9829,9 +9811,9 @@
   },
   {
     "topicId": "cne_j107",
-    "prerequisiteId": "cne_j106",
+    "prerequisiteId": "cne_j043",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读锻炼调查」，再学「不完全爆破」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读课程介绍」，再学「不完全爆破」。"
   },
   {
     "topicId": "cne_j108",
@@ -9889,9 +9871,9 @@
   },
   {
     "topicId": "cne_j118",
-    "prerequisiteId": "cne_j117",
+    "prerequisiteId": "cne_j122",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「电视节目」，再学「不定式作宾语」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「be going to 表示打算」，再学「不定式作宾语」。"
   },
   {
     "topicId": "cne_j119",
@@ -9907,9 +9889,9 @@
   },
   {
     "topicId": "cne_j121",
-    "prerequisiteId": "cne_j120",
+    "prerequisiteId": "cne_j132",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读节目选择」，再学「职业打算」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读食谱」，再学「职业打算」。"
   },
   {
     "topicId": "cne_j122",
@@ -9955,9 +9937,9 @@
   },
   {
     "topicId": "cne_j129",
-    "prerequisiteId": "cne_j128",
+    "prerequisiteId": "cne_j072",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读未来预测」，再学「烹饪用词」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「感叹句」，再学「烹饪用词」。"
   },
   {
     "topicId": "cne_j130",
@@ -10003,9 +9985,9 @@
   },
   {
     "topicId": "cne_j137",
-    "prerequisiteId": "cne_j136",
+    "prerequisiteId": "cne_j102",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读邀请函」，再学「意群停顿」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读假期短文」，再学「意群停顿」。"
   },
   {
     "topicId": "cne_j138",
@@ -10063,9 +10045,9 @@
   },
   {
     "topicId": "cne_j147",
-    "prerequisiteId": "cne_j146",
+    "prerequisiteId": "cne_j117",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「志愿服务」，再学「不定式表示目的」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「电视节目」，再学「不定式表示目的」。"
   },
   {
     "topicId": "cne_j148",
@@ -10081,9 +10063,9 @@
   },
   {
     "topicId": "cne_j150",
-    "prerequisiteId": "cne_j149",
+    "prerequisiteId": "cne_j137",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读志愿活动」，再学「家务」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「意群停顿」，再学「家务」。"
   },
   {
     "topicId": "cne_j151",
@@ -10153,9 +10135,9 @@
   },
   {
     "topicId": "cne_j163",
-    "prerequisiteId": "cne_j162",
+    "prerequisiteId": "cne_j097",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读暴风雨故事」，再学「故事用词」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读周末日记」，再学「故事用词」。"
   },
   {
     "topicId": "cne_j164",
@@ -10165,15 +10147,15 @@
   },
   {
     "topicId": "cne_j165",
-    "prerequisiteId": "cne_j164",
+    "prerequisiteId": "cne_j155",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「unless 表示除非」，再学「so that 表示目的」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「although 引导让步」，再学「so that 表示目的」。"
   },
   {
     "topicId": "cne_j166",
-    "prerequisiteId": "cne_j165",
+    "prerequisiteId": "cne_j163",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「so that 表示目的」，再学「复述故事」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「故事用词」，再学「复述故事」。"
   },
   {
     "topicId": "cne_j167",
@@ -10315,9 +10297,9 @@
   },
   {
     "topicId": "cne_j192",
-    "prerequisiteId": "cne_j191",
+    "prerequisiteId": "cne_j190",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「节日食物」，再学「that 引导宾语从句」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读学习建议」，再学「that 引导宾语从句」。"
   },
   {
     "topicId": "cne_j194",
@@ -10333,9 +10315,9 @@
   },
   {
     "topicId": "cne_j196",
-    "prerequisiteId": "cne_j195",
+    "prerequisiteId": "cne_j193",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读中秋短文」，再学「公共场所」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「if 与 whether 宾语从句」，再学「公共场所」。"
   },
   {
     "topicId": "cne_j197",
@@ -10357,9 +10339,9 @@
   },
   {
     "topicId": "cne_j200",
-    "prerequisiteId": "cne_j199",
+    "prerequisiteId": "cne_j186",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读问路对话」，再学「今昔变化」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读旧物故事」，再学「今昔变化」。"
   },
   {
     "topicId": "cne_j201",
@@ -10477,9 +10459,9 @@
   },
   {
     "topicId": "cne_j220",
-    "prerequisiteId": "cne_j219",
+    "prerequisiteId": "cne_j254",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读推测短文」，再学「音乐类型」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「一般将来时的被动语态」，再学「音乐类型」。"
   },
   {
     "topicId": "cne_j221",
@@ -10501,9 +10483,9 @@
   },
   {
     "topicId": "cne_j224",
-    "prerequisiteId": "cne_j223",
+    "prerequisiteId": "cne_j162",
     "strength": "soft",
-    "reason": "按 Go for it! 的常见教学顺序，先学「读音乐偏好」，再学「社交习俗」。"
+    "reason": "按人教版新版 Go for it!的单元顺序，先学「读暴风雨故事」，再学「社交习俗」。"
   },
   {
     "topicId": "cne_j225",
@@ -13054,5 +13036,1385 @@
     "prerequisiteId": "cne_j237",
     "strength": "hard",
     "reason": "语篇里选时态承接初中已经做过的时态选择。"
+  },
+  {
+    "topicId": "cnm_p217",
+    "prerequisiteId": "cnm_p034",
+    "strength": "hard",
+    "reason": "学习「求两数相差几」需要先掌握「100以内笔算减法」。"
+  },
+  {
+    "topicId": "cnm_p217",
+    "prerequisiteId": "cnm_p009",
+    "strength": "soft",
+    "reason": "学习「求两数相差几」需要先掌握「10以内数的比较」。"
+  },
+  {
+    "topicId": "cnm_p218",
+    "prerequisiteId": "cnm_p217",
+    "strength": "hard",
+    "reason": "学习「求比一个数多（少）几的数」需要先掌握「求两数相差几」。"
+  },
+  {
+    "topicId": "cnm_p218",
+    "prerequisiteId": "cnm_p033",
+    "strength": "hard",
+    "reason": "学习「求比一个数多（少）几的数」需要先掌握「100以内笔算加法」。"
+  },
+  {
+    "topicId": "cnm_p219",
+    "prerequisiteId": "cnm_p048",
+    "strength": "hard",
+    "reason": "学习「数量间的乘除关系」需要先掌握「表内乘法解决实际问题」。"
+  },
+  {
+    "topicId": "cnm_p219",
+    "prerequisiteId": "cnm_p044",
+    "strength": "hard",
+    "reason": "学习「数量间的乘除关系」需要先掌握「用7、8、9的口诀求商」。"
+  },
+  {
+    "topicId": "cnm_p219",
+    "prerequisiteId": "cnm_p051",
+    "strength": "soft",
+    "reason": "学习「数量间的乘除关系」需要先掌握「用口诀求商和余数」。"
+  },
+  {
+    "topicId": "cnm_p220",
+    "prerequisiteId": "cnm_p071",
+    "strength": "hard",
+    "reason": "学习「加减法各部分间的关系」需要先掌握「三位数加法笔算」。"
+  },
+  {
+    "topicId": "cnm_p220",
+    "prerequisiteId": "cnm_p072",
+    "strength": "hard",
+    "reason": "学习「加减法各部分间的关系」需要先掌握「三位数减法笔算」。"
+  },
+  {
+    "topicId": "cnm_p221",
+    "prerequisiteId": "cnm_p014",
+    "strength": "hard",
+    "reason": "学习「观察简单的立体积木」需要先掌握「认识长方体、正方体、圆柱和球」。"
+  },
+  {
+    "topicId": "cnm_p221",
+    "prerequisiteId": "cnm_p023",
+    "strength": "soft",
+    "reason": "学习「观察简单的立体积木」需要先掌握「认识长方形、正方形、三角形和圆」。"
+  },
+  {
+    "topicId": "cnm_p222",
+    "prerequisiteId": "cnm_p221",
+    "strength": "hard",
+    "reason": "学习「长方体纸盒的展开图」需要先掌握「观察简单的立体积木」。"
+  },
+  {
+    "topicId": "cnm_p222",
+    "prerequisiteId": "cnm_p014",
+    "strength": "hard",
+    "reason": "学习「长方体纸盒的展开图」需要先掌握「认识长方体、正方体、圆柱和球」。"
+  },
+  {
+    "topicId": "cnm_p223",
+    "prerequisiteId": "cnm_p057",
+    "strength": "hard",
+    "reason": "学习「同级运算与两级运算的运算顺序」需要先掌握「乘加乘减的运算顺序」。"
+  },
+  {
+    "topicId": "cnm_p223",
+    "prerequisiteId": "cnm_p220",
+    "strength": "soft",
+    "reason": "学习「同级运算与两级运算的运算顺序」需要先掌握「加减法各部分间的关系」。"
+  },
+  {
+    "topicId": "cnm_p224",
+    "prerequisiteId": "cnm_p219",
+    "strength": "hard",
+    "reason": "学习「等量代换（曹冲称象）」需要先掌握「数量间的乘除关系」。"
+  },
+  {
+    "topicId": "cnm_p224",
+    "prerequisiteId": "cnm_p056",
+    "strength": "soft",
+    "reason": "学习「等量代换（曹冲称象）」需要先掌握「克和千克」。"
+  },
+  {
+    "topicId": "cnm_p225",
+    "prerequisiteId": "cnm_p099",
+    "strength": "hard",
+    "reason": "学习「角的认识」需要先掌握「线段、直线和射线」。"
+  },
+  {
+    "topicId": "cnm_p225",
+    "prerequisiteId": "cnm_p023",
+    "strength": "soft",
+    "reason": "学习「角的认识」需要先掌握「认识长方形、正方形、三角形和圆」。"
+  },
+  {
+    "topicId": "cnm_p226",
+    "prerequisiteId": "cnm_p079",
+    "strength": "hard",
+    "reason": "学习「几分之几」需要先掌握「几分之一」。"
+  },
+  {
+    "topicId": "cnm_p227",
+    "prerequisiteId": "cnm_p226",
+    "strength": "hard",
+    "reason": "学习「简单的分数大小比较」需要先掌握「几分之几」。"
+  },
+  {
+    "topicId": "cnm_p227",
+    "prerequisiteId": "cnm_p079",
+    "strength": "hard",
+    "reason": "学习「简单的分数大小比较」需要先掌握「几分之一」。"
+  },
+  {
+    "topicId": "cnm_p228",
+    "prerequisiteId": "cnm_p023",
+    "strength": "hard",
+    "reason": "学习「生活中的运动现象」需要先掌握「认识长方形、正方形、三角形和圆」。"
+  },
+  {
+    "topicId": "cnm_p228",
+    "prerequisiteId": "cnm_p024",
+    "strength": "soft",
+    "reason": "学习「生活中的运动现象」需要先掌握「平面图形的拼组」。"
+  },
+  {
+    "topicId": "cnm_p229",
+    "prerequisiteId": "cnm_p023",
+    "strength": "hard",
+    "reason": "学习「多边形的认识」需要先掌握「认识长方形、正方形、三角形和圆」。"
+  },
+  {
+    "topicId": "cnm_p229",
+    "prerequisiteId": "cnm_p225",
+    "strength": "soft",
+    "reason": "学习「多边形的认识」需要先掌握「角的认识」。"
+  },
+  {
+    "topicId": "cnm_p230",
+    "prerequisiteId": "cnm_p220",
+    "strength": "hard",
+    "reason": "学习「加法模型」需要先掌握「加减法各部分间的关系」。"
+  },
+  {
+    "topicId": "cnm_p230",
+    "prerequisiteId": "cnm_p071",
+    "strength": "soft",
+    "reason": "学习「加法模型」需要先掌握「三位数加法笔算」。"
+  },
+  {
+    "topicId": "cnm_p231",
+    "prerequisiteId": "cnm_p219",
+    "strength": "hard",
+    "reason": "学习「乘法模型」需要先掌握「数量间的乘除关系」。"
+  },
+  {
+    "topicId": "cnm_p231",
+    "prerequisiteId": "cnm_p086",
+    "strength": "hard",
+    "reason": "学习「乘法模型」需要先掌握「两位数乘两位数」。"
+  },
+  {
+    "topicId": "cnm_p232",
+    "prerequisiteId": "cnm_p100",
+    "strength": "hard",
+    "reason": "学习「平角、周角和角的分类」需要先掌握「角的度量」。"
+  },
+  {
+    "topicId": "cnm_p232",
+    "prerequisiteId": "cnm_p101",
+    "strength": "hard",
+    "reason": "学习「平角、周角和角的分类」需要先掌握「锐角、直角和钝角」。"
+  },
+  {
+    "topicId": "cnm_p233",
+    "prerequisiteId": "cnm_p102",
+    "strength": "hard",
+    "reason": "学习「用估算解决问题」需要先掌握「多位数乘两位数」。"
+  },
+  {
+    "topicId": "cnm_p233",
+    "prerequisiteId": "cnm_p066",
+    "strength": "soft",
+    "reason": "学习「用估算解决问题」需要先掌握「加法的估算」。"
+  },
+  {
+    "topicId": "cnm_p234",
+    "prerequisiteId": "cnm_p104",
+    "strength": "hard",
+    "reason": "学习「用尺规画平行线」需要先掌握「平行」。"
+  },
+  {
+    "topicId": "cnm_p235",
+    "prerequisiteId": "cnm_p049",
+    "strength": "hard",
+    "reason": "学习「寻找宝藏」需要先掌握「东、南、西、北」。"
+  },
+  {
+    "topicId": "cnm_p235",
+    "prerequisiteId": "cnm_p087",
+    "strength": "soft",
+    "reason": "学习「寻找宝藏」需要先掌握「两位数乘法的应用」。"
+  },
+  {
+    "topicId": "cnm_p236",
+    "prerequisiteId": "cnm_p096",
+    "strength": "hard",
+    "reason": "学习「1亿有多大」需要先掌握「亿以内数的认识」。"
+  },
+  {
+    "topicId": "cnm_p237",
+    "prerequisiteId": "cnm_p113",
+    "strength": "hard",
+    "reason": "学习「观察简单组合体」需要先掌握「从不同方向观察物体」。"
+  },
+  {
+    "topicId": "cnm_p237",
+    "prerequisiteId": "cnm_p221",
+    "strength": "hard",
+    "reason": "学习「观察简单组合体」需要先掌握「观察简单的立体积木」。"
+  },
+  {
+    "topicId": "cnm_p238",
+    "prerequisiteId": "cnm_p127",
+    "strength": "hard",
+    "reason": "学习「图形的运动」需要先掌握「轴对称」。"
+  },
+  {
+    "topicId": "cnm_p238",
+    "prerequisiteId": "cnm_p128",
+    "strength": "hard",
+    "reason": "学习「图形的运动」需要先掌握「平移」。"
+  },
+  {
+    "topicId": "cnm_p239",
+    "prerequisiteId": "cnm_p124",
+    "strength": "hard",
+    "reason": "学习「有趣的密铺」需要先掌握「三角形的内角和」。"
+  },
+  {
+    "topicId": "cnm_p239",
+    "prerequisiteId": "cnm_p105",
+    "strength": "soft",
+    "reason": "学习「有趣的密铺」需要先掌握「平行四边形和梯形的特征」。"
+  },
+  {
+    "topicId": "cnm_p240",
+    "prerequisiteId": "cnm_p105",
+    "strength": "hard",
+    "reason": "学习「平行四边形的底和高」需要先掌握「平行四边形和梯形的特征」。"
+  },
+  {
+    "topicId": "cnm_p240",
+    "prerequisiteId": "cnm_p103",
+    "strength": "hard",
+    "reason": "学习「平行四边形的底和高」需要先掌握「垂直」。"
+  },
+  {
+    "topicId": "cnm_p241",
+    "prerequisiteId": "cnm_p179",
+    "strength": "hard",
+    "reason": "学习「体育中的数学」需要先掌握「分数乘法的应用」。"
+  },
+  {
+    "topicId": "cnm_p241",
+    "prerequisiteId": "cnm_p190",
+    "strength": "soft",
+    "reason": "学习「体育中的数学」需要先掌握「圆的周长」。"
+  },
+  {
+    "topicId": "cnm_p242",
+    "prerequisiteId": "cnm_p196",
+    "strength": "hard",
+    "reason": "学习「水是生命之源」需要先掌握「求一个数的百分之几」。"
+  },
+  {
+    "topicId": "cnm_p242",
+    "prerequisiteId": "cnm_p179",
+    "strength": "soft",
+    "reason": "学习「水是生命之源」需要先掌握「分数乘法的应用」。"
+  },
+  {
+    "topicId": "cnm_p058",
+    "prerequisiteId": "cnm_p223",
+    "strength": "hard",
+    "reason": "学习「带小括号的两步运算」需要先掌握「同级运算与两级运算的运算顺序」。"
+  },
+  {
+    "topicId": "cnm_p101",
+    "prerequisiteId": "cnm_p225",
+    "strength": "hard",
+    "reason": "学习「锐角、直角和钝角」需要先掌握「角的认识」。"
+  },
+  {
+    "topicId": "cnm_p080",
+    "prerequisiteId": "cnm_p226",
+    "strength": "soft",
+    "reason": "学习「同分母分数的初步加减」需要先掌握「几分之几」。"
+  },
+  {
+    "topicId": "cnm_p077",
+    "prerequisiteId": "cnm_p229",
+    "strength": "soft",
+    "reason": "学习「长方形和正方形的特征」需要先掌握「多边形的认识」。"
+  },
+  {
+    "topicId": "cnm_p111",
+    "prerequisiteId": "cnm_p231",
+    "strength": "hard",
+    "reason": "学习「常见数量关系」需要先掌握「乘法模型」。"
+  },
+  {
+    "topicId": "cnm_p147",
+    "prerequisiteId": "cnm_p240",
+    "strength": "hard",
+    "reason": "学习「平行四边形的面积」需要先掌握「平行四边形的底和高」。"
+  },
+  {
+    "topicId": "cnm_p171",
+    "prerequisiteId": "cnm_p238",
+    "strength": "soft",
+    "reason": "学习「旋转」需要先掌握「图形的运动」。"
+  },
+  {
+    "topicId": "cnm_p152",
+    "prerequisiteId": "cnm_p237",
+    "strength": "soft",
+    "reason": "学习「根据三个方向辨认物体」需要先掌握「观察简单组合体」。"
+  },
+  {
+    "topicId": "cnm_056",
+    "prerequisiteId": "cnm_p225",
+    "strength": "hard",
+    "reason": "学习「角的概念与表示」需要先掌握「角的认识」。"
+  },
+  {
+    "topicId": "cnm_056",
+    "prerequisiteId": "cnm_p232",
+    "strength": "soft",
+    "reason": "学习「角的概念与表示」需要先掌握「平角、周角和角的分类」。"
+  },
+  {
+    "topicId": "cnm_053",
+    "prerequisiteId": "cnm_p099",
+    "strength": "hard",
+    "reason": "学习「直线、射线、线段」需要先掌握「线段、直线和射线」。"
+  },
+  {
+    "topicId": "cnm_051",
+    "prerequisiteId": "cnm_p222",
+    "strength": "soft",
+    "reason": "学习「从不同方向看与立体图形的展开图」需要先掌握「长方体纸盒的展开图」。"
+  },
+  {
+    "topicId": "cnm_051",
+    "prerequisiteId": "cnm_p237",
+    "strength": "soft",
+    "reason": "学习「从不同方向看与立体图形的展开图」需要先掌握「观察简单组合体」。"
+  },
+  {
+    "topicId": "cnm_040",
+    "prerequisiteId": "cnm_p144",
+    "strength": "soft",
+    "reason": "学习「等式的性质」需要先掌握「等式的性质」。"
+  },
+  {
+    "topicId": "cnm_047",
+    "prerequisiteId": "cnm_p231",
+    "strength": "hard",
+    "reason": "学习「行程问题（相遇与追及）」需要先掌握「乘法模型」。"
+  },
+  {
+    "topicId": "cnm_027",
+    "prerequisiteId": "cnm_p231",
+    "strength": "soft",
+    "reason": "学习「列代数式」需要先掌握「乘法模型」。"
+  },
+  {
+    "topicId": "cnm_244",
+    "prerequisiteId": "cnm_p238",
+    "strength": "soft",
+    "reason": "学习「图形的旋转」需要先掌握「图形的运动」。"
+  },
+  {
+    "topicId": "cnm_131",
+    "prerequisiteId": "cnm_p228",
+    "strength": "soft",
+    "reason": "学习「轴对称图形与两个图形成轴对称」需要先掌握「生活中的运动现象」。"
+  },
+  {
+    "topicId": "cnm_h038",
+    "prerequisiteId": "cnm_209",
+    "strength": "soft",
+    "reason": "学习「用函数描述简单对应」需要先掌握「实际问题与一次函数」。"
+  },
+  {
+    "topicId": "cnm_h038",
+    "prerequisiteId": "cnm_236",
+    "strength": "soft",
+    "reason": "学习「用函数描述简单对应」需要先掌握「实际问题与二次函数」。"
+  },
+  {
+    "topicId": "cne_p198",
+    "prerequisiteId": "cne_p108",
+    "strength": "soft",
+    "reason": "先会拼读辅音连缀，再学元音字母组合 ai、ay。"
+  },
+  {
+    "topicId": "cne_p198",
+    "prerequisiteId": "cne_p057",
+    "strength": "hard",
+    "reason": "ai、ay 发 /eɪ/，和 a-e 中 a 的读音相同，要先会 a-e。"
+  },
+  {
+    "topicId": "cne_p199",
+    "prerequisiteId": "cne_p152",
+    "strength": "hard",
+    "reason": "先会用祈使句说规则，再用 have to、can't 说家规。"
+  },
+  {
+    "topicId": "cne_p200",
+    "prerequisiteId": "cne_p096",
+    "strength": "soft",
+    "reason": "先认识农场，再说食物从农场到餐桌的过程。"
+  },
+  {
+    "topicId": "cne_p200",
+    "prerequisiteId": "cne_p020",
+    "strength": "hard",
+    "reason": "先认识常见食物单词。"
+  },
+  {
+    "topicId": "cne_p201",
+    "prerequisiteId": "cne_p104",
+    "strength": "hard",
+    "reason": "先会商店物品单词，再学花钱、存钱的词。"
+  },
+  {
+    "topicId": "cne_p201",
+    "prerequisiteId": "cne_p105",
+    "strength": "soft",
+    "reason": "先会问价格。"
+  },
+  {
+    "topicId": "cne_p202",
+    "prerequisiteId": "cne_p105",
+    "strength": "hard",
+    "reason": "先会用 How much 问价格，再说更大的钱数。"
+  },
+  {
+    "topicId": "cne_p202",
+    "prerequisiteId": "cne_p054",
+    "strength": "soft",
+    "reason": "先会 11 到 20 的数。"
+  },
+  {
+    "topicId": "cne_p203",
+    "prerequisiteId": "cne_p201",
+    "strength": "hard",
+    "reason": "读懂计划前要认识 save、spend 等词。"
+  },
+  {
+    "topicId": "cne_p204",
+    "prerequisiteId": "cne_p129",
+    "strength": "soft",
+    "reason": "先学自然词汇，再学太空词汇。"
+  },
+  {
+    "topicId": "cne_p204",
+    "prerequisiteId": "cne_p017",
+    "strength": "hard",
+    "reason": "先有认读看图单词的经验。"
+  },
+  {
+    "topicId": "cne_p205",
+    "prerequisiteId": "cne_p164",
+    "strength": "hard",
+    "reason": "先会用 be going to 说打算，再用 will 说预测。"
+  },
+  {
+    "topicId": "cne_p206",
+    "prerequisiteId": "cne_p204",
+    "strength": "hard",
+    "reason": "读太空短文要先认识太空词汇。"
+  },
+  {
+    "topicId": "cne_p207",
+    "prerequisiteId": "cne_p159",
+    "strength": "soft",
+    "reason": "先学出行方式，再谈节约能源的绿色出行。"
+  },
+  {
+    "topicId": "cne_p207",
+    "prerequisiteId": "cne_p129",
+    "strength": "soft",
+    "reason": "先学自然词汇。"
+  },
+  {
+    "topicId": "cne_p208",
+    "prerequisiteId": "cne_p207",
+    "strength": "hard",
+    "reason": "读倡议前要认识能源词汇。"
+  },
+  {
+    "topicId": "cne_p208",
+    "prerequisiteId": "cne_p152",
+    "strength": "soft",
+    "reason": "倡议多用祈使句。"
+  },
+  {
+    "topicId": "cne_j246",
+    "prerequisiteId": "cne_j007",
+    "strength": "soft",
+    "reason": "先会家庭成员词汇，再说谁的家人。"
+  },
+  {
+    "topicId": "cne_j246",
+    "prerequisiteId": "cne_j014",
+    "strength": "hard",
+    "reason": "先会形容词性物主代词 my、his、her。"
+  },
+  {
+    "topicId": "cne_j247",
+    "prerequisiteId": "cne_j014",
+    "strength": "hard",
+    "reason": "先会 my、your、his、her，再学 mine、yours。"
+  },
+  {
+    "topicId": "cne_j248",
+    "prerequisiteId": "cne_j015",
+    "strength": "hard",
+    "reason": "选择疑问句由一般疑问句加 or 构成，要先会一般疑问句。"
+  },
+  {
+    "topicId": "cne_j248",
+    "prerequisiteId": "cne_j028",
+    "strength": "soft",
+    "reason": "Eat Well 单元一起学可数与不可数名词。"
+  },
+  {
+    "topicId": "cne_j249",
+    "prerequisiteId": "cne_j009",
+    "strength": "soft",
+    "reason": "先会名词单复数，再学代替名词的不定代词。"
+  },
+  {
+    "topicId": "cne_j249",
+    "prerequisiteId": "cne_j100",
+    "strength": "soft",
+    "reason": "本单元在复习一般过去时叙述假期的同时学不定代词。"
+  },
+  {
+    "topicId": "cne_j250",
+    "prerequisiteId": "cne_j109",
+    "strength": "hard",
+    "reason": "先会比较级，再学同级比较。"
+  },
+  {
+    "topicId": "cne_j251",
+    "prerequisiteId": "cne_j014",
+    "strength": "hard",
+    "reason": "反身代词由物主代词或宾格加 self 构成，要先会人称代词和物主代词。"
+  },
+  {
+    "topicId": "cne_j251",
+    "prerequisiteId": "cne_j143",
+    "strength": "soft",
+    "reason": "Stay Healthy 单元先学 should 提建议。"
+  },
+  {
+    "topicId": "cne_j252",
+    "prerequisiteId": "cne_j174",
+    "strength": "hard",
+    "reason": "先会现在完成时。"
+  },
+  {
+    "topicId": "cne_j252",
+    "prerequisiteId": "cne_j089",
+    "strength": "hard",
+    "reason": "先会一般过去时。"
+  },
+  {
+    "topicId": "cne_j253",
+    "prerequisiteId": "cne_j118",
+    "strength": "hard",
+    "reason": "先会不定式作宾语，再学 it 作形式主语、不定式作真正主语。"
+  },
+  {
+    "topicId": "cne_j254",
+    "prerequisiteId": "cne_j205",
+    "strength": "hard",
+    "reason": "先会一般现在时被动语态。"
+  },
+  {
+    "topicId": "cne_j254",
+    "prerequisiteId": "cne_j126",
+    "strength": "hard",
+    "reason": "先会 will 表示将来。"
+  },
+  {
+    "topicId": "cne_j255",
+    "prerequisiteId": "cne_j125",
+    "strength": "soft",
+    "reason": "先学谈论未来生活的词，再学太空探索词汇。"
+  },
+  {
+    "topicId": "cne_j256",
+    "prerequisiteId": "cne_j024",
+    "strength": "hard",
+    "reason": "先会一般现在时 do 与 does 的变化。"
+  },
+  {
+    "topicId": "cne_j256",
+    "prerequisiteId": "cne_j004",
+    "strength": "hard",
+    "reason": "先会 am、is、are 的搭配。"
+  },
+  {
+    "topicId": "cne_j257",
+    "prerequisiteId": "cne_j022",
+    "strength": "soft",
+    "reason": "先学球类运动词汇，再学体育赛事词汇。"
+  },
+  {
+    "topicId": "cnp_002",
+    "prerequisiteId": "cnp_001",
+    "strength": "soft",
+    "reason": "「运动的描述」会用到「长度和时间的测量」里的知识。"
+  },
+  {
+    "topicId": "cnp_003",
+    "prerequisiteId": "cnp_001",
+    "strength": "hard",
+    "reason": "学「运动的快慢」要先会「长度和时间的测量」。"
+  },
+  {
+    "topicId": "cnp_003",
+    "prerequisiteId": "cnp_002",
+    "strength": "soft",
+    "reason": "「运动的快慢」会用到「运动的描述」里的知识。"
+  },
+  {
+    "topicId": "cnp_004",
+    "prerequisiteId": "cnp_003",
+    "strength": "hard",
+    "reason": "学「速度的测量」要先会「运动的快慢」。"
+  },
+  {
+    "topicId": "cnp_006",
+    "prerequisiteId": "cnp_005",
+    "strength": "hard",
+    "reason": "学「声音的特性」要先会「声音的产生与传播」。"
+  },
+  {
+    "topicId": "cnp_007",
+    "prerequisiteId": "cnp_006",
+    "strength": "soft",
+    "reason": "「声的利用」会用到「声音的特性」里的知识。"
+  },
+  {
+    "topicId": "cnp_007",
+    "prerequisiteId": "cnp_003",
+    "strength": "soft",
+    "reason": "「声的利用」会用到「运动的快慢」里的知识。"
+  },
+  {
+    "topicId": "cnp_008",
+    "prerequisiteId": "cnp_006",
+    "strength": "soft",
+    "reason": "「噪声的危害和控制」会用到「声音的特性」里的知识。"
+  },
+  {
+    "topicId": "cnp_009",
+    "prerequisiteId": "cnp_008",
+    "strength": "hard",
+    "reason": "学「跨学科实践：制作隔音房间模型」要先会「噪声的危害和控制」。"
+  },
+  {
+    "topicId": "cnp_011",
+    "prerequisiteId": "cnp_010",
+    "strength": "hard",
+    "reason": "学「熔化和凝固」要先会「温度」。"
+  },
+  {
+    "topicId": "cnp_012",
+    "prerequisiteId": "cnp_010",
+    "strength": "hard",
+    "reason": "学「汽化和液化」要先会「温度」。"
+  },
+  {
+    "topicId": "cnp_012",
+    "prerequisiteId": "cnp_011",
+    "strength": "soft",
+    "reason": "「汽化和液化」会用到「熔化和凝固」里的知识。"
+  },
+  {
+    "topicId": "cnp_013",
+    "prerequisiteId": "cnp_011",
+    "strength": "hard",
+    "reason": "学「升华和凝华」要先会「熔化和凝固」。"
+  },
+  {
+    "topicId": "cnp_013",
+    "prerequisiteId": "cnp_012",
+    "strength": "hard",
+    "reason": "学「升华和凝华」要先会「汽化和液化」。"
+  },
+  {
+    "topicId": "cnp_014",
+    "prerequisiteId": "cnp_013",
+    "strength": "hard",
+    "reason": "学「跨学科实践：探索厨房中的物态变化问题」要先会「升华和凝华」。"
+  },
+  {
+    "topicId": "cnp_016",
+    "prerequisiteId": "cnp_015",
+    "strength": "hard",
+    "reason": "学「光的反射」要先会「光的直线传播」。"
+  },
+  {
+    "topicId": "cnp_017",
+    "prerequisiteId": "cnp_016",
+    "strength": "hard",
+    "reason": "学「平面镜成像」要先会「光的反射」。"
+  },
+  {
+    "topicId": "cnp_018",
+    "prerequisiteId": "cnp_016",
+    "strength": "soft",
+    "reason": "「光的折射」会用到「光的反射」里的知识。"
+  },
+  {
+    "topicId": "cnp_018",
+    "prerequisiteId": "cnp_015",
+    "strength": "hard",
+    "reason": "学「光的折射」要先会「光的直线传播」。"
+  },
+  {
+    "topicId": "cnp_019",
+    "prerequisiteId": "cnp_018",
+    "strength": "hard",
+    "reason": "学「光的色散」要先会「光的折射」。"
+  },
+  {
+    "topicId": "cnp_020",
+    "prerequisiteId": "cnp_018",
+    "strength": "hard",
+    "reason": "学「透镜」要先会「光的折射」。"
+  },
+  {
+    "topicId": "cnp_021",
+    "prerequisiteId": "cnp_020",
+    "strength": "hard",
+    "reason": "学「生活中的透镜」要先会「透镜」。"
+  },
+  {
+    "topicId": "cnp_022",
+    "prerequisiteId": "cnp_021",
+    "strength": "hard",
+    "reason": "学「凸透镜成像的规律」要先会「生活中的透镜」。"
+  },
+  {
+    "topicId": "cnp_023",
+    "prerequisiteId": "cnp_022",
+    "strength": "hard",
+    "reason": "学「眼睛和眼镜」要先会「凸透镜成像的规律」。"
+  },
+  {
+    "topicId": "cnp_024",
+    "prerequisiteId": "cnp_022",
+    "strength": "hard",
+    "reason": "学「跨学科实践：制作望远镜」要先会「凸透镜成像的规律」。"
+  },
+  {
+    "topicId": "cnp_026",
+    "prerequisiteId": "cnp_025",
+    "strength": "hard",
+    "reason": "学「密度」要先会「质量」。"
+  },
+  {
+    "topicId": "cnp_027",
+    "prerequisiteId": "cnp_026",
+    "strength": "hard",
+    "reason": "学「测量液体和固体的密度」要先会「密度」。"
+  },
+  {
+    "topicId": "cnp_028",
+    "prerequisiteId": "cnp_027",
+    "strength": "hard",
+    "reason": "学「密度的应用」要先会「测量液体和固体的密度」。"
+  },
+  {
+    "topicId": "cnp_029",
+    "prerequisiteId": "cnp_002",
+    "strength": "soft",
+    "reason": "「力」会用到「运动的描述」里的知识。"
+  },
+  {
+    "topicId": "cnp_030",
+    "prerequisiteId": "cnp_029",
+    "strength": "hard",
+    "reason": "学「弹力」要先会「力」。"
+  },
+  {
+    "topicId": "cnp_031",
+    "prerequisiteId": "cnp_030",
+    "strength": "soft",
+    "reason": "「重力」会用到「弹力」里的知识。"
+  },
+  {
+    "topicId": "cnp_031",
+    "prerequisiteId": "cnp_025",
+    "strength": "hard",
+    "reason": "学「重力」要先会「质量」。"
+  },
+  {
+    "topicId": "cnp_032",
+    "prerequisiteId": "cnp_029",
+    "strength": "hard",
+    "reason": "学「牛顿第一定律」要先会「力」。"
+  },
+  {
+    "topicId": "cnp_033",
+    "prerequisiteId": "cnp_032",
+    "strength": "hard",
+    "reason": "学「二力平衡」要先会「牛顿第一定律」。"
+  },
+  {
+    "topicId": "cnp_033",
+    "prerequisiteId": "cnp_031",
+    "strength": "hard",
+    "reason": "学「二力平衡」要先会「重力」。"
+  },
+  {
+    "topicId": "cnp_034",
+    "prerequisiteId": "cnp_033",
+    "strength": "hard",
+    "reason": "学「摩擦力」要先会「二力平衡」。"
+  },
+  {
+    "topicId": "cnp_035",
+    "prerequisiteId": "cnp_033",
+    "strength": "hard",
+    "reason": "学「同一直线上二力的合成」要先会「二力平衡」。"
+  },
+  {
+    "topicId": "cnp_036",
+    "prerequisiteId": "cnp_031",
+    "strength": "hard",
+    "reason": "学「压强」要先会「重力」。"
+  },
+  {
+    "topicId": "cnp_036",
+    "prerequisiteId": "cnp_033",
+    "strength": "soft",
+    "reason": "「压强」会用到「二力平衡」里的知识。"
+  },
+  {
+    "topicId": "cnp_037",
+    "prerequisiteId": "cnp_036",
+    "strength": "hard",
+    "reason": "学「液体的压强」要先会「压强」。"
+  },
+  {
+    "topicId": "cnp_037",
+    "prerequisiteId": "cnp_026",
+    "strength": "hard",
+    "reason": "学「液体的压强」要先会「密度」。"
+  },
+  {
+    "topicId": "cnp_038",
+    "prerequisiteId": "cnp_037",
+    "strength": "hard",
+    "reason": "学「大气压强」要先会「液体的压强」。"
+  },
+  {
+    "topicId": "cnp_039",
+    "prerequisiteId": "cnp_038",
+    "strength": "hard",
+    "reason": "学「跨学科实践：制作简易活塞式抽水机」要先会「大气压强」。"
+  },
+  {
+    "topicId": "cnp_040",
+    "prerequisiteId": "cnp_038",
+    "strength": "hard",
+    "reason": "学「流体压强与流速的关系」要先会「大气压强」。"
+  },
+  {
+    "topicId": "cnp_041",
+    "prerequisiteId": "cnp_037",
+    "strength": "hard",
+    "reason": "学「浮力」要先会「液体的压强」。"
+  },
+  {
+    "topicId": "cnp_041",
+    "prerequisiteId": "cnp_035",
+    "strength": "soft",
+    "reason": "「浮力」会用到「同一直线上二力的合成」里的知识。"
+  },
+  {
+    "topicId": "cnp_042",
+    "prerequisiteId": "cnp_041",
+    "strength": "hard",
+    "reason": "学「阿基米德原理」要先会「浮力」。"
+  },
+  {
+    "topicId": "cnp_042",
+    "prerequisiteId": "cnp_026",
+    "strength": "hard",
+    "reason": "学「阿基米德原理」要先会「密度」。"
+  },
+  {
+    "topicId": "cnp_042",
+    "prerequisiteId": "cnp_031",
+    "strength": "hard",
+    "reason": "学「阿基米德原理」要先会「重力」。"
+  },
+  {
+    "topicId": "cnp_043",
+    "prerequisiteId": "cnp_042",
+    "strength": "hard",
+    "reason": "学「物体的浮沉条件及应用」要先会「阿基米德原理」。"
+  },
+  {
+    "topicId": "cnp_043",
+    "prerequisiteId": "cnp_033",
+    "strength": "hard",
+    "reason": "学「物体的浮沉条件及应用」要先会「二力平衡」。"
+  },
+  {
+    "topicId": "cnp_044",
+    "prerequisiteId": "cnp_043",
+    "strength": "hard",
+    "reason": "学「跨学科实践：制作微型密度计」要先会「物体的浮沉条件及应用」。"
+  },
+  {
+    "topicId": "cnp_045",
+    "prerequisiteId": "cnp_029",
+    "strength": "hard",
+    "reason": "学「功」要先会「力」。"
+  },
+  {
+    "topicId": "cnp_045",
+    "prerequisiteId": "cnp_031",
+    "strength": "hard",
+    "reason": "学「功」要先会「重力」。"
+  },
+  {
+    "topicId": "cnp_046",
+    "prerequisiteId": "cnp_045",
+    "strength": "hard",
+    "reason": "学「功率」要先会「功」。"
+  },
+  {
+    "topicId": "cnp_046",
+    "prerequisiteId": "cnp_003",
+    "strength": "hard",
+    "reason": "学「功率」要先会「运动的快慢」。"
+  },
+  {
+    "topicId": "cnp_047",
+    "prerequisiteId": "cnp_045",
+    "strength": "hard",
+    "reason": "学「动能和势能」要先会「功」。"
+  },
+  {
+    "topicId": "cnp_048",
+    "prerequisiteId": "cnp_047",
+    "strength": "hard",
+    "reason": "学「机械能及其转化」要先会「动能和势能」。"
+  },
+  {
+    "topicId": "cnp_049",
+    "prerequisiteId": "cnp_033",
+    "strength": "hard",
+    "reason": "学「杠杆」要先会「二力平衡」。"
+  },
+  {
+    "topicId": "cnp_049",
+    "prerequisiteId": "cnp_031",
+    "strength": "hard",
+    "reason": "学「杠杆」要先会「重力」。"
+  },
+  {
+    "topicId": "cnp_050",
+    "prerequisiteId": "cnp_049",
+    "strength": "hard",
+    "reason": "学「跨学科实践：制作简易杆秤」要先会「杠杆」。"
+  },
+  {
+    "topicId": "cnp_051",
+    "prerequisiteId": "cnp_049",
+    "strength": "hard",
+    "reason": "学「滑轮」要先会「杠杆」。"
+  },
+  {
+    "topicId": "cnp_052",
+    "prerequisiteId": "cnp_051",
+    "strength": "hard",
+    "reason": "学「机械效率」要先会「滑轮」。"
+  },
+  {
+    "topicId": "cnp_052",
+    "prerequisiteId": "cnp_045",
+    "strength": "hard",
+    "reason": "学「机械效率」要先会「功」。"
+  },
+  {
+    "topicId": "cnp_053",
+    "prerequisiteId": "cnp_010",
+    "strength": "hard",
+    "reason": "学「热量 比热容」要先会「温度」。"
+  },
+  {
+    "topicId": "cnp_053",
+    "prerequisiteId": "cnp_025",
+    "strength": "hard",
+    "reason": "学「热量 比热容」要先会「质量」。"
+  },
+  {
+    "topicId": "cnp_055",
+    "prerequisiteId": "cnp_054",
+    "strength": "hard",
+    "reason": "学「内能」要先会「分子动理论的初步知识」。"
+  },
+  {
+    "topicId": "cnp_055",
+    "prerequisiteId": "cnp_053",
+    "strength": "soft",
+    "reason": "「内能」会用到「热量 比热容」里的知识。"
+  },
+  {
+    "topicId": "cnp_056",
+    "prerequisiteId": "cnp_055",
+    "strength": "hard",
+    "reason": "学「能量的转化与守恒」要先会「内能」。"
+  },
+  {
+    "topicId": "cnp_056",
+    "prerequisiteId": "cnp_048",
+    "strength": "hard",
+    "reason": "学「能量的转化与守恒」要先会「机械能及其转化」。"
+  },
+  {
+    "topicId": "cnp_057",
+    "prerequisiteId": "cnp_055",
+    "strength": "hard",
+    "reason": "学「热机」要先会「内能」。"
+  },
+  {
+    "topicId": "cnp_057",
+    "prerequisiteId": "cnp_056",
+    "strength": "soft",
+    "reason": "「热机」会用到「能量的转化与守恒」里的知识。"
+  },
+  {
+    "topicId": "cnp_058",
+    "prerequisiteId": "cnp_057",
+    "strength": "hard",
+    "reason": "学「热机的效率」要先会「热机」。"
+  },
+  {
+    "topicId": "cnp_058",
+    "prerequisiteId": "cnp_053",
+    "strength": "hard",
+    "reason": "学「热机的效率」要先会「热量 比热容」。"
+  },
+  {
+    "topicId": "cnp_059",
+    "prerequisiteId": "cnp_058",
+    "strength": "hard",
+    "reason": "学「跨学科实践：制作简易热机模型」要先会「热机的效率」。"
+  },
+  {
+    "topicId": "cnp_060",
+    "prerequisiteId": "cnp_054",
+    "strength": "soft",
+    "reason": "「两种电荷」会用到「分子动理论的初步知识」里的知识。"
+  },
+  {
+    "topicId": "cnp_061",
+    "prerequisiteId": "cnp_060",
+    "strength": "hard",
+    "reason": "学「电流和电路」要先会「两种电荷」。"
+  },
+  {
+    "topicId": "cnp_062",
+    "prerequisiteId": "cnp_061",
+    "strength": "hard",
+    "reason": "学「串联电路和并联电路」要先会「电流和电路」。"
+  },
+  {
+    "topicId": "cnp_063",
+    "prerequisiteId": "cnp_061",
+    "strength": "hard",
+    "reason": "学「电流的测量」要先会「电流和电路」。"
+  },
+  {
+    "topicId": "cnp_064",
+    "prerequisiteId": "cnp_063",
+    "strength": "hard",
+    "reason": "学「串、并联电路中电流的规律」要先会「电流的测量」。"
+  },
+  {
+    "topicId": "cnp_064",
+    "prerequisiteId": "cnp_062",
+    "strength": "hard",
+    "reason": "学「串、并联电路中电流的规律」要先会「串联电路和并联电路」。"
+  },
+  {
+    "topicId": "cnp_065",
+    "prerequisiteId": "cnp_061",
+    "strength": "hard",
+    "reason": "学「电压」要先会「电流和电路」。"
+  },
+  {
+    "topicId": "cnp_065",
+    "prerequisiteId": "cnp_063",
+    "strength": "soft",
+    "reason": "「电压」会用到「电流的测量」里的知识。"
+  },
+  {
+    "topicId": "cnp_066",
+    "prerequisiteId": "cnp_065",
+    "strength": "hard",
+    "reason": "学「串、并联电路中电压的规律」要先会「电压」。"
+  },
+  {
+    "topicId": "cnp_066",
+    "prerequisiteId": "cnp_064",
+    "strength": "soft",
+    "reason": "「串、并联电路中电压的规律」会用到「串、并联电路中电流的规律」里的知识。"
+  },
+  {
+    "topicId": "cnp_067",
+    "prerequisiteId": "cnp_065",
+    "strength": "hard",
+    "reason": "学「电阻」要先会「电压」。"
+  },
+  {
+    "topicId": "cnp_068",
+    "prerequisiteId": "cnp_067",
+    "strength": "hard",
+    "reason": "学「变阻器」要先会「电阻」。"
+  },
+  {
+    "topicId": "cnp_069",
+    "prerequisiteId": "cnp_068",
+    "strength": "hard",
+    "reason": "学「跨学科实践：制作简易调光台灯」要先会「变阻器」。"
+  },
+  {
+    "topicId": "cnp_070",
+    "prerequisiteId": "cnp_068",
+    "strength": "hard",
+    "reason": "学「电流与电压、电阻的关系」要先会「变阻器」。"
+  },
+  {
+    "topicId": "cnp_070",
+    "prerequisiteId": "cnp_066",
+    "strength": "soft",
+    "reason": "「电流与电压、电阻的关系」会用到「串、并联电路中电压的规律」里的知识。"
+  },
+  {
+    "topicId": "cnp_071",
+    "prerequisiteId": "cnp_070",
+    "strength": "hard",
+    "reason": "学「欧姆定律」要先会「电流与电压、电阻的关系」。"
+  },
+  {
+    "topicId": "cnp_072",
+    "prerequisiteId": "cnp_071",
+    "strength": "hard",
+    "reason": "学「电阻的测量」要先会「欧姆定律」。"
+  },
+  {
+    "topicId": "cnp_072",
+    "prerequisiteId": "cnp_065",
+    "strength": "hard",
+    "reason": "学「电阻的测量」要先会「电压」。"
+  },
+  {
+    "topicId": "cnp_073",
+    "prerequisiteId": "cnp_071",
+    "strength": "hard",
+    "reason": "学「欧姆定律在串、并联电路中的应用」要先会「欧姆定律」。"
+  },
+  {
+    "topicId": "cnp_073",
+    "prerequisiteId": "cnp_066",
+    "strength": "hard",
+    "reason": "学「欧姆定律在串、并联电路中的应用」要先会「串、并联电路中电压的规律」。"
+  },
+  {
+    "topicId": "cnp_073",
+    "prerequisiteId": "cnp_064",
+    "strength": "hard",
+    "reason": "学「欧姆定律在串、并联电路中的应用」要先会「串、并联电路中电流的规律」。"
+  },
+  {
+    "topicId": "cnp_074",
+    "prerequisiteId": "cnp_071",
+    "strength": "hard",
+    "reason": "学「电能 电功」要先会「欧姆定律」。"
+  },
+  {
+    "topicId": "cnp_074",
+    "prerequisiteId": "cnp_045",
+    "strength": "soft",
+    "reason": "「电能 电功」会用到「功」里的知识。"
+  },
+  {
+    "topicId": "cnp_075",
+    "prerequisiteId": "cnp_074",
+    "strength": "hard",
+    "reason": "学「电功率」要先会「电能 电功」。"
+  },
+  {
+    "topicId": "cnp_075",
+    "prerequisiteId": "cnp_046",
+    "strength": "soft",
+    "reason": "「电功率」会用到「功率」里的知识。"
+  },
+  {
+    "topicId": "cnp_076",
+    "prerequisiteId": "cnp_075",
+    "strength": "hard",
+    "reason": "学「跨学科实践：为家庭节约用电提建议」要先会「电功率」。"
+  },
+  {
+    "topicId": "cnp_077",
+    "prerequisiteId": "cnp_075",
+    "strength": "hard",
+    "reason": "学「焦耳定律」要先会「电功率」。"
+  },
+  {
+    "topicId": "cnp_078",
+    "prerequisiteId": "cnp_065",
+    "strength": "hard",
+    "reason": "学「安全用电」要先会「电压」。"
+  },
+  {
+    "topicId": "cnp_078",
+    "prerequisiteId": "cnp_071",
+    "strength": "soft",
+    "reason": "「安全用电」会用到「欧姆定律」里的知识。"
+  },
+  {
+    "topicId": "cnp_079",
+    "prerequisiteId": "cnp_078",
+    "strength": "hard",
+    "reason": "学「家庭电路的基本组成」要先会「安全用电」。"
+  },
+  {
+    "topicId": "cnp_079",
+    "prerequisiteId": "cnp_075",
+    "strength": "hard",
+    "reason": "学「家庭电路的基本组成」要先会「电功率」。"
+  },
+  {
+    "topicId": "cnp_079",
+    "prerequisiteId": "cnp_062",
+    "strength": "hard",
+    "reason": "学「家庭电路的基本组成」要先会「串联电路和并联电路」。"
+  },
+  {
+    "topicId": "cnp_080",
+    "prerequisiteId": "cnp_079",
+    "strength": "hard",
+    "reason": "学「跨学科实践：为家庭电路做设计」要先会「家庭电路的基本组成」。"
+  },
+  {
+    "topicId": "cnp_082",
+    "prerequisiteId": "cnp_081",
+    "strength": "hard",
+    "reason": "学「电生磁」要先会「磁现象 磁场」。"
+  },
+  {
+    "topicId": "cnp_082",
+    "prerequisiteId": "cnp_061",
+    "strength": "hard",
+    "reason": "学「电生磁」要先会「电流和电路」。"
+  },
+  {
+    "topicId": "cnp_083",
+    "prerequisiteId": "cnp_082",
+    "strength": "hard",
+    "reason": "学「电磁铁 电磁继电器」要先会「电生磁」。"
+  },
+  {
+    "topicId": "cnp_084",
+    "prerequisiteId": "cnp_082",
+    "strength": "hard",
+    "reason": "学「电动机」要先会「电生磁」。"
+  },
+  {
+    "topicId": "cnp_085",
+    "prerequisiteId": "cnp_084",
+    "strength": "hard",
+    "reason": "学「跨学科实践：制作简易直流电动机」要先会「电动机」。"
+  },
+  {
+    "topicId": "cnp_086",
+    "prerequisiteId": "cnp_084",
+    "strength": "hard",
+    "reason": "学「磁生电」要先会「电动机」。"
+  },
+  {
+    "topicId": "cnp_087",
+    "prerequisiteId": "cnp_015",
+    "strength": "hard",
+    "reason": "学「电磁波的海洋」要先会「光的直线传播」。"
+  },
+  {
+    "topicId": "cnp_087",
+    "prerequisiteId": "cnp_006",
+    "strength": "soft",
+    "reason": "「电磁波的海洋」会用到「声音的特性」里的知识。"
+  },
+  {
+    "topicId": "cnp_088",
+    "prerequisiteId": "cnp_087",
+    "strength": "hard",
+    "reason": "学「广播、电视和移动通信」要先会「电磁波的海洋」。"
+  },
+  {
+    "topicId": "cnp_089",
+    "prerequisiteId": "cnp_088",
+    "strength": "hard",
+    "reason": "学「卫星通信和光纤通信」要先会「广播、电视和移动通信」。"
+  },
+  {
+    "topicId": "cnp_089",
+    "prerequisiteId": "cnp_016",
+    "strength": "soft",
+    "reason": "「卫星通信和光纤通信」会用到「光的反射」里的知识。"
+  },
+  {
+    "topicId": "cnp_090",
+    "prerequisiteId": "cnp_056",
+    "strength": "hard",
+    "reason": "学「能源利用的现状和面临的挑战」要先会「能量的转化与守恒」。"
+  },
+  {
+    "topicId": "cnp_091",
+    "prerequisiteId": "cnp_090",
+    "strength": "hard",
+    "reason": "学「新能源的发展」要先会「能源利用的现状和面临的挑战」。"
+  },
+  {
+    "topicId": "cnp_092",
+    "prerequisiteId": "cnp_091",
+    "strength": "hard",
+    "reason": "学「跨学科实践：为节约能源设计方案」要先会「新能源的发展」。"
+  },
+  {
+    "topicId": "cnp_092",
+    "prerequisiteId": "cnp_076",
+    "strength": "soft",
+    "reason": "「跨学科实践：为节约能源设计方案」会用到「跨学科实践：为家庭节约用电提建议」里的知识。"
   }
 ]

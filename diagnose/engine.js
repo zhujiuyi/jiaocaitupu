@@ -497,11 +497,13 @@
     return { volume: m[1], chapterNo: m[2], chapterName: m[3], section: m[4] || '' };
   }
 
-  /** 学科：显式 subject 优先，否则 cne_ 前缀是英语，其余算数学。 */
+  /** 学科：显式 subject 优先，否则 cnp_ 前缀是物理、cne_ 前缀是英语，其余算数学。 */
   function subjectOf(topic) {
     if (!topic) return 'math';
-    if (topic.subject === 'english' || topic.subject === 'math') return topic.subject;
-    if (String(topic.id || '').indexOf('cne_') === 0) return 'english';
+    if (topic.subject === 'english' || topic.subject === 'physics' || topic.subject === 'math') return topic.subject;
+    const id = String(topic.id || '');
+    if (id.indexOf('cnp_') === 0) return 'physics';
+    if (id.indexOf('cne_') === 0) return 'english';
     return 'math';
   }
 

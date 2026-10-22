@@ -4,6 +4,7 @@
   const E = window.DiagEngine;
   const LS_SESSION = 'cnmDiagnose.session.v2';
   const LS_SESSION_EN = 'cneDiagnose.session.v2';
+  const LS_SESSION_PHY = 'cnpDiagnose.session.v2';
   const LS_SETTINGS = 'cnmDiagnose.settings.v2';
   const LS_SEEN = 'cnmDiagnose.seen.v1';
   const LIMIT_MIN = 8, LIMIT_MAX = 30;
@@ -79,7 +80,7 @@
     node.setAttribute('focusable', 'false');
     return wrap;
   }
-  function sessionKey() { return subject === 'english' ? LS_SESSION_EN : LS_SESSION; }
+  function sessionKey() { return subject === 'english' ? LS_SESSION_EN : subject === 'physics' ? LS_SESSION_PHY : LS_SESSION; }
   function withSubject(href) {
     if (subject !== 'english' || !href || href.indexOf('subject=') >= 0 || href.indexOf('http') === 0) return href;
     return href + (href.indexOf('?') >= 0 ? '&' : '?') + 'subject=english';
@@ -87,19 +88,28 @@
   function detectSubject() {
     const params = new URLSearchParams(location.search);
     const explicit = params.get('subject');
-    if (explicit === 'english' || explicit === 'math') return explicit;
+    if (explicit === 'english' || explicit === 'math' || explicit === 'physics') return explicit;
     const target = params.get('target') || '';
     let hashId = (location.hash || '').replace(/^#/, '');
     try { hashId = decodeURIComponent(hashId); } catch (e) { /* 保持原样 */ }
-    if (/(^|,)\s*cne_/.test(target) || /^cne_/.test(hashId)) {
-      params.set('subject', 'english');
+    // 从 target / hash 的 id 前缀推断学科：cnp_ 物理、cne_ 英语
+    function guess(s) {
+      if (/(^|,)\s*cnp_/.test(s) || /^cnp_/.test(s)) return 'physics';
+      if (/(^|,)\s*cne_/.test(s) || /^cne_/.test(s)) return 'english';
+      return null;
+    }
+    const detected = guess(target) || guess(hashId);
+    if (detected) {
+      params.set('subject', detected);
       history.replaceState(null, '', location.pathname + '?' + params.toString() + location.hash);
-      return 'english';
+      return detected;
     }
     return 'math';
   }
   function applySubjectChrome() {
-    document.body.classList.toggle('subject-english', subject === 'english');
+    ['english', 'physics'].forEach(function (s) {
+      document.body.classList.toggle('subject-' + s, subject === s);
+    });
     document.querySelectorAll('.site-nav a[href]:not(.subject-link), a.brand').forEach(function (link) {
       const href = link.getAttribute('href');
       const next = withSubject(href);
@@ -115,8 +125,11 @@
       });
     });
     if (subject === 'english') {
-      document.title = '诊断 · 小学英语';
+      document.title = '诊断 · 英语';
       if (gradeSel === '七') gradeSel = '四';
+    } else if (subject === 'physics') {
+      document.title = '诊断 · 物理';
+      if (gradeSel === '七') gradeSel = '八';
     }
   }
   function lsGet(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
@@ -237,7 +250,7 @@
   function restart() {
     session = null; demo = null;
     lsDel(sessionKey());
-    history.replaceState(null, '', location.pathname + (subject === 'english' ? '?subject=english' : ''));
+    history.replaceState(null, '', location.pathname + (subject === 'math' ? '' : '?subject=' + subject));
     render();
   }
 
@@ -351,10 +364,14 @@
         ? '选一个想学会或想检查的英语知识点。第一题答对就算掌握；答错会再出一道同级或更容易的题——第二题也错才算薄弱，并回溯到先修；第二题答对则标为「不稳」。'
         : '选一个想学会或想检查的知识点。第一题答对就算掌握；答错会再出一道同级或更容易的题——第二题也错才算薄弱，并回溯到先修；第二题答对则标为「不稳」。'),
       h('div', { class: 'stage-tabs', role: 'tablist', 'aria-label': '学段' },
-        [stageButton('', '全部'), stageButton('p', '小学'), stageButton('j', '初中'), stageButton('h', '高中')]),
+        subject === 'physics'
+          ? [stageButton('', '全部'), stageButton('j', '初中')]
+          : [stageButton('', '全部'), stageButton('p', '小学'), stageButton('j', '初中'), stageButton('h', '高中')]),
       h('input', {
         type: 'search', class: 'search-lg', id: 'search',
-        placeholder: subject === 'english' ? '搜索知识点，例如：现在进行时、颜色、there is' : '搜索知识点，例如：配方法、20 以内加法、一次函数',
+        placeholder: subject === 'english' ? '搜索知识点，例如：现在进行时、颜色、there is'
+          : subject === 'physics' ? '搜索知识点，例如：欧姆定律、密度、凸透镜'
+          : '搜索知识点，例如：配方法、20 以内加法、一次函数',
         value: startQuery, autocomplete: 'off', 'aria-label': '搜索知识点',
         oninput: function (e) {
           startQuery = e.target.value;
@@ -387,6 +404,12 @@
 
   // 「学段」筛选后，整体诊断里可选的年级也要跟着变
   function gradeOptions() {
+    if (subject === 'physics') {
+      // 物理只有初中：八年级（上、下册）+ 九年级（全一册）
+      let phy = [];
+      if (!startStage || startStage === 'p' || startStage === 'j') phy = [['八', '八年级'], ['九', '九年级']];
+      return phy;
+    }
     const primary = (subject === 'english' ? '三四五六' : '一二三四五六').split('').map(function (x) { return [x, x + '年级']; });
     const junior = '七八九'.split('').map(function (x) { return [x, x + '年级']; });
     const senior = subject === 'english'
@@ -409,11 +432,11 @@
       const stillValid = options.some(function (o) { return o[0] === gradeSel; });
       if (!stillValid) {
         gradeSel = options.length ? options[0][0] : '';
-        volSel = (subject === 'english' && gradeSel === '九') ? '全' : '';
+        volSel = ((subject === 'english' || subject === 'physics') && gradeSel === '九') ? '全' : '';
       }
       // 年级是「高中」类（高一/高二/必修X/选必X）时，范围只能是整册
       if (seniorGrade(gradeSel)) volSel = '';
-      else if (subject === 'english' && gradeSel === '九') volSel = '全';
+      else if ((subject === 'english' || subject === 'physics') && gradeSel === '九') volSel = '全';
       else if (volSel === '全') volSel = '';
       const g = E.gradeTargets(D.graph, gradeScope(), subject);
       const tabs = function (label, items, current, set) {
@@ -441,13 +464,13 @@
         tabs('年级', options, gradeSel, function (v) {
           gradeSel = v;
           if (seniorGrade(v)) volSel = '';
-          else if (subject === 'english' && v === '九') volSel = '全';
+          else if ((subject === 'english' || subject === 'physics') && v === '九') volSel = '全';
           else if (volSel === '全') volSel = '';
         }),
         h('div', { style: 'margin-top:8px' }),
         seniorGrade(gradeSel)
           ? tabs('范围', [['', seniorRangeLabel(gradeSel)]], '', function () { volSel = ''; })
-          : (subject === 'english' && gradeSel === '九')
+          : ((subject === 'english' || subject === 'physics') && gradeSel === '九')
             ? tabs('范围', [['全', '全一册']], '全', function () { volSel = '全'; })
             : tabs('范围', [['', '整年级'], ['上', '上册'], ['下', '下册']], volSel, function (v) { volSel = v; }),
         h('p', { class: 'muted', id: 'grade-info' }, g ? g.label + '：' + g.ids.length + ' 个知识点。' : '这个范围没有知识点。'),
@@ -488,8 +511,9 @@
       if (!chapters.length) return;
       const count = chapters.reduce(function (n, c) { return n + c.rows.length; }, 0);
       shown += count;
-      const openVol = subject === 'english' ? '三上' : '一上';
-      const det = h('details', { class: 'vol', open: !!q || (startStage === 'j' ? vv[0] === '七上' : startStage === 'h' ? vv[0] === (subject === 'english' ? '必修一' : '高一') : vv[0] === openVol) },
+      const openVol = subject === 'english' ? '三上' : subject === 'physics' ? '八上' : '一上';
+      const juniorOpen = subject === 'physics' ? '八上' : '七上';
+      const det = h('details', { class: 'vol', open: !!q || (startStage === 'j' ? vv[0] === juniorOpen : startStage === 'h' ? vv[0] === (subject === 'english' ? '必修一' : '高一') : vv[0] === openVol) },
         h('summary', null, vv[1] + '（' + count + ' 个知识点）'));
       chapters.forEach(function (c) {
         const ch = c.ch;
