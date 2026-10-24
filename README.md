@@ -16,9 +16,11 @@
 - [数据规模](#数据规模)
 - [数据文件](#数据文件)
 - [知识覆盖](#知识覆盖)
+- [孩子档案与错题本](#孩子档案与错题本)
 - [诊断是怎么判的](#诊断是怎么判的)
 - [部署](#部署)
 - [可选：打包成单文件桌面版](#可选打包成单文件桌面版)
+- [回归测试](#回归测试)
 - [已知局限](#已知局限)
 - [来源与许可](#来源与许可)
 
@@ -307,6 +309,30 @@ python3 -m http.server 8000
 3. 用 pywebview / WebView2 打开 `http://127.0.0.1:<port>/`，`private_mode=False` 让诊断进度能持久化。
 
 这样得到的单文件约 12 MB，依赖系统自带的 WebView2 运行时（Win11 预装，Win10 由 Windows Update 推送）。要让目标机器完全零依赖，就改用 Electron 自带 Chromium，体积会到 90–150 MB。
+
+## 回归测试
+
+`tests/` 里有 6 个 CDP 驱动的验收脚本，一条命令跑完：
+
+```powershell
+pwsh -File tests/verify.ps1              # 全部（功能 + 数据 + 样式）
+pwsh -File tests/verify.ps1 -StyleOnly   # 只跑样式断言
+```
+
+脚本自己起静态服务器（:8770）和 headless Chrome（CDP :9333），按 `--user-data-dir` 标记清理自己起的进程，不会影响你平时开着的 Chrome。
+
+| 脚本 | 检查内容 |
+|---|---|
+| `audit.mjs` | 控制台报错、网络失败、关键 DOM、页面统计数字 |
+| `probe.mjs` | 390 / 768 / 1280 三个视口下的横向溢出 |
+| `interact.mjs` | 年级折叠、搜索过滤、选中知识点、诊断作答 |
+| `final.mjs` | 诊断端到端：建档案 → 答题 → 结果页 → 路径图 / 导出 / 打印 |
+| `style-audit.mjs` | WCAG AA 对比度、触控尺寸 ≥44px |
+| `styles.mjs` | 页脚移除、年级行标记、移动端导航高度、大标题不拆行 |
+
+另有 `stats.mjs`（统计 `data/*.json` 生成 README 里的数字）和 `shots.mjs`（重新生成 26 张截图），不参与 `verify.ps1`，单独跑。
+
+前置：Node 18+（无需 npm 包）、Python 3、Chrome（非默认路径用 `CNM_CHROME` 指定）。详见 [tests/README.md](tests/README.md)。
 
 ## 已知局限
 
