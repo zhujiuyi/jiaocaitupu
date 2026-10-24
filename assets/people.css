@@ -230,3 +230,26 @@
   .book-row { grid-template-columns: 1fr; }
   .book-row-acts { justify-content: flex-start; }
 }
+
+/* ---------------- 年级提示 ---------------- */
+
+.grade-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: -6px 0 16px;
+  font-size: 0.86rem;
+}
+.grade-tag .tag {
+  background: var(--brand-soft);
+  border: 1px solid rgba(111, 227, 255, 0.35);
+  color: var(--brand-strong);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.grade-tag a { color: var(--muted); }
+.grade-tag a:hover { color: var(--brand-strong); }
+
+.child-other-grades { flex-basis: 100%; margin-top: 2px; }

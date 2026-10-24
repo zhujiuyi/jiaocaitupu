@@ -61,6 +61,7 @@
     nameInput.scrollIntoView({ block: 'center', behavior: 'smooth' });
   }
 
+  // 当前年级的错题分布，另起一行说明其他年级还有多少（改年级才能看）
   function subjectChips(cid) {
     var by = CC.countBySubject(cid);
     var box = el('div', 'child-subjects');
@@ -72,7 +73,20 @@
       var chip = el('span', 'chip chip-' + s, SUBJECT_NAME[s] + ' ' + n);
       box.appendChild(chip);
     });
-    if (!any) box.appendChild(el('span', 'child-none', '错题本还是空的'));
+    if (!any) box.appendChild(el('span', 'child-none', '这个年级的错题本还是空的'));
+
+    // 其他年级的本子：只报数，要看就把年级改过去
+    var c = CC.get(cid);
+    var curG = CC.gradeKey(c ? c.grade : '');
+    var others = CC.gradesOf(cid).filter(function (g) { return g !== curG; });
+    if (others.length) {
+      var line = el('div', 'child-other-grades');
+      var parts = others.map(function (g) {
+        return (g === '' ? '未填年级' : GRADE_LABEL[g] || g + '年级') + ' ' + CC.countInGrade(cid, g) + ' 条';
+      });
+      line.appendChild(el('span', 'child-none', '其他年级：' + parts.join('、') + '（改年级可切换）'));
+      box.appendChild(line);
+    }
     return box;
   }
 

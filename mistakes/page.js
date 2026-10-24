@@ -39,7 +39,9 @@
   function topicName(id) {
     var map = topicsBySubject[subject];
     var t = map && map[id];
-    return t ? t.name : id;
+    if (t) return t.name;
+    // 数据里找不到（题库改过 id、或手工造的数据）：退化成 id，但标出来
+    return id + '（数据里已无此知识点）';
   }
   function topicChapter(id) {
     var map = topicsBySubject[subject];
@@ -85,6 +87,31 @@
       });
       box.appendChild(n);
     });
+  }
+
+  var GRADE_LABEL = { '': '未填年级', 1: '一年级', 2: '二年级', 3: '三年级', 4: '四年级', 5: '五年级',
+    6: '六年级', 7: '七年级', 8: '八年级', 9: '九年级', 10: '高一', 11: '高二', 12: '高三' };
+
+  // 错题本跟着孩子的年级走：换个年级就是另一个本子
+  function renderGradeTag() {
+    var box = $('grade-tag');
+    box.replaceChildren();
+    if (!childId) { box.hidden = true; return; }
+    var c = CC.get(childId);
+    var g = CC.gradeKey(c ? c.grade : '');
+    box.hidden = false;
+    box.appendChild(el('span', 'tag', '当前年级的错题本：' + (GRADE_LABEL[g] || g + '年级')));
+
+    // 其他年级还有多少条，提醒改年级才能看
+    var others = CC.gradesOf(childId).filter(function (x) { return x !== g; });
+    if (others.length) {
+      var parts = others.map(function (x) {
+        return (GRADE_LABEL[x] || x + '年级') + ' ' + CC.countInGrade(childId, x) + ' 条';
+      });
+      var a = el('a', 'small', '其他年级：' + parts.join('、') + '（去档案改年级）');
+      a.href = '../children/';
+      box.appendChild(a);
+    }
   }
 
   function renderChildSelect() {
@@ -234,6 +261,7 @@
   function render() {
     renderChildSelect();
     renderSubjectTabs();
+    renderGradeTag();
     renderStats();
     var rows = childId ? CC.listMistakes(childId, subject) : [];
     renderStartBox(rows);

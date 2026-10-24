@@ -4,7 +4,9 @@
   'use strict';
 
   var KEY_CHILDREN = 'cnmChildren.v1';
-  var KEY_MISTAKES = 'cnmMistakes.v1';
+  // v1（无年级）→ v2（按孩子 + 年级分本）。升级时清空重来，见 migrateLegacy()。
+  var KEY_MISTAKES = 'cnmMistakes.v2';
+  var KEY_MISTAKES_LEGACY = 'cnmMistakes.v1';
   var MAX_CHILDREN = 8;
   var MAX_NAME = 12;
   var PRIORITY_STEP = 1.6;    // 每答错一次权重乘这个数
@@ -107,7 +109,7 @@
     s.children = s.children.filter(function (c) { return c.id !== id; });
     if (s.current === id) s.current = s.children.length ? s.children[0].id : null;
     write(KEY_CHILDREN, s);
-    // 连带删掉他的错题本
+    // 连带删掉他的全部错题本（所有年级）
     var m = read(KEY_MISTAKES, {});
     if (m[id]) { delete m[id]; write(KEY_MISTAKES, m); }
     return true;
@@ -118,18 +120,62 @@
   // 错题本按「孩子 → 学科 → 知识点」三层存
   function bookAll() { return read(KEY_MISTAKES, {}); }
 
+  /** 年级归一成字符串；没填就是空串，单独算一本「未分年级」 */
+  function gradeKey(g) {
+    if (g == null || g === '') return '';
+    return String(g);
+  }
+
+  /** 某个孩子「当前年级」的错题本（按学科取） */
   function book(childId, subject) {
+    var c = get(childId);
+    if (!c) return {};
+    var g = gradeKey(c.grade);
     var all = bookAll();
-    return (all[childId] && all[childId][subject]) || {};
+    return (all[childId] && all[childId][g] && all[childId][g][subject]) || {};
   }
 
   function bookSave(childId, subject, obj) {
+    var c = get(childId);
+    if (!c) return;
+    var g = gradeKey(c.grade);
     var all = bookAll();
     if (!all[childId]) all[childId] = {};
-    if (!obj || !Object.keys(obj).length) delete all[childId][subject];
-    else all[childId][subject] = obj;
-    if (all[childId] && !Object.keys(all[childId]).length) delete all[childId];
+    if (!all[childId][g]) all[childId][g] = {};
+    if (!obj || !Object.keys(obj).length) delete all[childId][g][subject];
+    else all[childId][g][subject] = obj;
+    if (!Object.keys(all[childId][g]).length) delete all[childId][g];
+    if (!Object.keys(all[childId]).length) delete all[childId];
     write(KEY_MISTAKES, all);
+  }
+
+  /** 列出这个孩子所有有错题的年级（降序），用于档案页显示 */
+  function gradesOf(childId) {
+    var all = bookAll()[childId] || {};
+    return Object.keys(all).filter(function (g) {
+      return all[g] && Object.keys(all[g]).length;
+    }).sort(function (a, b) {
+      if (a === '') return 1;
+      if (b === '') return -1;
+      return Number(b) - Number(a);
+    });
+  }
+
+  /** 指定年级的错题数（不分学科） */
+  function countInGrade(childId, grade) {
+    var all = bookAll()[childId] || {};
+    var g = all[gradeKey(grade)] || {};
+    return Object.keys(g).reduce(function (acc, s) {
+      return acc + Object.keys(g[s] || {}).length;
+    }, 0);
+  }
+
+  /* 旧版（v1，无年级）数据：按用户要求升级时清空重来 */
+  function migrateLegacy() {
+    var legacy = read(KEY_MISTAKES_LEGACY, null);
+    if (legacy) {
+      try { localStorage.removeItem(KEY_MISTAKES_LEGACY); } catch (e) { /* ignore */ }
+    }
   }
 
   /**
@@ -226,11 +272,13 @@
     return out;
   }
 
-  /** 各学科错题数，用于档案页显示 */
+  /** 当前年级下各学科错题数 */
   function countBySubject(childId) {
-    var all = bookAll()[childId] || {};
+    var c = get(childId);
+    if (!c) return {};
+    var g = (bookAll()[childId] || {})[gradeKey(c.grade)] || {};
     var out = {};
-    Object.keys(all).forEach(function (s) { out[s] = Object.keys(all[s] || {}).length; });
+    Object.keys(g).forEach(function (s) { out[s] = Object.keys(g[s] || {}).length; });
     return out;
   }
 
@@ -284,7 +332,9 @@
   /* ------------------------------------------------------------ 导出 / 导入 */
 
   var BACKUP_KIND = 'cnmBackup';
-  var BACKUP_VERSION = 1;
+  // v2 起 mistakes 多了一层「年级」。导入 v1 时错题会被丢弃（旧数据本来就不分年级）。
+  var BACKUP_VERSION = 2;
+  var BACKUP_MAX_IMPORT_VERSION = 2;
 
   /** 打包成可直接 JSON.stringify 的对象 */
   function exportData() {
@@ -292,11 +342,18 @@
     var all = bookAll();
     var books = {};
     s.children.forEach(function (c) {
-      if (all[c.id] && Object.keys(all[c.id]).length) books[c.id] = all[c.id];
+      // 只带这个孩子实际有错题的年级，结构 { childId: { gradeKey: { subject: {...} } } }
+      var byGrade = all[c.id];
+      if (!byGrade || !Object.keys(byGrade).length) return;
+      var kept = {};
+      Object.keys(byGrade).forEach(function (g) {
+        if (byGrade[g] && Object.keys(byGrade[g]).length) kept[g] = byGrade[g];
+      });
+      if (Object.keys(kept).length) books[c.id] = kept;
     });
     return {
       kind: BACKUP_KIND,
-      version: BACKUP_VERSION,
+      version: 2,
       exportedAt: nowIso(),
       children: s.children.map(function (c) {
         return { id: c.id, name: c.name, grade: c.grade, textbook: c.textbook, createdAt: c.createdAt };
@@ -311,7 +368,8 @@
     if (!data || typeof data !== 'object') return '不是有效的 JSON 对象。';
     if (data.kind !== BACKUP_KIND) return '这不是本工具导出的备份文件。';
     if (!Array.isArray(data.children)) return '备份里缺少 children 列表。';
-    if (data.version > BACKUP_VERSION) return '备份来自更新的版本（v' + data.version + '），请升级后再导入。';
+    if (!(data.version >= 1)) return '备份缺少版本号。';
+    if (data.version > BACKUP_MAX_IMPORT_VERSION) return '备份来自更新的版本（v' + data.version + '），请升级后再导入。';
     var seen = {};
     for (var i = 0; i < data.children.length; i++) {
       var c = data.children[i];
@@ -345,15 +403,34 @@
       };
     });
 
+    var isV2 = data.version >= 2;
+    var dropped = 0;   // v1 备份里没有年级信息，导入时丢弃这些错题
+
     if (mode === 'replace') {
       // 覆盖：本地全清，以文件为准
       write(KEY_CHILDREN, { current: data.current || (incoming[0] ? incoming[0].id : null), children: incoming });
       var m = {};
-      Object.keys(data.mistakes || {}).forEach(function (cid) {
-        if (data.mistakes[cid] && typeof data.mistakes[cid] === 'object') m[cid] = data.mistakes[cid];
-      });
+      if (isV2) {
+        Object.keys(data.mistakes || {}).forEach(function (cid) {
+          var byGrade = data.mistakes[cid];
+          if (!byGrade || typeof byGrade !== 'object') return;
+          var kept = {};
+          Object.keys(byGrade).forEach(function (g) {
+            if (byGrade[g] && typeof byGrade[g] === 'object' && Object.keys(byGrade[g]).length) kept[g] = byGrade[g];
+          });
+          if (Object.keys(kept).length) m[cid] = kept;
+        });
+      } else {
+        Object.keys(data.mistakes || {}).forEach(function (cid) {
+          var legacy = data.mistakes[cid];
+          if (!legacy || typeof legacy !== 'object') return;
+          Object.keys(legacy).forEach(function (sub) {
+            dropped += Object.keys(legacy[sub] || {}).length;
+          });
+        });
+      }
       write(KEY_MISTAKES, m);
-      return { ok: true, added: incoming.length, replaced: true, skipped: 0 };
+      return { ok: true, added: incoming.length, replaced: true, skipped: 0, mistakesDropped: dropped };
     }
 
     // 合并：保留本地，按 id 对齐；本地没有的追加，同名不同 id 的自动改名
@@ -384,32 +461,47 @@
     if (!s.current) s.current = s.children.length ? s.children[0].id : null;
     write(KEY_CHILDREN, s);
 
-    // 错题本合并：同一个孩子的同一学科，同知识点取「更顽固」的那条
+    // 错题本合并：孩子 → 年级 → 学科 → 知识点；同一条取「更顽固」的那条
     var all = bookAll();
     var mAdded = 0;
-    Object.keys(data.mistakes || {}).forEach(function (cid) {
-      if (!haveIds[cid]) return;                          // 孩子没被合并进来就跳过
-      var src = data.mistakes[cid];
-      if (!src || typeof src !== 'object') return;
-      if (!all[cid]) all[cid] = {};
-      Object.keys(src).forEach(function (subject) {
-        var rows = src[subject];
-        if (!rows || typeof rows !== 'object') return;
-        if (!all[cid][subject]) all[cid][subject] = {};
-        Object.keys(rows).forEach(function (tid) {
-          var inc = rows[tid];
-          if (!inc || typeof inc !== 'object') return;
-          var cur = all[cid][subject][tid];
-          if (!cur) { all[cid][subject][tid] = inc; mAdded++; return; }
-          // 取权重更高（更常错）、连续答对更少的那条
-          var incP = inc.priority || 0, curP = cur.priority || 0;
-          var incS = inc.correctStreak || 0, curS = cur.correctStreak || 0;
-          if (incP > curP || (incP === curP && incS < curS)) all[cid][subject][tid] = inc;
+    if (isV2) {
+      Object.keys(data.mistakes || {}).forEach(function (cid) {
+        if (!haveIds[cid]) return;                        // 孩子没被合并进来就跳过
+        var byGrade = data.mistakes[cid];
+        if (!byGrade || typeof byGrade !== 'object') return;
+        if (!all[cid]) all[cid] = {};
+        Object.keys(byGrade).forEach(function (g) {
+          var bySubject = byGrade[g];
+          if (!bySubject || typeof bySubject !== 'object') return;
+          if (!all[cid][g]) all[cid][g] = {};
+          Object.keys(bySubject).forEach(function (subject) {
+            var rows = bySubject[subject];
+            if (!rows || typeof rows !== 'object') return;
+            if (!all[cid][g][subject]) all[cid][g][subject] = {};
+            Object.keys(rows).forEach(function (tid) {
+              var inc = rows[tid];
+              if (!inc || typeof inc !== 'object') return;
+              var cur = all[cid][g][subject][tid];
+              if (!cur) { all[cid][g][subject][tid] = inc; mAdded++; return; }
+              var incP = inc.priority || 0, curP = cur.priority || 0;
+              var incS = inc.correctStreak || 0, curS = cur.correctStreak || 0;
+              if (incP > curP || (incP === curP && incS < curS)) all[cid][g][subject][tid] = inc;
+            });
+          });
         });
       });
-    });
+    } else {
+      // v1 备份没有年级，错题全部丢弃（只迁移档案）
+      Object.keys(data.mistakes || {}).forEach(function (cid) {
+        var legacy = data.mistakes[cid];
+        if (!legacy || typeof legacy !== 'object') return;
+        Object.keys(legacy).forEach(function (sub) {
+          dropped += Object.keys(legacy[sub] || {}).length;
+        });
+      });
+    }
     write(KEY_MISTAKES, all);
-    return { ok: true, added: added, replaced: false, skipped: skipped, mistakesAdded: mAdded };
+    return { ok: true, added: added, replaced: false, skipped: skipped, mistakesAdded: mAdded, mistakesDropped: dropped };
   }
 
   window.CnmChildren = {
@@ -432,6 +524,14 @@
 
     exportData: exportData,
     validateBackup: validateBackup,
-    importData: importData
+    importData: importData,
+
+    gradeKey: gradeKey,
+    gradesOf: gradesOf,
+    countInGrade: countInGrade,
+    migrateLegacy: migrateLegacy
   };
+
+  // 旧版错题本（v1，不分年级）按约定升级时清空重来
+  migrateLegacy();
 })();

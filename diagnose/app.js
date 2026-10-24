@@ -417,10 +417,15 @@
     });
     const st = childId ? CC.countBySubject(childId) : {};
     const total = Object.keys(st).reduce(function (a, k) { return a + st[k]; }, 0);
+    const kid = childId ? CC.get(childId) : null;
+    const GRADE_LABEL = { '': '未填年级', 1: '一年级', 2: '二年级', 3: '三年级', 4: '四年级', 5: '五年级',
+      6: '六年级', 7: '七年级', 8: '八年级', 9: '九年级', 10: '高一', 11: '高二', 12: '高三' };
+    const gLabel = kid ? (GRADE_LABEL[CC.gradeKey(kid.grade)] || CC.gradeKey(kid.grade) + '年级') : '';
     box.append(
       h('div', { class: 'row' },
         h('label', null, '孩子', sel),
-        h('span', { class: 'muted small', text: total ? '错题本共 ' + total + ' 条' : '错题本还是空的' })),
+        h('span', { class: 'muted small', text: kid ? ('年级：' + gLabel) : '' }),
+        h('span', { class: 'muted small', text: total ? '· 本年级错题 ' + total + ' 条' : '· 本年级错题本还是空的' })),
       h('p', { class: 'muted small' }, '做错的薄弱 / 不稳知识点会自动记进这个孩子的错题本。'),
       h('p', { class: 'err', id: 'child-tip', hidden: true, text: '先选一个孩子再开始。' }),
       h('p', { class: 'muted small' }, h('a', { href: '../children/' }, '管理档案'), ' · ',
