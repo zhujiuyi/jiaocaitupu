@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   const E = window.DiagEngine;
+  const CC = window.CnmChildren;   // 孩子档案 + 错题本（纯本机 localStorage）
   const LS_SESSION = 'cnmDiagnose.session.v2';
   const LS_SESSION_EN = 'cneDiagnose.session.v2';
   const LS_SESSION_PHY = 'cnpDiagnose.session.v2';
@@ -34,6 +35,9 @@
   let demo = null;         // 演示模式：{oracle}
   let ui = { key: null, phase: 'ask', answer: '', verdict: null };
   let subject = 'math';
+  let childId = null;        // 当前诊断归属的孩子；null = 未选，不能开始
+  let mistakesMode = false;  // 是否「错题本复习」会话
+  let bookDelta = null;      // 本次会话对错题本的增删，结果页展示用
   let startQuery = '';
   let startStage = '';
   let chapterOpen = false;
@@ -86,6 +90,19 @@
     if (subject !== 'english' || !href || href.indexOf('subject=') >= 0 || href.indexOf('http') === 0) return href;
     return href + (href.indexOf('?') >= 0 ? '&' : '?') + 'subject=english';
   }
+  // 从 URL 读孩子；没带就取上次选中的（档案页/错题本页会传 child=）
+  function detectChild() {
+    const params = new URLSearchParams(location.search);
+    const want = params.get('child');
+    if (want && CC && CC.get(want)) return want;
+    const cur = CC && CC.current();
+    return cur ? cur.id : null;
+  }
+
+  function detectMistakesMode() {
+    return new URLSearchParams(location.search).get('mistakes') === '1';
+  }
+
   function detectSubject() {
     const params = new URLSearchParams(location.search);
     const explicit = params.get('subject');
@@ -234,11 +251,24 @@
   }
 
   function startSession(targets, label, limit, mode) {
+    // 必须先选孩子：错题本要按孩子分别记录。演示模式例外（不写错题本）。
+    const isDemoRun = new URLSearchParams(location.search).get('demo') === '1';
+    if (!childId && !isDemoRun) {
+      const tip = document.getElementById('child-tip') || document.getElementById('toast');
+      if (tip) {
+        tip.hidden = false;
+        tip.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      } else {
+        renderStart('先建一个孩子档案，再开始诊断。');
+      }
+      return;
+    }
     const screen = mode === 'screen';
     session = E.createSession(D.graph, targets, {
       mode: mode, limit: limit || (screen ? getSettings().screenLimit : getSettings().limit), seed: newSeed(), avoid: seenList()
     });
     sessionMeta = { label: label };
+    bookDelta = { entered: 0, removed: 0, aggravated: 0 };
     resetUi();
     save();
     render();
@@ -261,11 +291,37 @@
 
   function commit(result) {
     const item = E.nextItem(D.graph, session);
+    const beforeStatus = session.status[item.topicId] ? session.status[item.topicId].s : null;
     session = E.applyAnswer(D.graph, session, item.topicId, result, { text: ui.answer });
+    // 知识点刚得出结论时写错题本（weak / shaky 进，答对累计，够两次移出）
+    const nowStatus = session.status[item.topicId] ? session.status[item.topicId].s : null;
+    if (nowStatus && nowStatus !== beforeStatus && !demo) recordToBook(item.topicId, nowStatus);
     markSeen(item.question.id);
     resetUi();
     save();
     render();
+  }
+
+  // 错题本复习：从错题本按权重抽 N 个知识点直接开测，不回溯先修
+  function startMistakesSession(n) {
+    if (!childId) { renderStart('错题复习要先选一个孩子。'); return; }
+    const ids = CC ? CC.pick(childId, subject, n) : [];
+    if (!ids.length) { renderStart('这门课的错题本是空的，先去诊断一次。'); return; }
+    const ok = ids.filter(function (id) { return D.graph.byId[id] && E.isTestable(D.graph, id); });
+    if (!ok.length) { renderStart('错题本里的知识点在当前数据里找不到了（学科编号可能变了）。'); return; }
+    mistakesMode = true;
+    // 用 screen 模式：诊断范围就是这批知识点本身，回溯不出范围（避免复习扩散到整章）
+    startSession(ok, '错题复习 · ' + ok.length + ' 个知识点', ok.length * 2, 'screen');
+  }
+
+  // 写错题本，并累计本次会话的增删，供结果页展示
+  function recordToBook(topicId, status) {
+    if (!CC || !childId) return;
+    if (!bookDelta) bookDelta = { entered: 0, removed: 0, aggravated: 0 };
+    const r = CC.recordResult(childId, subject, topicId, status);
+    if (r.entered) bookDelta.entered++;
+    else if (r.removed) bookDelta.removed++;
+    else if (r.aggravated) bookDelta.aggravated++;
   }
 
   function rebuild(answers, limit) {
@@ -336,6 +392,42 @@
     }, label);
   }
 
+  // 开始页顶部的「这次测谁」卡片。规则：必须选一个孩子才能开始。
+  function childCard() {
+    const kids = CC ? CC.list() : [];
+    const box = h('div', { class: 'card', id: 'child-card' });
+    box.append(h('h2', null, '这次测谁'));
+    if (!kids.length) {
+      box.append(
+        h('p', { class: 'muted' }, '还没有孩子档案。建一个档案后，做错的知识点才会记进他的错题本。'),
+        h('p', null, h('a', { class: 'btn primary', href: '../children/' }, '去建档案')));
+      return box;
+    }
+    const sel = h('select', { id: 'child-pick', 'aria-label': '选择孩子' },
+      kids.map(function (c) {
+        return h('option', { value: c.id, selected: c.id === childId ? '' : null }, c.name);
+      }));
+    sel.addEventListener('change', function () {
+      childId = sel.value || null;
+      if (childId && CC) CC.setCurrent(childId);
+      const q = new URLSearchParams(location.search);
+      if (childId) q.set('child', childId); else q.delete('child');
+      history.replaceState(null, '', location.pathname + '?' + q.toString());
+      render();
+    });
+    const st = childId ? CC.countBySubject(childId) : {};
+    const total = Object.keys(st).reduce(function (a, k) { return a + st[k]; }, 0);
+    box.append(
+      h('div', { class: 'row' },
+        h('label', null, '孩子', sel),
+        h('span', { class: 'muted small', text: total ? '错题本共 ' + total + ' 条' : '错题本还是空的' })),
+      h('p', { class: 'muted small' }, '做错的薄弱 / 不稳知识点会自动记进这个孩子的错题本。'),
+      h('p', { class: 'err', id: 'child-tip', hidden: true, text: '先选一个孩子再开始。' }),
+      h('p', { class: 'muted small' }, h('a', { href: '../children/' }, '管理档案'), ' · ',
+        h('a', { href: '../mistakes/?' + (subject === 'math' ? '' : 'subject=' + subject + '&') + 'child=' + (childId || '') }, '打开错题本')));
+    return box;
+  }
+
   function renderStart(errMsg) {
     const page = h('div');
     const saved = lsGet(sessionKey());
@@ -347,6 +439,7 @@
         ' ', h('button', { onclick: function () { lsDel(sessionKey()); renderStart(); } }, '放弃存档')));
     }
     if (errMsg) page.append(h('p', { class: 'err', text: errMsg }));
+    page.append(childCard());
 
     const st = getSettings();
     const limitInput = h('input', { type: 'number', min: LIMIT_MIN, max: LIMIT_MAX, step: 1, value: String(st.limit), id: 'limit-input', 'aria-label': '题量上限' });
@@ -849,6 +942,8 @@
       h('p', { class: 'muted small' }, '题量用完，或不必再测，所以没问到的知识点。小学知识点同样会出题。'),
       sum.untested.map(function (id) { return topicItem(id, statusTags(id, rootSet, targetSet)); })));
 
+    const bk = bookCard();
+    if (bk) page.append(bk);
     page.append(standardsCard(sum));
     page.append(logCard());
     page.append(h('p', { class: 'iq-line', id: 'iq-line' },
@@ -889,6 +984,25 @@
   }
 
   function stat(cls, n, label) { return h('div', { class: 'stat ' + cls }, h('b', { text: String(n) }), label); }
+
+  // 结果页底部的错题本小结
+  function bookCard() {
+    if (!CC || !childId || !bookDelta) return null;
+    const d = bookDelta;
+    if (!d.entered && !d.removed && !d.aggravated) return null;
+    const st = CC.stats(childId, subject);
+    const kid = CC.get(childId);
+    const parts = [];
+    if (d.entered) parts.push('新增错题 ' + d.entered + ' 个');
+    if (d.aggravated) parts.push('加重 ' + d.aggravated + ' 个');
+    if (d.removed) parts.push('掌握后移出 ' + d.removed + ' 个');
+    return h('div', { class: 'card' },
+      h('h2', null, '错题本'),
+      h('p', { class: 'muted' }, (kid ? kid.name + ' · ' : '') + parts.join('，') + '。'),
+      h('p', { class: 'muted small' },
+        '当前累计 ' + st.total + ' 个' + (st.pending ? '，其中 ' + st.pending + ' 个待确认（下次必考）' : '') + '。'),
+      h('p', null, h('a', { class: 'btn', href: '../mistakes/?' + (subject === 'math' ? '' : 'subject=' + subject + '&') + 'child=' + childId }, '打开错题本')));
+  }
 
   function standardsCard(sum) {
     const ids = new Set(session.mode === 'screen' ? [] : session.targets);
@@ -1186,6 +1300,8 @@
 
   async function init() {
     subject = detectSubject();
+    childId = detectChild();
+    mistakesMode = detectMistakesMode();
     applySubjectChrome();
     try { await loadData(); } catch (e) {
       clearRoot();
@@ -1195,6 +1311,25 @@
       return;
     }
     const params = new URLSearchParams(location.search);
+
+    // 错题本复习：从错题本按权重抽 N 个点，直接开测（需要先有孩子）
+    if (mistakesMode && !params.get('demo')) {
+      if (!childId) { renderStart('错题复习要先选一个孩子。'); return; }
+      const want = parseInt(params.get('limit'), 10);
+      const n = want > 0 ? want : 8;
+      const ids = (CC ? CC.pick(childId, subject, n) : []).filter(function (id) {
+        return D.graph.byId[id] && E.isTestable(D.graph, id);
+      });
+      if (!ids.length) {
+        renderStart('这门课的错题本是空的，或者里面的知识点在当前数据里找不到了。');
+        return;
+      }
+      mistakesMode = true;
+      if (params.get('seed')) seedParam = params.get('seed');
+      startSession(ids, '错题复习 · ' + ids.length + ' 个知识点', ids.length * 2, 'screen');
+      return;
+    }
+
     let resolved = null;
     try { resolved = resolveTargets(params); } catch (e) { renderStart(e.message); return; }
     if (params.get('seed')) seedParam = params.get('seed');
