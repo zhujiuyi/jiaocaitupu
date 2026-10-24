@@ -5,6 +5,7 @@
   const LS_SESSION = 'cnmDiagnose.session.v2';
   const LS_SESSION_EN = 'cneDiagnose.session.v2';
   const LS_SESSION_PHY = 'cnpDiagnose.session.v2';
+  const LS_SESSION_ZH = 'cncDiagnose.session.v2';
   const LS_SETTINGS = 'cnmDiagnose.settings.v2';
   const LS_SEEN = 'cnmDiagnose.seen.v1';
   const LIMIT_MIN = 8, LIMIT_MAX = 30;
@@ -80,7 +81,7 @@
     node.setAttribute('focusable', 'false');
     return wrap;
   }
-  function sessionKey() { return subject === 'english' ? LS_SESSION_EN : subject === 'physics' ? LS_SESSION_PHY : LS_SESSION; }
+  function sessionKey() { return subject === 'english' ? LS_SESSION_EN : subject === 'physics' ? LS_SESSION_PHY : subject === 'chinese' ? LS_SESSION_ZH : LS_SESSION; }
   function withSubject(href) {
     if (subject !== 'english' || !href || href.indexOf('subject=') >= 0 || href.indexOf('http') === 0) return href;
     return href + (href.indexOf('?') >= 0 ? '&' : '?') + 'subject=english';
@@ -88,12 +89,13 @@
   function detectSubject() {
     const params = new URLSearchParams(location.search);
     const explicit = params.get('subject');
-    if (explicit === 'english' || explicit === 'math' || explicit === 'physics') return explicit;
+    if (explicit === 'english' || explicit === 'math' || explicit === 'physics' || explicit === 'chinese') return explicit;
     const target = params.get('target') || '';
     let hashId = (location.hash || '').replace(/^#/, '');
     try { hashId = decodeURIComponent(hashId); } catch (e) { /* 保持原样 */ }
     // 从 target / hash 的 id 前缀推断学科：cnp_ 物理、cne_ 英语
     function guess(s) {
+      if (/(^|,)\s*cnc_/.test(s) || /^cnc_/.test(s)) return 'chinese';
       if (/(^|,)\s*cnp_/.test(s) || /^cnp_/.test(s)) return 'physics';
       if (/(^|,)\s*cne_/.test(s) || /^cne_/.test(s)) return 'english';
       return null;
@@ -107,7 +109,7 @@
     return 'math';
   }
   function applySubjectChrome() {
-    ['english', 'physics'].forEach(function (s) {
+    ['english', 'physics', 'chinese'].forEach(function (s) {
       document.body.classList.toggle('subject-' + s, subject === s);
     });
     document.querySelectorAll('.site-nav a[href]:not(.subject-link), a.brand').forEach(function (link) {
@@ -130,6 +132,9 @@
     } else if (subject === 'physics') {
       document.title = '诊断 · 物理';
       if (gradeSel === '七') gradeSel = '八';
+    } else if (subject === 'chinese') {
+      document.title = '诊断 · 小学语文';
+      if (gradeSel === '七') gradeSel = '一';
     }
   }
   function lsGet(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
@@ -360,17 +365,22 @@
     browser.addEventListener('toggle', function () { chapterOpen = browser.open; });
     page.append(h('div', { class: 'card' },
       h('h1', { text: '选择诊断目标' }),
-      h('p', { class: 'muted' }, subject === 'english'
-        ? '选一个想学会或想检查的英语知识点。第一题答对就算掌握；答错会再出一道同级或更容易的题——第二题也错才算薄弱，并回溯到先修；第二题答对则标为「不稳」。'
-        : '选一个想学会或想检查的知识点。第一题答对就算掌握；答错会再出一道同级或更容易的题——第二题也错才算薄弱，并回溯到先修；第二题答对则标为「不稳」。'),
+      h('p', { class: 'muted' }, (subject === 'english' ? '选一个想学会或想检查的英语知识点。'
+        : subject === 'physics' ? '选一个想学会或想检查的物理知识点。'
+        : subject === 'chinese' ? '选一个想学会或想检查的语文知识点。'
+        : '选一个想学会或想检查的知识点。')
+        + '第一题答对就算掌握；答错会再出一道同级或更容易的题——第二题也错才算薄弱，并回溯到先修；第二题答对则标为「不稳」。'),
       h('div', { class: 'stage-tabs', role: 'tablist', 'aria-label': '学段' },
         subject === 'physics'
-          ? [stageButton('', '全部'), stageButton('j', '初中')]
-          : [stageButton('', '全部'), stageButton('p', '小学'), stageButton('j', '初中'), stageButton('h', '高中')]),
+          ? [stageButton('', '全部'), stageButton('j', '初中'), stageButton('h', '高中')]
+          : subject === 'chinese'
+            ? [stageButton('', '全部'), stageButton('p', '小学')]
+            : [stageButton('', '全部'), stageButton('p', '小学'), stageButton('j', '初中'), stageButton('h', '高中')]),
       h('input', {
         type: 'search', class: 'search-lg', id: 'search',
         placeholder: subject === 'english' ? '搜索知识点，例如：现在进行时、颜色、there is'
           : subject === 'physics' ? '搜索知识点，例如：欧姆定律、密度、凸透镜'
+          : subject === 'chinese' ? '搜索知识点，例如：天地人、拼音、古诗'
           : '搜索知识点，例如：配方法、20 以内加法、一次函数',
         value: startQuery, autocomplete: 'off', 'aria-label': '搜索知识点',
         oninput: function (e) {
@@ -404,10 +414,17 @@
 
   // 「学段」筛选后，整体诊断里可选的年级也要跟着变
   function gradeOptions() {
+    if (subject === 'chinese') {
+      // 语文只有小学一至六年级
+      return '一二三四五六'.split('').map(function (x) { return [x, x + '年级']; });
+    }
     if (subject === 'physics') {
-      // 物理只有初中：八年级（上、下册）+ 九年级（全一册）
+      // 物理：初中（八年级上/下、九年级全一册）+ 高中（必修一~三、选必一~三）
+      const phySenior = [['必修一', '必修一'], ['必修二', '必修二'], ['必修三', '必修三'],
+                         ['选必一', '选必一'], ['选必二', '选必二'], ['选必三', '选必三']];
       let phy = [];
-      if (!startStage || startStage === 'p' || startStage === 'j') phy = [['八', '八年级'], ['九', '九年级']];
+      if (!startStage || startStage === 'j') phy = phy.concat([['八', '八年级'], ['九', '九年级']]);
+      if (!startStage || startStage === 'h') phy = phy.concat(phySenior);
       return phy;
     }
     const primary = (subject === 'english' ? '三四五六' : '一二三四五六').split('').map(function (x) { return [x, x + '年级']; });

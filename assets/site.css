@@ -397,9 +397,19 @@ html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0
 body.subject-english .legend li:has(.sw-j),
 body.subject-english .legend li:has(.sw-h) { display: none; }
 
-/* 物理只有初中：图例里的小学、高中都隐藏 */
-body.subject-physics .legend li:has(.sw-p),
-body.subject-physics .legend li:has(.sw-h) { display: none; }
+/* 物理覆盖初中+高中：图例里的小学隐藏 */
+body.subject-physics .legend li:has(.sw-p) { display: none; }
+/* 语文只有小学：图例里只留小学 */
+body.subject-chinese .legend li:has(.sw-j),
+body.subject-chinese .legend li:has(.sw-h) { display: none; }
+/* 语文用朱红色区分 */
+body.subject-chinese .stage-tab.on,
+body.subject-chinese button.choice.picked,
+body.subject-chinese .nav-menu .subject-link.on {
+  background: rgba(255, 138, 128, 0.16);
+  border-color: rgba(255, 138, 128, 0.45);
+  color: #ff9d92;
+}
 /* 物理用琥珀色区分，避免和数学青、英语蓝混在一起 */
 body.subject-physics .stage-tab.on,
 body.subject-physics button.choice.picked,
