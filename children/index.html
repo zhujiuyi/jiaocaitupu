@@ -50,6 +50,20 @@
     <span class="muted small" id="child-count"></span>
   </div>
 
+  <section class="card backup-card">
+    <h2>换设备：导出 / 导入</h2>
+    <p class="muted small">档案和错题本都只存在这台设备的浏览器里。换设备或重装系统前，先导出一份备份；到新设备上用「导入」还原。</p>
+    <div class="backup-actions">
+      <button id="btn-export" type="button" class="primary">导出备份</button>
+      <label class="btn file-btn">
+        导入备份
+        <input id="file-import" type="file" accept="application/json,.json" hidden>
+      </label>
+      <span class="muted small" id="backup-hint"></span>
+    </div>
+    <p id="backup-msg" class="muted small" hidden></p>
+  </section>
+
   <section class="card">
     <h2>新建 / 编辑</h2>
     <form id="child-form" class="child-form" autocomplete="off">

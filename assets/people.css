@@ -53,6 +53,40 @@
   .form-actions { justify-content: flex-start; }
 }
 
+/* ---------------- 导出 / 导入 ---------------- */
+
+.backup-card h2 { margin-bottom: 6px; }
+.backup-card .muted.small { margin: 0 0 12px; max-width: 70ch; }
+.backup-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+/* label 包一个隐藏的 file input，外观与其他按钮一致 */
+.file-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.94rem;
+  line-height: 1.2;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+.file-btn:hover { background: var(--bg-muted); border-color: var(--brand-strong); }
+.file-btn:focus-within { outline: 2px solid var(--brand-strong); outline-offset: 2px; }
+#backup-msg { margin: 12px 0 0; }
+#backup-msg.err { color: var(--warn); }
+#backup-hint { margin-left: auto; }
+
 /* ---------------- 孩子卡片 ---------------- */
 
 /* 表单所在卡片与下面的列表要留出间距 */

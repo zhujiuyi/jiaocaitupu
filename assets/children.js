@@ -281,6 +281,137 @@
     return a;
   }
 
+  /* ------------------------------------------------------------ 导出 / 导入 */
+
+  var BACKUP_KIND = 'cnmBackup';
+  var BACKUP_VERSION = 1;
+
+  /** 打包成可直接 JSON.stringify 的对象 */
+  function exportData() {
+    var s = state();
+    var all = bookAll();
+    var books = {};
+    s.children.forEach(function (c) {
+      if (all[c.id] && Object.keys(all[c.id]).length) books[c.id] = all[c.id];
+    });
+    return {
+      kind: BACKUP_KIND,
+      version: BACKUP_VERSION,
+      exportedAt: nowIso(),
+      children: s.children.map(function (c) {
+        return { id: c.id, name: c.name, grade: c.grade, textbook: c.textbook, createdAt: c.createdAt };
+      }),
+      current: s.current,
+      mistakes: books
+    };
+  }
+
+  /** 校验一个解析后的备份对象，返回错误文案或 null */
+  function validateBackup(data) {
+    if (!data || typeof data !== 'object') return '不是有效的 JSON 对象。';
+    if (data.kind !== BACKUP_KIND) return '这不是本工具导出的备份文件。';
+    if (!Array.isArray(data.children)) return '备份里缺少 children 列表。';
+    if (data.version > BACKUP_VERSION) return '备份来自更新的版本（v' + data.version + '），请升级后再导入。';
+    var seen = {};
+    for (var i = 0; i < data.children.length; i++) {
+      var c = data.children[i];
+      if (!c || typeof c.id !== 'string' || !c.id) return '第 ' + (i + 1) + ' 个孩子的 id 无效。';
+      if (typeof c.name !== 'string' || !c.name.trim()) return '第 ' + (i + 1) + ' 个孩子没有昵称。';
+      if (seen[c.id]) return '备份里有重复的孩子 id：' + c.id;
+      seen[c.id] = 1;
+    }
+    if (data.children.length > MAX_CHILDREN) return '备份里有 ' + data.children.length + ' 个孩子，超过上限 ' + MAX_CHILDREN + '。';
+    if (data.mistakes != null && typeof data.mistakes !== 'object') return '备份里的 mistakes 格式不对。';
+    return null;
+  }
+
+  /**
+   * 导入。
+   * @param {object} data  已 JSON.parse 的备份对象
+   * @param {'merge'|'replace'} mode
+   * @returns {{ok:boolean, error?:string, added?:number, replaced?:boolean, skipped?:number}}
+   */
+  function importData(data, mode) {
+    var err = validateBackup(data);
+    if (err) return { ok: false, error: err };
+
+    var incoming = data.children.map(function (c) {
+      return {
+        id: c.id,
+        name: cleanName(c.name),
+        grade: c.grade == null ? null : c.grade,
+        textbook: c.textbook ? String(c.textbook).slice(0, 20) : '',
+        createdAt: c.createdAt || nowIso()
+      };
+    });
+
+    if (mode === 'replace') {
+      // 覆盖：本地全清，以文件为准
+      write(KEY_CHILDREN, { current: data.current || (incoming[0] ? incoming[0].id : null), children: incoming });
+      var m = {};
+      Object.keys(data.mistakes || {}).forEach(function (cid) {
+        if (data.mistakes[cid] && typeof data.mistakes[cid] === 'object') m[cid] = data.mistakes[cid];
+      });
+      write(KEY_MISTAKES, m);
+      return { ok: true, added: incoming.length, replaced: true, skipped: 0 };
+    }
+
+    // 合并：保留本地，按 id 对齐；本地没有的追加，同名不同 id 的自动改名
+    var s = state();
+    var haveIds = {};
+    var haveNames = {};
+    s.children.forEach(function (c) { haveIds[c.id] = 1; haveNames[c.name] = 1; });
+
+    var added = 0, skipped = 0;
+    incoming.forEach(function (c) {
+      if (haveIds[c.id]) { skipped++; return; }          // 同一个档案（同一台设备导出又导回）
+      if (s.children.length >= MAX_CHILDREN) { skipped++; return; }
+      var name = c.name;
+      if (haveNames[name]) {
+        // 不同 id 但重名：加后缀区分，避免 add() 的重名校验挡住
+        var n = 2;
+        while (haveNames[name + '（' + n + '）']) n++;
+        name = name + '（' + n + '）';
+      }
+      var child = {
+        id: c.id, name: name, grade: c.grade, textbook: c.textbook, createdAt: c.createdAt
+      };
+      s.children.push(child);
+      haveIds[child.id] = 1;
+      haveNames[name] = 1;
+      added++;
+    });
+    if (!s.current) s.current = s.children.length ? s.children[0].id : null;
+    write(KEY_CHILDREN, s);
+
+    // 错题本合并：同一个孩子的同一学科，同知识点取「更顽固」的那条
+    var all = bookAll();
+    var mAdded = 0;
+    Object.keys(data.mistakes || {}).forEach(function (cid) {
+      if (!haveIds[cid]) return;                          // 孩子没被合并进来就跳过
+      var src = data.mistakes[cid];
+      if (!src || typeof src !== 'object') return;
+      if (!all[cid]) all[cid] = {};
+      Object.keys(src).forEach(function (subject) {
+        var rows = src[subject];
+        if (!rows || typeof rows !== 'object') return;
+        if (!all[cid][subject]) all[cid][subject] = {};
+        Object.keys(rows).forEach(function (tid) {
+          var inc = rows[tid];
+          if (!inc || typeof inc !== 'object') return;
+          var cur = all[cid][subject][tid];
+          if (!cur) { all[cid][subject][tid] = inc; mAdded++; return; }
+          // 取权重更高（更常错）、连续答对更少的那条
+          var incP = inc.priority || 0, curP = cur.priority || 0;
+          var incS = inc.correctStreak || 0, curS = cur.correctStreak || 0;
+          if (incP > curP || (incP === curP && incS < curS)) all[cid][subject][tid] = inc;
+        });
+      });
+    });
+    write(KEY_MISTAKES, all);
+    return { ok: true, added: added, replaced: false, skipped: skipped, mistakesAdded: mAdded };
+  }
+
   window.CnmChildren = {
     MAX_CHILDREN: MAX_CHILDREN,
     KILL_STREAK: KILL_STREAK,
@@ -297,6 +428,10 @@
     listMistakes: listMistakes,
     stats: stats,
     countBySubject: countBySubject,
-    pick: pick
+    pick: pick,
+
+    exportData: exportData,
+    validateBackup: validateBackup,
+    importData: importData
   };
 })();
