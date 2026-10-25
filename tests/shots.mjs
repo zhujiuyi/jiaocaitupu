@@ -129,6 +129,63 @@ const run = async () => {
   await go(BASE + '/explore/?subject=chinese#cnc_p001', 4200);
   await shot('19-chinese-explore.png');
 
+  // ---- 孩子档案 / 错题本（20–26）----
+  // 先造两个孩子的档案 + 若干错题，否则这些页面是空态
+  console.log('== 档案与错题本 ==');
+  await vp(1280, 900);
+  await go(BASE + '/children/', 2400);
+  await js(`localStorage.clear()`);
+  await go(BASE + '/children/', 2400);
+  await js(`(function(){
+    const C = window.CnmChildren;
+    const a = C.add({ name: '小明', grade: 7, textbook: '人教A版' }).child;
+    const b = C.add({ name: '小红', grade: 8, textbook: '人教A版' }).child;
+    C.setCurrent(a.id);
+    ['cnm_221','cnm_220','cnm_318','cnm_118','cnm_045'].forEach(function (x, i) {
+      C.recordResult(a.id, 'math', x, i % 2 ? 'weak' : 'shaky');
+    });
+    C.recordResult(a.id, 'english', 'cne_j012', 'weak');
+    C.recordResult(a.id, 'physics', 'cnp_p005', 'weak');
+    // 切到 8 年级再攒几条，用来演示「按年级分本」
+    C.update(a.id, { name: '小明', grade: 8, textbook: '人教A版' });
+    ['cnm_319','cnm_320'].forEach(function (x) { C.recordResult(a.id, 'math', x, 'weak'); });
+    ['cnm_221','cnm_045'].forEach(function (x) { C.recordResult(b.id, 'math', x, 'weak'); });
+  })()`);
+  await go(BASE + '/children/', 2600);
+  await shot('20-children.png');
+
+  // 错题本（小明 = 当前孩子，8 年级）
+  const kid = await js(`JSON.parse(localStorage.getItem('cnmChildren.v1')).current`);
+  await go(BASE + '/mistakes/?subject=math&child=' + kid, 3000);
+  await shot('21-mistakes.png');
+
+  // 诊断页「这次测谁」卡片
+  await go(BASE + '/diagnose/?child=' + kid, 3200);
+  await shot('22-diagnose-child.png');
+
+  // 错题本移动端
+  await vp(390, 844, true);
+  await go(BASE + '/mistakes/?subject=math&child=' + kid, 3000);
+  await shot('23-mistakes-mobile.png');
+
+  // 导出/导入备份卡片（点一下导出，让提示出现）
+  await vp(1280, 900);
+  await go(BASE + '/children/', 2600);
+  await js(`document.getElementById('btn-export').click()`);
+  await sleep(700);
+  await shot('24-children-backup.png');
+
+  // 按年级分本：档案页显示「其他年级 N 条」
+  await go(BASE + '/children/', 2600);
+  await shot('25-children-grades.png');
+
+  // 错题本顶部提示当前年级与旧年级条数
+  await go(BASE + '/mistakes/?subject=math&child=' + kid, 3000);
+  await shot('26-mistakes-grade.png');
+
+  // 收尾：清掉为截图造的假数据，避免污染下次手工验证
+  await js(`localStorage.clear()`);
+
   console.log(`\n共生成 ${saved} 张`);
   ws.close();
 };
