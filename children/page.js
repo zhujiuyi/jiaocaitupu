@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   var CC = window.CnmChildren;
+  var S = window.CnmSubjects;
 
   function el(tag, cls, text) {
     var n = document.createElement(tag);
@@ -11,7 +12,6 @@
   }
   function $(id) { return document.getElementById(id); }
 
-  var SUBJECT_NAME = { math: '数学', english: '英语', physics: '物理', chinese: '语文' };
   var GRADE_OPTS = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   var GRADE_LABEL = { '': '未填', 1: '一年级', 2: '二年级', 3: '三年级', 4: '四年级', 5: '五年级', 6: '六年级',
     7: '七年级', 8: '八年级', 9: '九年级', 10: '高一', 11: '高二', 12: '高三' };
@@ -66,11 +66,11 @@
     var by = CC.countBySubject(cid);
     var box = el('div', 'child-subjects');
     var any = false;
-    Object.keys(SUBJECT_NAME).forEach(function (s) {
+    S.keys.forEach(function (s) {
       var n = by[s] || 0;
       if (!n) return;
       any = true;
-      var chip = el('span', 'chip chip-' + s, SUBJECT_NAME[s] + ' ' + n);
+      var chip = el('span', 'chip chip-' + s, S.catalog[s].name + ' ' + n);
       box.appendChild(chip);
     });
     if (!any) box.appendChild(el('span', 'child-none', '这个年级的错题本还是空的'));

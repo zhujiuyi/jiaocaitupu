@@ -109,6 +109,21 @@ const server = createServer(async (req, res) => {
   }
 
   const urlPath = req.url || '/';
+  const pathOnly = urlPath.split('?')[0].split('#')[0];
+  const suffix = urlPath.slice(pathOnly.length);
+  if (pathOnly === '/__refresh_cache') {
+    return send(res, 302, '', {
+      Location: '/', 'Cache-Control': 'no-store', 'Clear-Site-Data': '"cache"'
+    });
+  }
+  const canonicalPath = pathOnly.replace(/[/]{2,}/g, '/');
+  if (canonicalPath !== pathOnly) {
+    return send(res, 302, '', {
+      Location: canonicalPath + suffix,
+      'Cache-Control': 'no-store',
+      'Clear-Site-Data': '"cache"'
+    });
+  }
   let full = resolvePath(urlPath);
   if (!full) return send(res, 400, 'Bad Request');
 
@@ -117,11 +132,12 @@ const server = createServer(async (req, res) => {
 
     // 目录：尝试 index.html，否则 403（不做目录列表）
     if (info.isDirectory()) {
-      if (!urlPath.endsWith('/')) {
-        // 补斜杠，保持相对路径正确（页面用 ../assets 之类的相对引用）
-        const q = urlPath.includes('?') ? urlPath.slice(urlPath.indexOf('?')) : '';
-        res.writeHead(301, { Location: urlPath.replace(q, '') + '/' + q });
-        return res.end();
+      if (!pathOnly.endsWith('/')) {
+        // 只规范路径，完整保留查询参数；临时跳转避免缓存错误地址。
+        return send(res, 302, '', {
+          Location: pathOnly + '/' + suffix,
+          'Cache-Control': 'no-store'
+        });
       }
       full = join(full, 'index.html');
       info = await stat(full).catch(() => null);

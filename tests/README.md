@@ -30,7 +30,7 @@ pwsh -File tests/verify.ps1 -StyleOnly   # 只跑样式断言
 | `interact.mjs` | 交互流程：年级折叠、搜索过滤、选中知识点、诊断出题与作答 |
 | `final.mjs` | 诊断端到端：建档案 → 答题 → 结果页 → 路径图 / 导出 / 打印 |
 | `style-audit.mjs` | 对比度（WCAG AA）、触控尺寸 ≥44px、页脚状态 |
-| `styles.mjs` | 具体样式断言：页脚移除、年级行标记、移动端导航高度、大标题不拆行 |
+| `styles.mjs` | 具体样式断言：备案页脚、年级行标记、移动端导航高度、大标题不拆行 |
 | `shots.mjs` | 生成 README 用的 26 张截图，写入仓库根 `screenshots/` |
 | `stats.mjs` | 统计 `data/*.json` 的真实数字（README 里的数字来源，不手抄） |
 

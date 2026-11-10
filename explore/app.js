@@ -3,17 +3,7 @@
   'use strict';
 
   var FONT = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif';
-  var CN = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
-  // 英语高中不是「十年级」而是册次：必修一~三、选必一~四
-  var EN_BOOK = {
-    10: ['必修一', '必修一 · 必修第一册'],
-    11: ['必修二', '必修二 · 必修第二册'],
-    12: ['必修三', '必修三 · 必修第三册'],
-    13: ['选必一', '选必一 · 选择性必修第一册'],
-    14: ['选必二', '选必二 · 选择性必修第二册'],
-    15: ['选必三', '选必三 · 选择性必修第三册'],
-    16: ['选必四', '选必四 · 选择性必修第四册']
-  };
+  var S = window.CnmSubjects;
   var TYPE_ZH = {
     conceptual: '概念理解', procedural: '程序性技能', reasoning: '推理证明',
     application: '应用', modeling: '建模'
@@ -75,24 +65,9 @@
     if (grade <= 9) return '初中';
     return '高中';
   }
-  function gradeWord(grade) {
-    if (subject === 'english' && EN_BOOK[grade]) return EN_BOOK[grade][0];
-    if (grade === 10) return '高一';
-    if (grade === 11) return '高二';
-    if (grade === 12) return '选必一';
-    if (grade === 13) return '选必二';
-    if (grade === 14) return '选必三';
-    return CN[grade] + '年级';
-  }
   function gradeLabel(topic) {
-    if (subject === 'english' && EN_BOOK[topic.grade]) return EN_BOOK[topic.grade][1];
-    if (topic.grade === 10) return '高一 · 必修第一册';
-    if (topic.grade === 11) return '高二 · 必修第二册';
-    if (topic.grade === 12) return '选必一 · 选择性必修第一册';
-    if (topic.grade === 13) return '选必二 · 选择性必修第二册';
-    if (topic.grade === 14) return '选必三 · 选择性必修第三册';
-    if (topic.semester === '全') return CN[topic.grade] + '年级全一册';
-    return CN[topic.grade] + '年级' + topic.semester + '册';
+    var book = S.book(subject, topic.grade);
+    return book ? book.join(' · ') : S.volumeLabel(S.gradeWords[topic.grade] + topic.semester);
   }
   function paint(grade, colors) {
     if (grade <= 6) return { bg: colors.primaryBg, border: colors.primary, cls: 'primary' };
@@ -102,8 +77,10 @@
 
   function chapterOf(topic) {
     var text = topic.chapter || '未分章';
-    var primary = /^[一二三四五六]年级[上下]册\s+(.+)$/.exec(text);
-    if (primary) return primary[1];
+    var unit = /^[一二三四五六七八九]年级(?:[上下]册|全(?:一)?册)\s+(.+)$/.exec(text);
+    if (unit) return unit[1];
+    var seniorUnit = /^(?:选择性)?必修第[一二三四]册\s+(.+)$/.exec(text);
+    if (seniorUnit) return seniorUnit[1];
     var model = /^(高[一二]|选必[一二三]) (数学建模|数学探究) (\S+)$/.exec(text);
     if (model) return model[2] + ' ' + model[3];
     var junior = /^\S+\s+(第\S+章)\s+(.+)$/.exec(text);
@@ -204,26 +181,6 @@
         ((spec && spec.targets) || []).forEach(function (target) { aliasHitIds.add(target); });
       }
     });
-  }
-
-  // 学科由 id 前缀判定：cnm_ 数学、cne_ 英语、cnp_ 物理、cnc_ 语文
-  var SUBJECT_PREFIX = { cnm: 'math', cne: 'english', cnp: 'physics', cnc: 'chinese' };
-  var STANDARD_PREFIX = { 'cms-': 'math', 'ces-': 'english', 'cps-': 'physics', 'ccs-': 'chinese' };
-  function subjectOfId(id) {
-    return SUBJECT_PREFIX[String(id || '').slice(0, 3)] || 'math';
-  }
-  function subjectOfTopic(topic) {
-    var explicit = topic && topic.subject;
-    if (explicit && /^(english|physics|chinese|math)$/.test(explicit)) return explicit;
-    return subjectOfId(topic && topic.id);
-  }
-  function standardSubject(id) {
-    return STANDARD_PREFIX[String(id || '').slice(0, 4)] || 'math';
-  }
-
-  function withSubject(href) {
-    if (subject === 'math' || !href || href.indexOf('subject=') >= 0 || href.indexOf('http') === 0) return href;
-    return href + (href.indexOf('?') >= 0 ? '&' : '?') + 'subject=' + subject;
   }
 
   function passFilter(topic) {
@@ -356,7 +313,7 @@
       box.replaceChildren(el('div', { class: 'detail-empty' },
         el('h1', { text: '选择一个知识点' }),
         el('p', { text: '可以搜索，也可以按年级、册、章展开。选中之后，中间只画它附近的先修，以及后面一层会用到它的知识点。' })));
-      document.title = subject === 'math' ? '知识图谱 · 中小学知识图谱' : '知识图谱 · ' + ({ english: '英语', physics: '物理', chinese: '小学语文' }[subject] || '');
+      document.title = subject === 'math' ? '知识图谱 · 中小学知识图谱' : '知识图谱 · ' + S.catalog[subject].name;
       return;
     }
     var topic = byId.get(selected);
@@ -371,6 +328,7 @@
     parts.push(el('h1', { class: 'detail-title', text: topic.name }));
     parts.push(el('div', { class: 'pills' },
       el('span', { class: 'pill pill-' + (kind === 'primary' ? 'p' : kind === 'junior' ? 'j' : 'h'), text: stageLabel(topic.grade) }),
+      topic.archived ? el('span', { class: 'pill', text: '旧版知识点' }) : null,
       el('code', { class: 'id-code', text: topic.id })));
     var diagHref = '../diagnose/?target=' + encodeURIComponent(topic.id);
     if (subject !== 'math') diagHref = '../diagnose/?subject=' + subject + '&target=' + encodeURIComponent(topic.id);
@@ -808,101 +766,45 @@
   function readSubject() {
     var params = new URLSearchParams(location.search);
     var explicit = params.get('subject');
-    if (explicit === 'english' || explicit === 'math' || explicit === 'physics' || explicit === 'chinese') return explicit;
-    var hash = readHash();
-    // 从 hash 的 id 前缀推断学科
-    if (/^cnp_[A-Za-z0-9]+$/.test(hash)) {
-      params.set('subject', 'physics');
-      history.replaceState(null, '', location.pathname + '?' + params.toString() + '#' + hash);
-      return 'physics';
+    if (S.known(explicit)) return explicit;
+    var detected = S.fromId(readHash());
+    if (detected !== 'math') {
+      params.set('subject', detected);
+      history.replaceState(null, '', location.pathname + '?' + params.toString() + location.hash);
     }
-    if (/^cne_[A-Za-z0-9]+$/.test(hash)) {
-      params.set('subject', 'english');
-      history.replaceState(null, '', location.pathname + '?' + params.toString() + '#' + hash);
-      return 'english';
-    }
-    return 'math';
+    return detected;
   }
 
-  // 学段与年级联动：先选学段，年级下拉里只保留该学段的年级
-  var GRADE_RANGE = { '': [1, 14], p: [1, 6], j: [7, 9], h: [10, 14] };
-  var EN_GRADE_RANGE = { '': [3, 16], p: [3, 6], j: [7, 9], h: [10, 16] };
-  // 物理：八、九年级（初中）+ 必修一~三、选必一~三（高中，10–15）
-  var PHY_GRADE_RANGE = { '': [8, 15], p: [8, 9], j: [8, 9], h: [10, 15] };
-  // 语文只有小学一至六年级
-  var ZH_GRADE_RANGE = { '': [1, 6], p: [1, 6], j: [1, 6], h: [1, 6] };
-  function gradeRangeTable() {
-    if (subject === 'physics') return PHY_GRADE_RANGE;
-    if (subject === 'chinese') return ZH_GRADE_RANGE;
-    if (subject === 'english') return EN_GRADE_RANGE;
-    return GRADE_RANGE;
-  }
   function syncGradeOptions() {
-    var table = gradeRangeTable();
-    var range = table[stage] || table[''];
+    var available = S.grades(topics, stage).map(String);
     var select = $('fGrade');
-    if (!select) return;
-    select.replaceChildren();
-    select.append(el('option', { value: '', text: '全部年级' }));
-    for (var g = range[0]; g <= range[1]; g++) {
-      select.append(el('option', { value: String(g), text: gradeWord(g) }));
-    }
-    var n = parseInt(grade, 10);
-    if (grade && (isNaN(n) || n < range[0] || n > range[1])) grade = '';
+    select.replaceChildren(el('option', { value: '', text: '全部年级' }));
+    available.forEach(function (g) {
+      select.append(el('option', { value: g, text: S.gradeLabel(subject, Number(g)) }));
+    });
+    if (!available.includes(grade)) grade = '';
     select.value = grade;
   }
 
   function configureSubject() {
-    ['english', 'physics', 'chinese'].forEach(function (s) {
-      document.body.classList.toggle('subject-' + s, subject === s);
+    var stages = new Set(S.grades(topics).map(S.stage));
+    document.querySelectorAll('#stage-tabs [data-stage]').forEach(function (button) {
+      var value = button.dataset.stage;
+      button.hidden = !!value && !stages.has(value);
     });
-    document.querySelectorAll('.site-nav a[href]:not(.subject-link), a.brand').forEach(function (link) {
-      var href = link.getAttribute('href');
-      var next = withSubject(href);
-      if (next && next !== href) link.setAttribute('href', next);
+    Object.keys(S.stages).forEach(function (key) {
+      var swatch = document.querySelector('.legend .sw-' + key);
+      if (swatch) swatch.closest('li').hidden = !stages.has(key);
     });
-    // 两个二级菜单各自只高亮当前学科那一个
-    document.querySelectorAll('.nav-menu[data-group]').forEach(function (menu) {
-      menu.querySelectorAll('.subject-link').forEach(function (link) {
-        var on = link.getAttribute('data-subject') === subject;
-        link.classList.toggle('on', on);
-        if (on) link.setAttribute('aria-current', 'true');
-        else link.removeAttribute('aria-current');
-      });
-    });
-    if (subject !== 'math') {
-      // 各学科的学段覆盖不同：语文只有小学，物理只有初中+高中，英语三学段齐全
-      var stageVisible = {
-        english: { p: true, j: true, h: true },
-        physics: { p: false, j: true, h: true },
-        chinese: { p: true, j: false, h: false }
-      }[subject] || { p: true, j: true, h: true };
-      document.querySelectorAll('#stage-tabs [data-stage]').forEach(function (button) {
-        var value = button.getAttribute('data-stage');
-        button.hidden = value ? !stageVisible[value] : false;
-      });
-      $('stage-tabs').setAttribute('aria-label', '学段');
-      var sample = $('pick-sample');
-      if (sample) {
-        sample.textContent = subject === 'physics' ? '先看看「欧姆定律」'
-          : subject === 'chinese' ? '先看看「识字：天地人」' : '先看看「现在进行时」';
-      }
-      var TITLE = { english: '英语', physics: '物理', chinese: '小学语文' };
-      document.title = '知识图谱 · ' + TITLE[subject];
-    }
-    syncGradeOptions();
+    var sample = byId.get(S.catalog[subject].sample);
+    if (sample) $('pick-sample').textContent = '先看看「' + sample.name + '」';
   }
 
   function applyQuery() {
     var params = new URLSearchParams(location.search);
-    var gradeValue = params.get('grade') || '';
-    var gradeOk = subject === 'english' ? /^(?:[3-9]|1[0-6])$/
-      : subject === 'physics' ? /^(?:[89]|1[0-5])$/
-      : subject === 'chinese' ? /^[1-6]$/
-      : /^(?:[1-9]|1[0-4])$/;
-    if (gradeOk.test(gradeValue)) grade = gradeValue;
-    var stageValue = params.get('stage') || '';
-    if (stageValue === 'p' || stageValue === 'j' || stageValue === 'h') stage = stageValue;
+    grade = params.get('grade') || '';
+    var stageValue = params.get('stage');
+    if (Object.hasOwn(S.stages, stageValue) && S.grades(topics, stageValue).length) stage = stageValue;
     syncGradeOptions();
     domain = params.get('domain') || '';
   }
@@ -984,22 +886,8 @@
     $('btn-zoom-in').addEventListener('click', function () { zoomBy(1.25); });
     $('btn-zoom-out').addEventListener('click', function () { zoomBy(0.8); });
     $('pick-sample').addEventListener('click', function () {
-      if (subject === 'english') {
-        var hit = topics.find(function (topic) { return String(topic.name).indexOf('现在进行时') >= 0; });
-        if (hit) select(hit.id, 'user');
-        return;
-      }
-      if (subject === 'physics') {
-        var phy = topics.find(function (topic) { return String(topic.name).indexOf('欧姆定律') >= 0; });
-        if (phy) select(phy.id, 'user');
-        return;
-      }
-      if (subject === 'chinese') {
-        var zh = topics.find(function (topic) { return String(topic.name).indexOf('天地人') >= 0; });
-        if (zh) select(zh.id, 'user');
-        return;
-      }
-      select('cnm_221', 'user');
+      var id = S.catalog[subject].sample;
+      if (byId.has(id)) select(id, 'user');
     });
     document.body.addEventListener('click', function (event) {
       var jump = event.target.closest('[data-jump]');
@@ -1030,13 +918,14 @@
       if (!response.ok) throw new Error(files[responseIndex] + ' HTTP ' + response.status);
     });
     var json = await Promise.all(responses.map(function (response) { return response.json(); }));
-    topics = json[0].filter(function (topic) { return subjectOfTopic(topic) === subject; });
+    var subjectTopics = json[0].filter(function (topic) { return S.fromTopic(topic) === subject; });
+    topics = subjectTopics.filter(function (topic) { return !topic.archived; });
     var allow = {};
-    topics.forEach(function (topic) { allow[topic.id] = true; });
+    subjectTopics.forEach(function (topic) { allow[topic.id] = true; });
     deps = json[1].filter(function (edge) { return allow[edge.topicId] && allow[edge.prerequisiteId]; });
     aliases = (json[2] && json[2].aliases) || {};
     (json[3].items || []).forEach(function (item) { stdById.set(item.id, item); });
-    topics.forEach(function (topic, topicIndex) {
+    subjectTopics.forEach(function (topic, topicIndex) {
       byId.set(topic.id, topic);
       indexOf.set(topic.id, topicIndex);
       pre.set(topic.id, []);
@@ -1058,12 +947,13 @@
   }
 
   subject = readSubject();
-  configureSubject();
+  window.CnmNav.setSubject(subject);
   restoreDepth();
   syncDepthButtons();
-  applyQuery();
   bind();
   load().then(function () {
+    configureSubject();
+    applyQuery();
     fillDomain();
     syncControls();
     renderList();

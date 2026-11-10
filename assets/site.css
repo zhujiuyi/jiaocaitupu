@@ -302,10 +302,10 @@ html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0
   top: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%) translateY(-4px);
-  min-width: 132px;
+  min-width: 224px;
   padding: 6px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2px;
   background: var(--bg-elev);
   border: 1px solid var(--line-strong);
@@ -342,17 +342,17 @@ html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0
   box-shadow: inset 0 0 0 1px var(--line-strong);
 }
 
-/* 触屏设备没有 hover：点按展开，展开时把子项竖排在下方 */
+/* 触屏菜单以页眉为基准，十个学科不会挤出窄屏。 */
 @media (hover: none) {
-  .nav-item.has-menu { position: relative; }
+  .nav-item.has-menu { position: static; }
   .nav-item .nav-menu {
     position: absolute;
     top: calc(100% + 4px);
-    left: 0;
+    left: 12px;
+    right: 12px;
     transform: none;
-    min-width: 120px;
+    min-width: 0;
     padding: 6px;
-    flex-direction: column;
     gap: 2px;
     background: var(--bg-elev);
     border: 1px solid var(--line-strong);
@@ -366,7 +366,9 @@ html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    transform: none;
   }
+  .nav-item.has-menu:not(.open) .nav-menu { visibility: hidden; pointer-events: none; }
   .nav-item .nav-menu::before { display: none; }
   .nav-item .nav-menu .nav-link { width: 100%; }
 }
@@ -394,14 +396,6 @@ html.is-leaving body { opacity: 0; transition: opacity 160ms cubic-bezier(0.4, 0
   box-shadow: none;
 }
 
-body.subject-english .legend li:has(.sw-j),
-body.subject-english .legend li:has(.sw-h) { display: none; }
-
-/* 物理覆盖初中+高中：图例里的小学隐藏 */
-body.subject-physics .legend li:has(.sw-p) { display: none; }
-/* 语文只有小学：图例里只留小学 */
-body.subject-chinese .legend li:has(.sw-j),
-body.subject-chinese .legend li:has(.sw-h) { display: none; }
 /* 语文用朱红色区分 */
 body.subject-chinese .stage-tab.on,
 body.subject-chinese button.choice.picked,
@@ -845,33 +839,22 @@ a.grade-card.is-senior .grade-stage { color: var(--node-senior); }
   font-variant-numeric: tabular-nums;
 }
 
-a.iq-card {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 14px;
-  margin-top: 28px;
-  padding: 16px 18px;
-  max-width: 100%;
-  background: transparent;
-  border: 1px dashed var(--line-strong);
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--text);
-  transition: border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
+.site-footer {
+  padding: 0 16px 24px;
+  text-align: center;
+  font-size: 0.875rem;
 }
 
-a.iq-card:hover { border-color: var(--brand); background: rgba(111, 227, 255, 0.04); }
-a.iq-card strong { font-size: 0.95rem; font-weight: 600; }
-a.iq-card .iq-sub { font-weight: 500; color: var(--muted); font-size: 0.88rem; overflow-wrap: anywhere; }
-a.iq-card .iq-note {
-  margin-left: auto;
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 8px;
   color: var(--muted);
-  font-size: 0.74rem;
-  font-family: var(--mono);
-  letter-spacing: 0.04em;
-  overflow-wrap: anywhere;
 }
+
+.site-footer a:hover,
+.site-footer a:focus-visible { color: var(--brand-strong); }
 
 /* 卡片入场错峰 */
 .grade-grid > a.grade-card,
@@ -904,5 +887,4 @@ a.iq-card .iq-note {
   .hero-actions .btn { flex: 1 1 100%; }
   .grade-grid { grid-template-columns: minmax(0, 1fr); }
   .stat-num { font-size: 1.6rem; }
-  a.iq-card .iq-note { margin-left: 0; }
 }

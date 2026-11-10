@@ -26,19 +26,30 @@ const run = async () => {
   await send('Page.enable'); await send('Runtime.enable');
   const js = async (e) => (await send('Runtime.evaluate', { expression: e, returnByValue: true })).result?.result?.value;
 
-  // ---- 1. 诊断页页脚贴底（数字题，卡片较短的情况）----
+  // ---- 1. 备案页脚只出现在首页 ----
   await send('Emulation.setDeviceMetricsOverride', { width: 1280, height: 900, deviceScaleFactor: 1, mobile: false });
-  await send('Page.navigate', { url: BASE + '/diagnose/?target=cnm_221&seed=a' });
-  await sleep(2600);
-  // ---- 1. 页脚已移除：三页都不应再有 .site-footer ----
+  await send('Page.navigate', { url: BASE + '/' });
+  await sleep(2200);
+  const homeFooter = await js(`(() => {
+    const footer = document.querySelector('footer.site-footer');
+    const link = footer?.querySelector('a');
+    return {
+      text: link?.textContent.trim(),
+      href: link?.href,
+      centered: footer && getComputedStyle(footer).textAlign === 'center',
+      hasIqCard: !!document.querySelector('.iq-card')
+    };
+  })()`);
   const footerState = [];
-  for (const p of ['/', '/explore/', '/diagnose/']) {
+  for (const p of ['/explore/', '/diagnose/']) {
     await send('Page.navigate', { url: BASE + p });
     await sleep(2200);
     footerState.push(await js(`!!document.querySelector('.site-footer')`));
   }
-  check('三页均已移除页脚', footerState.every(function (v) { return v === false; }),
-    `首页/图谱/诊断 = ${JSON.stringify(footerState)}`);
+  check('备案链接在首页底部居中显示',
+    homeFooter.text === '冀ICP备2026049029号-1' && homeFooter.href === 'https://beian.miit.gov.cn/' &&
+    homeFooter.centered && footerState.every((visible) => !visible), JSON.stringify(homeFooter));
+  check('首页已移除儿童智商测试入口', !homeFooter.hasIqCard);
 
   // ---- 2. explore 年级行有展开标记 ----
   await send('Page.navigate', { url: BASE + '/explore/' });

@@ -18,14 +18,14 @@
  *   第二题对 -> 不稳（shaky，不向先修回溯）；第二题也错 -> 薄弱（weak，向先修回溯，hard 先于 soft）。
  */
 (function (root, factory) {
-  if (typeof module !== 'undefined' && module.exports) module.exports = factory();
-  else root.DiagEngine = factory();
-})(typeof self !== 'undefined' ? self : this, function () {
+  if (typeof module !== 'undefined' && module.exports) module.exports = factory(require('../assets/subjects.js'));
+  else root.DiagEngine = factory(root.CnmSubjects);
+})(typeof self !== 'undefined' ? self : this, function (subjects) {
   'use strict';
 
   /* ------------------------------------------------------------------ 图 */
 
-  const DIFF_RANK = { basic: 0, standard: 1, advanced: 2 };
+  const DIFF_RANK = { basic: 0, standard: 1, advanced: 2, challenge: 3 };
 
   function qNum(q) { const m = /_q(\d+)$/.exec(q.id); return m ? parseInt(m[1], 10) : 0; }
 
@@ -257,8 +257,8 @@
     const s = cloneSession(session);
     if (s.status[id]) { delete s.status[id]; s.attempts[id] = []; } // 对已有结论的点重新作答 = 重新开始
     const prev = s.attempts[id] || [];
-    const q = pickQuestion(graph, s, id, prev.length + 1);
-    const rec = { id: id, qid: q ? q.id : null, result: result };
+    const qid = extra && extra.qid !== undefined ? extra.qid : pickQuestion(graph, s, id, prev.length + 1)?.id || null;
+    const rec = { id: id, qid: qid, result: result };
     if (extra && extra.text != null && extra.text !== '') rec.text = String(extra.text);
     s.answers.push(rec);
     s.attempts[id] = prev.concat([{ qid: rec.qid, result: result }]);
@@ -306,7 +306,7 @@
   /** 由作答记录重建会话（用于刷新恢复、撤销、更正）。 */
   function replay(graph, targets, answers, opts) {
     let s = createSession(graph, targets, opts);
-    answers.forEach(function (a) { s = applyAnswer(graph, s, a.id, a.result, { text: a.text }); });
+    answers.forEach(function (a) { s = applyAnswer(graph, s, a.id, a.result, { text: a.text, qid: a.qid }); });
     return s;
   }
 
@@ -485,28 +485,30 @@
    */
   function parseChapter(chapter) {
     const s = chapter || '';
-    const pm = /^([一二三四五六])年级([上下])册 (第\d+单元) (.+)$/.exec(s);
-    if (pm) return { volume: pm[1] + pm[2], chapterNo: pm[3], chapterName: pm[4], section: '' };
-    const pi = /^([一二三四五六])年级([上下])册 (综合与实践) (.+)$/.exec(s);
-    if (pi) return { volume: pi[1] + pi[2], chapterNo: pi[3], chapterName: pi[4], section: '' };
+    const book = /^([一二三四五六七八九])年级([上下]册|全(?:一)?册) (.+)$/.exec(s);
+    if (book) {
+      const unit = /^(第\S+单元|预备单元\d+|综合与实践|复习) (.+)$/.exec(book[3]);
+      return {
+        volume: book[1] + book[2][0], chapterNo: unit ? unit[1] : book[3],
+        chapterName: unit ? unit[2] : '', section: ''
+      };
+    }
+    const seniorBook = /^(必修|选择性必修)第([一二三四])册 (\S+)(?: (.+))?$/.exec(s);
+    if (seniorBook) {
+      return {
+        volume: (seniorBook[1] === '必修' ? '必修' : '选必') + seniorBook[2],
+        chapterNo: seniorBook[3], chapterName: seniorBook[4] || '', section: ''
+      };
+    }
     // 高中不拆上下册。高一/高二是必修两册，选必一/二/三是选择性必修三册。
     const hs = /^(高[一二]|选必[一二三]) (数学建模|数学探究) (\S+)$/.exec(s);
     if (hs) return { volume: hs[1], chapterNo: hs[2], chapterName: hs[3], section: '' };
-    const m = /^(\S+) (第\S+章) (\S+?)(?: (\S+))?$/.exec(s);
+    const m = /^(\S+) (第\S+章) (.+?)(?: (\d+(?:\.\d+)*))?$/.exec(s);
     if (!m) return { volume: '', chapterNo: '', chapterName: s, section: '' };
     return { volume: m[1], chapterNo: m[2], chapterName: m[3], section: m[4] || '' };
   }
 
-  /** 学科：显式 subject 优先，否则按 id 前缀（cnc_ 语文、cnp_ 物理、cne_ 英语，其余数学）。 */
-  function subjectOf(topic) {
-    if (!topic) return 'math';
-    if (/^(english|physics|chinese|math)$/.test(topic.subject || '')) return topic.subject;
-    const id = String(topic.id || '');
-    if (id.indexOf('cnc_') === 0) return 'chinese';
-    if (id.indexOf('cnp_') === 0) return 'physics';
-    if (id.indexOf('cne_') === 0) return 'english';
-    return 'math';
-  }
+  const subjectOf = subjects.fromTopic;
 
   /**
    * 整年级 / 整册的知识点：'一年级' = 一上 + 一下，'七上' = 七年级上册。
@@ -517,33 +519,23 @@
    */
   function gradeTargets(graph, scope, subject) {
     const subj = subject == null || subject === '' ? 'math' : subject;
-    const key = String(scope == null ? '' : scope).trim();
-    const books = {
-      '高一': ['高一', '高一（必修第一册）'],
-      '高一必修': ['高一', '高一（必修第一册）'],
-      '高二': ['高二', '高二（必修第二册）'],
-      '高二必修': ['高二', '高二（必修第二册）'],
-      '选必一': ['选必一', '选必一（选择性必修第一册）'],
-      '选择性必修第一册': ['选必一', '选必一（选择性必修第一册）'],
-      '选必二': ['选必二', '选必二（选择性必修第二册）'],
-      '选择性必修第二册': ['选必二', '选必二（选择性必修第二册）'],
-      '选必三': ['选必三', '选必三（选择性必修第三册）'],
-      '选择性必修第三册': ['选必三', '选必三（选择性必修第三册）']
-    };
+    const key = String(scope == null ? '' : scope).trim().replace(/^(高[一二])必修$/, '$1');
+    const books = Array.from({ length: 7 }, (_, i) => subjects.book(subj === 'all' ? 'math' : subj, i + 10));
+    const book = books.find(row => row && row.includes(key));
     let volumes = null;
     let label = '';
-    if (books[key]) {
-      volumes = [books[key][0]];
-      label = books[key][1];
+    if (book) {
+      volumes = [book[0]];
+      label = book[0] + '（' + book[1] + '）';
     } else {
       const g = /^([一二三四五六七八九])年级$/.exec(key);
-      const v = /^([一二三四五六七八九])([上下])$/.exec(key);
-      if (g) { volumes = [g[1] + '上', g[1] + '下']; label = g[1] + '年级'; }
-      else if (v) { volumes = [key]; label = v[1] + '年级' + (v[2] === '上' ? '上册' : '下册'); }
+      const v = /^[一二三四五六七八九][上下全]$/.test(key);
+      if (g) { volumes = ['上', '下', '全'].map(s => g[1] + s); label = g[1] + '年级'; }
+      else if (v) { volumes = [key]; label = subjects.volumeLabel(key); }
     }
     if (!volumes) return null;
     const ids = graph.topics.filter(function (t) {
-      if (t.external) return false;
+      if (t.external || t.archived) return false;
       if (subj !== 'all' && subjectOf(t) !== subj) return false;
       return volumes.indexOf(parseChapter(t.chapter).volume) >= 0;
     }).map(function (t) { return t.id; });

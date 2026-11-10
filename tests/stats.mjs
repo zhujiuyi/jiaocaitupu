@@ -2,14 +2,17 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import subjects from '../assets/subjects.js';
 
 // tests/ 的父目录 = 仓库根
 const DATA = join(dirname(dirname(fileURLToPath(import.meta.url))), 'data') + '/';
 const read = (f) => JSON.parse(readFileSync(DATA + f, 'utf8'));
 
-const topics = read('topics.json');
+const allTopics = read('topics.json');
+const archived = new Set(allTopics.filter(t => t.archived).map(t => t.id));
+const topics = allTopics.filter(t => !t.archived);
 const deps = read('dependencies.json');
-const questions = read('questions.json');
+const questions = read('questions.json').filter(q => !archived.has(q.topicId));
 const standards = read('cn-curriculum-standards.json');
 
 const sample = topics[0];
@@ -19,17 +22,11 @@ console.log('question 字段:', Object.keys(questions[0]).join(', '));
 console.log('standards 顶层:', Object.keys(standards).join(', '));
 console.log('');
 
-const isEn = (t) => (t.subject === 'english') || /^cne_/.test(t.id);
-const isPhy = (t) => (t.subject === 'physics') || /^cnp_/.test(t.id);
-const isZh = (t) => (t.subject === 'chinese') || /^cnc_/.test(t.id);
 const isPrimary = (t) => /^cnm_p/.test(t.id);
 const isHigh = (t) => /^cnm_h/.test(t.id);
 const isJunior = (t) => /^cnm_\d+$/.test(t.id);
 
-const phy = topics.filter(isPhy);
-const zh = topics.filter(isZh);
-const math = topics.filter((t) => !isEn(t) && !isPhy(t) && !isZh(t));
-const en = topics.filter(isEn);
+const math = topics.filter(t => subjects.fromTopic(t) === 'math');
 const official = topics.filter((t) => !t.external);
 
 const count = (arr, fn) => arr.reduce((m, x) => { const k = fn(x) ?? 'null'; m[k] = (m[k] || 0) + 1; return m; }, {});
@@ -40,9 +37,12 @@ const edgeSoft = deps.filter((d) => d.strength === 'soft').length;
 
 const qByType = count(questions, (q) => q.type);
 const qByDiff = count(questions, (q) => q.difficulty);
-const qBySubject = count(questions, (q) => { const t = byId.get(q.topicId); return t ? (isEn(t) ? 'english' : isPhy(t) ? 'physics' : isZh(t) ? 'chinese' : 'math') : 'orphan'; });
+const qBySubject = count(questions, q => byId.has(q.topicId) ? subjects.fromTopic(byId.get(q.topicId)) : 'orphan');
 
 const stdItems = standards.items || [];
+const topicCounts = count(topics, subjects.fromTopic);
+const edgeCounts = count(deps, d => subjects.fromId(d.topicId));
+const stdCounts = count(stdItems, s => subjects.fromStandard(s.id));
 const stdByFramework = count(stdItems, (s) => (s.id || '').split(':')[0]);
 const stdByDomain = count(stdItems, (s) => {
   const m = (s.id || '').match(/^cms-\d{4}:[A-Z0-9]+\.([A-Z]+)\./);
@@ -52,9 +52,11 @@ const stdByDomain = count(stdItems, (s) => {
 const mapped = official.filter((t) => Array.isArray(t.standards) && t.standards.length).length;
 
 console.log('=== 知识点 ===');
-console.log('总计', topics.length, '| 数学', math.length, '| 英语', en.length, '| 物理', phy.length, '| 语文', zh.length, '| 正式(非 external)', official.length);
-console.log('小学', math.filter(isPrimary).length, '| 初中', math.filter(isJunior).length, '| 高中', math.filter(isHigh).length);
-console.log('英语 cne_', en.length);
+console.log('总计', topics.length, '| 旧版归档', archived.size);
+console.table(Object.fromEntries(subjects.keys.map(key => [subjects.catalog[key].name, {
+  知识点: topicCounts[key], 先修边: edgeCounts[key], 题目: qBySubject[key], 课标: stdCounts[key]
+}])));
+console.log('数学小学', math.filter(isPrimary).length, '| 初中', math.filter(isJunior).length, '| 高中', math.filter(isHigh).length);
 console.log('年级分布:', JSON.stringify(count(math, (t) => t.grade)));
 console.log('领域:', JSON.stringify(count(official, (t) => t.domain)));
 console.log('');
@@ -63,8 +65,7 @@ console.log('总计', deps.length, '| hard', edgeHard, '| soft', edgeSoft);
 console.log('跨学段:', deps.filter((d) => {
   const a = byId.get(d.topicId), b = byId.get(d.prerequisiteId);
   if (!a || !b) return false;
-  const stage = (x) => isPrimary(x) ? 'p' : isHigh(x) ? 'h' : isJunior(x) ? 'j' : 'e';
-  return stage(a) !== stage(b);
+  return subjects.stage(a.grade) !== subjects.stage(b.grade);
 }).length);
 console.log('');
 console.log('=== 题目 ===');

@@ -2,12 +2,7 @@
 (function () {
   'use strict';
   var CC = window.CnmChildren;
-  var SUBJECTS = [
-    { key: 'math', name: '数学' },
-    { key: 'english', name: '英语' },
-    { key: 'physics', name: '物理' },
-    { key: 'chinese', name: '语文' }
-  ];
+  var S = window.CnmSubjects;
   var COUNTS = [4, 8, 12, 16, 20];
   var DEFAULT_COUNT = 8;
   var STATUS_LABEL = { weak: '薄弱', shaky: '不稳' };
@@ -25,8 +20,8 @@
   function $(id) { return document.getElementById(id); }
 
   var params = new URLSearchParams(location.search);
-  var subject = SUBJECTS.some(function (s) { return s.key === params.get('subject'); })
-    ? params.get('subject') : 'math';
+  var key = params.get('subject');
+  var subject = S.known(key) ? key : 'math';
 
   var childId = params.get('child') || null;
   if (!childId || !CC.get(childId)) {
@@ -55,13 +50,9 @@
     loading[subject] = fetch('../data/topics.json')
       .then(function (r) { return r.json(); })
       .then(function (all) {
-        var pre = { math: 'cnm_', english: 'cne_', physics: 'cnp_', chinese: 'cnc_' }[subject];
         var map = {};
         all.forEach(function (t) {
-          if (!pre || String(t.id).indexOf(pre) === 0 || t.subject === subject) {
-            // cnm_ 前缀也包含数学；其余学科按自己的前缀
-            if (String(t.id).indexOf(pre) === 0) map[t.id] = t;
-          }
+          if (S.fromTopic(t) === subject) map[t.id] = t;
         });
         topicsBySubject[subject] = map;
       })
@@ -74,14 +65,14 @@
   function renderSubjectTabs() {
     var box = $('subject-tabs');
     box.replaceChildren();
-    SUBJECTS.forEach(function (s) {
-      var n = el('button', 'stage-tab' + (s.key === subject ? ' on' : ''), s.name);
+    S.keys.forEach(function (key) {
+      var n = el('button', 'stage-tab' + (key === subject ? ' on' : ''), S.catalog[key].name);
       n.type = 'button';
       n.setAttribute('role', 'tab');
-      n.setAttribute('aria-selected', s.key === subject ? 'true' : 'false');
+      n.setAttribute('aria-selected', key === subject ? 'true' : 'false');
       n.addEventListener('click', function () {
         var q = new URLSearchParams(location.search);
-        q.set('subject', s.key);
+        q.set('subject', key);
         if (childId) q.set('child', childId);
         location.search = q.toString();
       });

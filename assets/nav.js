@@ -3,11 +3,45 @@
    触屏没有 hover，完全靠点按。 */
 (function () {
   'use strict';
+  var subjects = window.CnmSubjects;
   var menuItems = document.querySelectorAll('.nav-item.has-menu');
   if (!menuItems.length) return;
 
   function triggerOf(item) { return item.querySelector(':scope > .nav-link'); }
   function menuOf(item) { return item.querySelector(':scope > .nav-menu'); }
+
+  document.querySelectorAll('.nav-menu[data-group]').forEach(function (menu) {
+    var base = menu.querySelector('.subject-link[data-subject="math"]');
+    subjects.keys.forEach(function (subject) {
+      if (!base || menu.querySelector('[data-subject="' + subject + '"]')) return;
+      var link = base.cloneNode(false);
+      link.dataset.subject = subject;
+      link.classList.remove('on');
+      link.setAttribute('href', subjects.withSubject(base.getAttribute('href'), subject));
+      link.textContent = subjects.catalog[subject].name;
+      menu.append(link);
+    });
+  });
+
+  var pageLinks = Array.from(document.querySelectorAll('.site-nav a[href]:not(.subject-link), a.brand'),
+    function (link) { return [link, link.getAttribute('href')]; });
+  function setSubject(subject) {
+    if (!subjects.known(subject)) subject = 'math';
+    subjects.keys.forEach(function (key) {
+      if (key !== 'math') document.body.classList.toggle('subject-' + key, key === subject);
+    });
+    document.querySelectorAll('.nav-menu[data-group] .subject-link').forEach(function (link) {
+      var on = link.dataset.subject === subject;
+      link.classList.toggle('on', on);
+      if (on) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+    pageLinks.forEach(function (entry) {
+      entry[0].setAttribute('href', subjects.withSubject(entry[1], subject));
+    });
+  }
+  window.CnmNav = { setSubject: setSubject };
+  setSubject(new URLSearchParams(location.search).get('subject'));
 
   function setOpen(item, open) {
     item.classList.toggle('open', open);
