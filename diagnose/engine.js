@@ -260,6 +260,7 @@
     const qid = extra && extra.qid !== undefined ? extra.qid : pickQuestion(graph, s, id, prev.length + 1)?.id || null;
     const rec = { id: id, qid: qid, result: result };
     if (extra && extra.text != null && extra.text !== '') rec.text = String(extra.text);
+    if (extra && extra.questionSnapshot) rec.questionSnapshot = extra.questionSnapshot;
     s.answers.push(rec);
     s.attempts[id] = prev.concat([{ qid: rec.qid, result: result }]);
     const nth = s.attempts[id].length;
@@ -306,7 +307,7 @@
   /** 由作答记录重建会话（用于刷新恢复、撤销、更正）。 */
   function replay(graph, targets, answers, opts) {
     let s = createSession(graph, targets, opts);
-    answers.forEach(function (a) { s = applyAnswer(graph, s, a.id, a.result, { text: a.text, qid: a.qid }); });
+    answers.forEach(function (a) { s = applyAnswer(graph, s, a.id, a.result, { text: a.text, qid: a.qid, questionSnapshot: a.questionSnapshot }); });
     return s;
   }
 

@@ -1,0 +1,4454 @@
+{
+  "cnd_p001_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "第一天去上学，最合适的做法是？",
+    "answer": "C",
+    "explanation": "按时到校并认识老师同学，才能开开心心上学。"
+  },
+  "cnd_p001_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "背书包走路上学，应该注意什么？",
+    "answer": "D",
+    "explanation": "上学路上要遵守交通规则。"
+  },
+  "cnd_p001_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "到了教室发现自己紧张，可以怎么做？",
+    "answer": "A",
+    "explanation": "紧张时可以放松一下，主动认识新同学。"
+  },
+  "cnd_p001_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "小学生在学校的主要任务是什么？",
+    "answer": "B",
+    "explanation": "小学生要以学习为主，并学会与同学相处。"
+  },
+  "cnd_p002_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "升国旗时，正确的做法是？",
+    "answer": "D",
+    "explanation": "升国旗要立正敬礼，表示尊敬。"
+  },
+  "cnd_p002_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "五星红旗是哪个国家的国旗？",
+    "answer": "A",
+    "explanation": "五星红旗是我们国家的国旗。"
+  },
+  "cnd_p002_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "为什么要向国旗敬礼？",
+    "answer": "B",
+    "explanation": "敬礼是热爱祖国、尊敬国家象征的表现。"
+  },
+  "cnd_p002_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "国旗上的大五角星代表什么？",
+    "answer": "C",
+    "explanation": "教材告诉我们，大五角星代表中国共产党。"
+  },
+  "cnd_p003_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "校园里常见的地方有？",
+    "answer": "A",
+    "explanation": "校园有教室、操场、图书馆等。"
+  },
+  "cnd_p003_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "在校园走廊里走路，正确做法是？",
+    "answer": "B",
+    "explanation": "走廊要文明行走，注意安全。"
+  },
+  "cnd_p003_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到花坛里的花，应该怎么做？",
+    "answer": "C",
+    "explanation": "要爱护校园花草。"
+  },
+  "cnd_p003_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "熟悉校园有什么好处？",
+    "answer": "D",
+    "explanation": "熟悉校园有助学习和安全。"
+  },
+  "cnd_p004_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "放学过马路时，应该怎么做？",
+    "answer": "B",
+    "explanation": "遵守交通规则才能平安回家。"
+  },
+  "cnd_p004_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "一个人在家，陌生人敲门说要进屋，正确做法是？",
+    "answer": "C",
+    "explanation": "不能给陌生人随便开门。"
+  },
+  "cnd_p004_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "路上有人给陌生食物，应该怎么做？",
+    "answer": "D",
+    "explanation": "不接受陌生人的食物。"
+  },
+  "cnd_p004_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么强调平平安安回家？",
+    "answer": "A",
+    "explanation": "安全是学习和生活的前提。"
+  },
+  "cnd_p005_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "见到老师，有礼貌的做法是？",
+    "answer": "C",
+    "explanation": "见到老师要主动问好。"
+  },
+  "cnd_p005_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "上课想发言，应该怎么做？",
+    "answer": "D",
+    "explanation": "发言要先举手。"
+  },
+  "cnd_p005_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "为什么要尊敬老师？",
+    "answer": "A",
+    "explanation": "老师传授知识、关心成长。"
+  },
+  "cnd_p005_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "向老师表达感谢，合适的方式是？",
+    "answer": "B",
+    "explanation": "真诚的话语或小卡片最合适。"
+  },
+  "cnd_p006_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "交新朋友时，比较好的做法是？",
+    "answer": "D",
+    "explanation": "友好介绍自己更容易交到朋友。"
+  },
+  "cnd_p006_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "好朋友之间最重要的是？",
+    "answer": "A",
+    "explanation": "友谊建立在尊重和诚实上。"
+  },
+  "cnd_p006_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "新同学一个人坐着，你可以？",
+    "answer": "B",
+    "explanation": "主动关心新同学。"
+  },
+  "cnd_p006_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "和朋友闹小矛盾，较好做法是？",
+    "answer": "C",
+    "explanation": "有矛盾要沟通，不能伤害对方。"
+  },
+  "cnd_p007_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "上课铃响了，应该？",
+    "answer": "A",
+    "explanation": "铃响要尽快回教室。"
+  },
+  "cnd_p007_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "听老师讲课，正确做法是？",
+    "answer": "B",
+    "explanation": "认真听讲才能学好。"
+  },
+  "cnd_p007_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "为什么要好好学习？",
+    "answer": "C",
+    "explanation": "学习增长知识和本领。"
+  },
+  "cnd_p007_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "听不懂一个问题，较好做法是？",
+    "answer": "D",
+    "explanation": "有疑问要及时请教。"
+  },
+  "cnd_p008_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "课余时间适合做什么？",
+    "answer": "B",
+    "explanation": "课余应选择有益活动。"
+  },
+  "cnd_p008_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "课间比较安全的活动是？",
+    "answer": "C",
+    "explanation": "课间注意安全。"
+  },
+  "cnd_p008_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "参加兴趣小组应注意？",
+    "answer": "D",
+    "explanation": "活动也要守规则、会合作。"
+  },
+  "cnd_p008_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么课余生活重要？",
+    "answer": "A",
+    "explanation": "丰富课余有助全面发展。"
+  },
+  "cnd_p009_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "比较合理的作息是？",
+    "answer": "C",
+    "explanation": "规律作息有益健康。"
+  },
+  "cnd_p009_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "作业写到很晚，较好调整是？",
+    "answer": "D",
+    "explanation": "要保证睡眠。"
+  },
+  "cnd_p009_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "早上磨蹭导致迟到，应怎么改？",
+    "answer": "A",
+    "explanation": "提前准备可避免迟到。"
+  },
+  "cnd_p009_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么作息要有规律？",
+    "answer": "B",
+    "explanation": "规律作息提高效率。"
+  },
+  "cnd_p010_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "吃饭时较好的习惯是？",
+    "answer": "D",
+    "explanation": "均衡饮食、不浪费。"
+  },
+  "cnd_p010_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "饭前应该做什么？",
+    "answer": "A",
+    "explanation": "饭前洗手更卫生。"
+  },
+  "cnd_p010_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "同学剩很多饭，较好提醒是？",
+    "answer": "B",
+    "explanation": "珍惜粮食，适量盛饭。"
+  },
+  "cnd_p010_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么吃饭要有讲究？",
+    "answer": "C",
+    "explanation": "合理饮食关乎健康。"
+  },
+  "cnd_p011_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "见到长辈，有礼貌的做法是？",
+    "answer": "A",
+    "explanation": "主动问好是基本礼貌。"
+  },
+  "cnd_p011_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "接受帮助后应说？",
+    "answer": "B",
+    "explanation": "接受帮助要致谢。"
+  },
+  "cnd_p011_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "不小心碰到别人，应？",
+    "answer": "C",
+    "explanation": "碰到人要道歉。"
+  },
+  "cnd_p011_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要有礼貌？",
+    "answer": "D",
+    "explanation": "礼貌是友好相处的基础。"
+  },
+  "cnd_p012_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "一起玩时正确做法是？",
+    "answer": "B",
+    "explanation": "玩也要守规则、会分享。"
+  },
+  "cnd_p012_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "下面哪种玩法不安全？",
+    "answer": "C",
+    "explanation": "马路边追逐危险。"
+  },
+  "cnd_p012_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "玩的时间到了该回家，应？",
+    "answer": "D",
+    "explanation": "玩也要守时并收拾。"
+  },
+  "cnd_p012_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么说玩也有学问？",
+    "answer": "A",
+    "explanation": "会选择、会合作、注意安全。"
+  },
+  "cnd_p013_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "在图书馆应怎么做？",
+    "answer": "C",
+    "explanation": "安静场所要保持安静。"
+  },
+  "cnd_p013_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "看电影时合适做法是？",
+    "answer": "D",
+    "explanation": "要顾及他人。"
+  },
+  "cnd_p013_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "家里有人休息，你应？",
+    "answer": "A",
+    "explanation": "有人休息要安静。"
+  },
+  "cnd_p013_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "公共场合为什么要小点儿声？",
+    "answer": "B",
+    "explanation": "顾及他人是公共文明。"
+  },
+  "cnd_p014_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学校课桌椅属于？",
+    "answer": "D",
+    "explanation": "课桌椅是公共财物。"
+  },
+  "cnd_p014_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "有人在课桌乱刻，应？",
+    "answer": "A",
+    "explanation": "要爱护公物。"
+  },
+  "cnd_p014_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "借用班级跳绳用完应？",
+    "answer": "B",
+    "explanation": "借用要归还。"
+  },
+  "cnd_p014_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么爱护公物？",
+    "answer": "C",
+    "explanation": "公物属于集体。"
+  },
+  "cnd_p015_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "零食包装袋应怎么处理？",
+    "answer": "A",
+    "explanation": "垃圾进垃圾桶。"
+  },
+  "cnd_p015_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公园找不到垃圾桶，较好做法？",
+    "answer": "B",
+    "explanation": "可暂存带走。"
+  },
+  "cnd_p015_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看见地上有垃圾，可以？",
+    "answer": "C",
+    "explanation": "人人动手环境更好。"
+  },
+  "cnd_p015_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "垃圾分类的主要目的是？",
+    "answer": "D",
+    "explanation": "分类有助回收和环保。"
+  },
+  "cnd_p016_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "打饭时人多，正确做法是？",
+    "answer": "B",
+    "explanation": "公共场合要排队。"
+  },
+  "cnd_p016_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "排队时突然有急事，较好做法？",
+    "answer": "C",
+    "explanation": "有特殊情况要礼貌沟通。"
+  },
+  "cnd_p016_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "为什么要排好队？",
+    "answer": "D",
+    "explanation": "排队体现公平和秩序。"
+  },
+  "cnd_p016_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "上下楼梯人多时，应？",
+    "answer": "A",
+    "explanation": "楼梯防拥挤很重要。"
+  },
+  "cnd_p017_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "C",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p017_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "D",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p017_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "A",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p017_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "B",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p018_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "D",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p018_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "A",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p018_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "B",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p018_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "C",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p019_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "A",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p019_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "B",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p019_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "C",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p019_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "D",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p020_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "B",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p020_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "C",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p020_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "D",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p020_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "A",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p021_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p021_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p021_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p021_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p022_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "同学搬不动椅子，你可以？",
+    "answer": "D",
+    "explanation": "力所能及帮助他人。"
+  },
+  "cnd_p022_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "需要帮助时，有礼貌的说法是？",
+    "answer": "A",
+    "explanation": "求助要有礼貌。"
+  },
+  "cnd_p022_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "帮助别人后对方道谢，你应？",
+    "answer": "B",
+    "explanation": "接受感谢要谦逊。"
+  },
+  "cnd_p022_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么同学间要互相帮助？",
+    "answer": "C",
+    "explanation": "互助让集体更温暖。"
+  },
+  "cnd_p023_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "有好吃的点心，较好的做法是？",
+    "answer": "A",
+    "explanation": "分享能让快乐翻倍。"
+  },
+  "cnd_p023_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "分享时应注意？",
+    "answer": "B",
+    "explanation": "分享要自愿、卫生、公平。"
+  },
+  "cnd_p023_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "为什么要学会分享？",
+    "answer": "C",
+    "explanation": "分享是友好相处的表现。"
+  },
+  "cnd_p023_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "同学没有彩色笔，你可以？",
+    "answer": "D",
+    "explanation": "把文具借给有需要的同学。"
+  },
+  "cnd_p024_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "小组完成任务，正确做法是？",
+    "answer": "B",
+    "explanation": "合作要分工配合。"
+  },
+  "cnd_p024_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "合作中意见不同，应？",
+    "answer": "C",
+    "explanation": "有分歧要协商。"
+  },
+  "cnd_p024_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "为什么要学会合作？",
+    "answer": "D",
+    "explanation": "合作能更好完成任务。"
+  },
+  "cnd_p024_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "大扫除时你擦黑板，同伴搬桌子，这叫？",
+    "answer": "A",
+    "explanation": "各负其责就是分工合作。"
+  },
+  "cnd_p025_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p025_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p025_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p025_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p026_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "D",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p026_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "A",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p026_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "B",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p026_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "C",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p027_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "自己的玩具玩完后应？",
+    "answer": "A",
+    "explanation": "自己的事情自己整理。"
+  },
+  "cnd_p027_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学做家务，适合开始做的是？",
+    "answer": "B",
+    "explanation": "做力所能及的家务。"
+  },
+  "cnd_p027_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "为什么要自己整理房间？",
+    "answer": "C",
+    "explanation": "自己的事自己做。"
+  },
+  "cnd_p027_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "家长忙着做饭，你可以？",
+    "answer": "D",
+    "explanation": "为家人分担力所能及的事。"
+  },
+  "cnd_p028_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "自己的玩具玩完后应？",
+    "answer": "B",
+    "explanation": "自己的事情自己整理。"
+  },
+  "cnd_p028_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学做家务，适合开始做的是？",
+    "answer": "C",
+    "explanation": "做力所能及的家务。"
+  },
+  "cnd_p028_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "为什么要自己整理房间？",
+    "answer": "D",
+    "explanation": "自己的事自己做。"
+  },
+  "cnd_p028_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "家长忙着做饭，你可以？",
+    "answer": "A",
+    "explanation": "为家人分担力所能及的事。"
+  },
+  "cnd_p029_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "少先队员的标志是？",
+    "answer": "C",
+    "explanation": "红领巾是少先队员的标志。"
+  },
+  "cnd_p029_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "戴上红领巾意味着？",
+    "answer": "D",
+    "explanation": "红领巾提醒我们学先锋、做好事。"
+  },
+  "cnd_p029_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "儿童节是几月几日？",
+    "answer": "A",
+    "explanation": "六一国际儿童节。"
+  },
+  "cnd_p029_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学先锋、做先锋，小学生可以怎么做？",
+    "answer": "B",
+    "explanation": "用实际行动向榜样学习。"
+  },
+  "cnd_p030_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "少先队员的标志是？",
+    "answer": "D",
+    "explanation": "红领巾是少先队员的标志。"
+  },
+  "cnd_p030_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "戴上红领巾意味着？",
+    "answer": "A",
+    "explanation": "红领巾提醒我们学先锋、做好事。"
+  },
+  "cnd_p030_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "儿童节是几月几日？",
+    "answer": "B",
+    "explanation": "六一国际儿童节。"
+  },
+  "cnd_p030_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学先锋、做先锋，小学生可以怎么做？",
+    "answer": "C",
+    "explanation": "用实际行动向榜样学习。"
+  },
+  "cnd_p031_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "少先队员的标志是？",
+    "answer": "A",
+    "explanation": "红领巾是少先队员的标志。"
+  },
+  "cnd_p031_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "戴上红领巾意味着？",
+    "answer": "B",
+    "explanation": "红领巾提醒我们学先锋、做好事。"
+  },
+  "cnd_p031_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "儿童节是几月几日？",
+    "answer": "C",
+    "explanation": "六一国际儿童节。"
+  },
+  "cnd_p031_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学先锋、做先锋，小学生可以怎么做？",
+    "answer": "D",
+    "explanation": "用实际行动向榜样学习。"
+  },
+  "cnd_p032_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "少先队员的标志是？",
+    "answer": "B",
+    "explanation": "红领巾是少先队员的标志。"
+  },
+  "cnd_p032_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "戴上红领巾意味着？",
+    "answer": "C",
+    "explanation": "红领巾提醒我们学先锋、做好事。"
+  },
+  "cnd_p032_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "儿童节是几月几日？",
+    "answer": "D",
+    "explanation": "六一国际儿童节。"
+  },
+  "cnd_p032_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学先锋、做先锋，小学生可以怎么做？",
+    "answer": "A",
+    "explanation": "用实际行动向榜样学习。"
+  },
+  "cnd_p033_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "过节假日较好的安排是？",
+    "answer": "C",
+    "explanation": "假期也要合理安排。"
+  },
+  "cnd_p033_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "假期结束返校，应？",
+    "answer": "D",
+    "explanation": "假期也要负责。"
+  },
+  "cnd_p033_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "假期里可以帮助家人做什么？",
+    "answer": "A",
+    "explanation": "假期可多关心家人。"
+  },
+  "cnd_p033_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么说假期也有收获？",
+    "answer": "B",
+    "explanation": "假期同样能成长。"
+  },
+  "cnd_p034_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "教师节是为了？",
+    "answer": "D",
+    "explanation": "教师节表达对老师的感谢。"
+  },
+  "cnd_p034_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "送给老师最合适的“礼物”是？",
+    "answer": "A",
+    "explanation": "认真学习和真诚祝福最珍贵。"
+  },
+  "cnd_p034_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "教师节可以对老师说？",
+    "answer": "B",
+    "explanation": "礼貌表达感谢。"
+  },
+  "cnd_p034_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "平时怎样尊敬老师？",
+    "answer": "C",
+    "explanation": "日常尊师更重要。"
+  },
+  "cnd_p035_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中秋节人们常做的事情是？",
+    "answer": "A",
+    "explanation": "中秋注重团圆。"
+  },
+  "cnd_p035_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中秋节体现的美好情感是？",
+    "answer": "B",
+    "explanation": "中秋寄托对亲人的思念。"
+  },
+  "cnd_p035_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "过中秋时要注意？",
+    "answer": "C",
+    "explanation": "节日也要文明安全。"
+  },
+  "cnd_p035_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么说团团圆圆过中秋？",
+    "answer": "D",
+    "explanation": "团圆是中秋的重要意义。"
+  },
+  "cnd_p036_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "国庆节是纪念什么？",
+    "answer": "B",
+    "explanation": "10月1日是国庆节。"
+  },
+  "cnd_p036_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "国庆节常见的爱国表达是？",
+    "answer": "C",
+    "explanation": "用文明方式表达爱国。"
+  },
+  "cnd_p036_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "国庆节放假外出，应注意？",
+    "answer": "D",
+    "explanation": "外出也要守秩序。"
+  },
+  "cnd_p036_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "欢欢喜喜庆国庆，我们应怀有？",
+    "answer": "A",
+    "explanation": "国庆是爱国的节日。"
+  },
+  "cnd_p037_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班集体需要大家怎样？",
+    "answer": "C",
+    "explanation": "班集体靠大家维护。"
+  },
+  "cnd_p037_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班级规则的作用是？",
+    "answer": "D",
+    "explanation": "规则保障秩序和公平。"
+  },
+  "cnd_p037_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "做值日生时应该？",
+    "answer": "A",
+    "explanation": "值日是为集体服务。"
+  },
+  "cnd_p037_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为班级作贡献，小学生可以？",
+    "answer": "B",
+    "explanation": "用行动为班级出力。"
+  },
+  "cnd_p038_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班集体需要大家怎样？",
+    "answer": "D",
+    "explanation": "班集体靠大家维护。"
+  },
+  "cnd_p038_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班级规则的作用是？",
+    "answer": "A",
+    "explanation": "规则保障秩序和公平。"
+  },
+  "cnd_p038_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "做值日生时应该？",
+    "answer": "B",
+    "explanation": "值日是为集体服务。"
+  },
+  "cnd_p038_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为班级作贡献，小学生可以？",
+    "answer": "C",
+    "explanation": "用行动为班级出力。"
+  },
+  "cnd_p039_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班集体需要大家怎样？",
+    "answer": "A",
+    "explanation": "班集体靠大家维护。"
+  },
+  "cnd_p039_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班级规则的作用是？",
+    "answer": "B",
+    "explanation": "规则保障秩序和公平。"
+  },
+  "cnd_p039_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "做值日生时应该？",
+    "answer": "C",
+    "explanation": "值日是为集体服务。"
+  },
+  "cnd_p039_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为班级作贡献，小学生可以？",
+    "answer": "D",
+    "explanation": "用行动为班级出力。"
+  },
+  "cnd_p040_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班集体需要大家怎样？",
+    "answer": "B",
+    "explanation": "班集体靠大家维护。"
+  },
+  "cnd_p040_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班级规则的作用是？",
+    "answer": "C",
+    "explanation": "规则保障秩序和公平。"
+  },
+  "cnd_p040_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "做值日生时应该？",
+    "answer": "D",
+    "explanation": "值日是为集体服务。"
+  },
+  "cnd_p040_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为班级作贡献，小学生可以？",
+    "answer": "A",
+    "explanation": "用行动为班级出力。"
+  },
+  "cnd_p041_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p041_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p041_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p041_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p042_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "D",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p042_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "A",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p042_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "B",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p042_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "C",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p043_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "A",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p043_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "B",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p043_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "C",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p043_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "D",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p044_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "B",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p044_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "C",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p044_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "D",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p044_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "A",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p045_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p045_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p045_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p045_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p046_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我们的祖国是？",
+    "answer": "D",
+    "explanation": "我们的祖国是中华人民共和国。"
+  },
+  "cnd_p046_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "作为中国人，应当？",
+    "answer": "A",
+    "explanation": "爱国守法、尊重各族同学。"
+  },
+  "cnd_p046_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "我国是统一的多民族国家，正确态度是？",
+    "answer": "B",
+    "explanation": "民族团结很重要。"
+  },
+  "cnd_p046_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为祖国自豪，小学生可以怎么做？",
+    "answer": "C",
+    "explanation": "用实际行动爱国。"
+  },
+  "cnd_p047_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国年（春节）的传统习俗有？",
+    "answer": "A",
+    "explanation": "春节有丰富的传统习俗。"
+  },
+  "cnd_p047_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "过年时拜年的意义是？",
+    "answer": "B",
+    "explanation": "拜年是祝福与尊敬。"
+  },
+  "cnd_p047_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "燃放烟花爆竹要注意？",
+    "answer": "C",
+    "explanation": "安全文明过节。"
+  },
+  "cnd_p047_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "红红火火中国年体现了？",
+    "answer": "D",
+    "explanation": "春节承载传统文化与亲情。"
+  },
+  "cnd_p048_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我们的祖国是？",
+    "answer": "B",
+    "explanation": "我们的祖国是中华人民共和国。"
+  },
+  "cnd_p048_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "作为中国人，应当？",
+    "answer": "C",
+    "explanation": "爱国守法、尊重各族同学。"
+  },
+  "cnd_p048_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "我国是统一的多民族国家，正确态度是？",
+    "answer": "D",
+    "explanation": "民族团结很重要。"
+  },
+  "cnd_p048_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为祖国自豪，小学生可以怎么做？",
+    "answer": "A",
+    "explanation": "用实际行动爱国。"
+  },
+  "cnd_p049_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "C",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p049_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "D",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p049_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "A",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p049_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "B",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p050_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "D",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p050_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "A",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p050_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "B",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p050_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "C",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p051_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "A",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p051_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "B",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p051_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "C",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p051_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "D",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p052_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "B",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p052_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "C",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p052_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "D",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p052_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "A",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p053_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p053_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p053_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p053_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p054_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "亲近大自然时，正确做法是？",
+    "answer": "D",
+    "explanation": "亲近自然也要保护自然。"
+  },
+  "cnd_p054_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "节约用纸，可以怎么做？",
+    "answer": "A",
+    "explanation": "节约纸张保护树木。"
+  },
+  "cnd_p054_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "关于水和资源，我们应？",
+    "answer": "B",
+    "explanation": "水资源需要珍惜。"
+  },
+  "cnd_p054_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "低碳生活，小学生可以？",
+    "answer": "C",
+    "explanation": "日常小事也能低碳。"
+  },
+  "cnd_p055_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "亲近大自然时，正确做法是？",
+    "answer": "A",
+    "explanation": "亲近自然也要保护自然。"
+  },
+  "cnd_p055_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "节约用纸，可以怎么做？",
+    "answer": "B",
+    "explanation": "节约纸张保护树木。"
+  },
+  "cnd_p055_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "关于水和资源，我们应？",
+    "answer": "C",
+    "explanation": "水资源需要珍惜。"
+  },
+  "cnd_p055_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "低碳生活，小学生可以？",
+    "answer": "D",
+    "explanation": "日常小事也能低碳。"
+  },
+  "cnd_p056_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "亲近大自然时，正确做法是？",
+    "answer": "B",
+    "explanation": "亲近自然也要保护自然。"
+  },
+  "cnd_p056_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "节约用纸，可以怎么做？",
+    "answer": "C",
+    "explanation": "节约纸张保护树木。"
+  },
+  "cnd_p056_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "关于水和资源，我们应？",
+    "answer": "D",
+    "explanation": "水资源需要珍惜。"
+  },
+  "cnd_p056_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "低碳生活，小学生可以？",
+    "answer": "A",
+    "explanation": "日常小事也能低碳。"
+  },
+  "cnd_p057_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p057_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p057_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p057_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p058_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "勤俭节约的正确理解是？",
+    "answer": "D",
+    "explanation": "勤俭是合理使用资源。"
+  },
+  "cnd_p058_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "诚信的表现是？",
+    "answer": "A",
+    "explanation": "诚信是做人根本。"
+  },
+  "cnd_p058_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "购物时较合理的做法是？",
+    "answer": "B",
+    "explanation": "合理消费、注意质量。"
+  },
+  "cnd_p058_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "反对浪费，吃饭时可以？",
+    "answer": "C",
+    "explanation": "珍惜粮食反对浪费。"
+  },
+  "cnd_p059_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "A",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p059_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "B",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p059_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "C",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p059_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "D",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p060_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「见贤要思齐」一课，最重要的是？",
+    "answer": "B",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p060_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "C",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p060_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "D",
+    "explanation": "本课围绕「社会规则」展开。"
+  },
+  "cnd_p060_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "A",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p061_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "C",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p061_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "D",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p061_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "A",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p061_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "B",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p062_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "D",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p062_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "A",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p062_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "B",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p062_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "C",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p063_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "A",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p063_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "B",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p063_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "C",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p063_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "D",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p064_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "B",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p064_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "C",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p064_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "D",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p064_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "A",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p065_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "做学习的主人，意味着？",
+    "answer": "C",
+    "explanation": "主动学习更有效。"
+  },
+  "cnd_p065_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "科技改变生活的例子是？",
+    "answer": "D",
+    "explanation": "科技方便生活但仍需正确使用。"
+  },
+  "cnd_p065_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "走近科学家，我们应学习他们？",
+    "answer": "A",
+    "explanation": "学习科学家的精神。"
+  },
+  "cnd_p065_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学习有困难时，较好做法？",
+    "answer": "B",
+    "explanation": "遇到困难寻求帮助并坚持。"
+  },
+  "cnd_p066_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "D",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p066_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "A",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p066_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "B",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p066_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "C",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p067_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "做学习的主人，意味着？",
+    "answer": "A",
+    "explanation": "主动学习更有效。"
+  },
+  "cnd_p067_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "科技改变生活的例子是？",
+    "answer": "B",
+    "explanation": "科技方便生活但仍需正确使用。"
+  },
+  "cnd_p067_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "走近科学家，我们应学习他们？",
+    "answer": "C",
+    "explanation": "学习科学家的精神。"
+  },
+  "cnd_p067_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学习有困难时，较好做法？",
+    "answer": "D",
+    "explanation": "遇到困难寻求帮助并坚持。"
+  },
+  "cnd_p068_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "做学习的主人，意味着？",
+    "answer": "B",
+    "explanation": "主动学习更有效。"
+  },
+  "cnd_p068_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "科技改变生活的例子是？",
+    "answer": "C",
+    "explanation": "科技方便生活但仍需正确使用。"
+  },
+  "cnd_p068_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "走近科学家，我们应学习他们？",
+    "answer": "D",
+    "explanation": "学习科学家的精神。"
+  },
+  "cnd_p068_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学习有困难时，较好做法？",
+    "answer": "A",
+    "explanation": "遇到困难寻求帮助并坚持。"
+  },
+  "cnd_p069_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p069_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p069_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p069_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p070_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "做学习的主人，意味着？",
+    "answer": "D",
+    "explanation": "主动学习更有效。"
+  },
+  "cnd_p070_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "科技改变生活的例子是？",
+    "answer": "A",
+    "explanation": "科技方便生活但仍需正确使用。"
+  },
+  "cnd_p070_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "走近科学家，我们应学习他们？",
+    "answer": "B",
+    "explanation": "学习科学家的精神。"
+  },
+  "cnd_p070_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学习有困难时，较好做法？",
+    "answer": "C",
+    "explanation": "遇到困难寻求帮助并坚持。"
+  },
+  "cnd_p071_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「走近我们的老师」一课，最重要的是？",
+    "answer": "A",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p071_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "B",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p071_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "C",
+    "explanation": "本课围绕「学校生活」展开。"
+  },
+  "cnd_p071_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "D",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p072_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "真正的好朋友应当？",
+    "answer": "B",
+    "explanation": "友谊要健康向上。"
+  },
+  "cnd_p072_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "说话要算数，意思是？",
+    "answer": "C",
+    "explanation": "诚信守诺。"
+  },
+  "cnd_p072_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "与同学发生冲突，正确做法？",
+    "answer": "D",
+    "explanation": "用和平方式解决冲突。"
+  },
+  "cnd_p072_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "同学遇到困难，你可以？",
+    "answer": "A",
+    "explanation": "同学要互助。"
+  },
+  "cnd_p073_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「让我们的学校更美好」一课，最重要的是？",
+    "answer": "C",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p073_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "D",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p073_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "A",
+    "explanation": "本课围绕「学校生活」展开。"
+  },
+  "cnd_p073_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "B",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p074_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "D",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p074_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "A",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p074_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "B",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p074_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "C",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p075_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "A",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p075_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "B",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p075_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "C",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p075_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "D",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p076_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "B",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p076_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "C",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p076_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "D",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p076_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "A",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p077_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生命为什么最宝贵？",
+    "answer": "C",
+    "explanation": "要珍爱生命。"
+  },
+  "cnd_p077_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "有人诱骗你去偏僻处，应？",
+    "answer": "D",
+    "explanation": "自我保护，远离危险。"
+  },
+  "cnd_p077_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "发生火灾初起且可逃生时，应？",
+    "answer": "A",
+    "explanation": "火场逃生有正确方法。"
+  },
+  "cnd_p077_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "网络安全方面，不应做的是？",
+    "answer": "B",
+    "explanation": "保护个人信息不随意泄露。"
+  },
+  "cnd_p078_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「我们的生活越来越幸福」一课，最重要的是？",
+    "answer": "D",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p078_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "A",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p078_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "B",
+    "explanation": "本课围绕「公民与国家」展开。"
+  },
+  "cnd_p078_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "C",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p079_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「幸福生活是奋斗出来的」一课，最重要的是？",
+    "answer": "A",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p079_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "B",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p079_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "C",
+    "explanation": "本课围绕「公民与国家」展开。"
+  },
+  "cnd_p079_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "D",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p080_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "劳动最光荣意味着？",
+    "answer": "B",
+    "explanation": "劳动光荣，劳动者值得尊敬。"
+  },
+  "cnd_p080_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "幸福生活主要靠什么？",
+    "answer": "C",
+    "explanation": "幸福生活是奋斗出来的。"
+  },
+  "cnd_p080_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "小学生爱劳动，可以？",
+    "answer": "D",
+    "explanation": "从小爱劳动。"
+  },
+  "cnd_p080_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "见到环卫工人在工作，应？",
+    "answer": "A",
+    "explanation": "致敬每一位劳动者。"
+  },
+  "cnd_p081_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "劳动最光荣意味着？",
+    "answer": "C",
+    "explanation": "劳动光荣，劳动者值得尊敬。"
+  },
+  "cnd_p081_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "幸福生活主要靠什么？",
+    "answer": "D",
+    "explanation": "幸福生活是奋斗出来的。"
+  },
+  "cnd_p081_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "小学生爱劳动，可以？",
+    "answer": "A",
+    "explanation": "从小爱劳动。"
+  },
+  "cnd_p081_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "见到环卫工人在工作，应？",
+    "answer": "B",
+    "explanation": "致敬每一位劳动者。"
+  },
+  "cnd_p082_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "劳动最光荣意味着？",
+    "answer": "D",
+    "explanation": "劳动光荣，劳动者值得尊敬。"
+  },
+  "cnd_p082_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "幸福生活主要靠什么？",
+    "answer": "A",
+    "explanation": "幸福生活是奋斗出来的。"
+  },
+  "cnd_p082_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "小学生爱劳动，可以？",
+    "answer": "B",
+    "explanation": "从小爱劳动。"
+  },
+  "cnd_p082_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "见到环卫工人在工作，应？",
+    "answer": "C",
+    "explanation": "致敬每一位劳动者。"
+  },
+  "cnd_p083_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "A",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p083_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "B",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p083_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "C",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p083_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "D",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p084_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "B",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p084_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "C",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p084_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "D",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p084_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "A",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p085_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p085_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p085_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p085_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p086_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "D",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p086_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "A",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p086_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "B",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p086_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "C",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p087_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "A",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p087_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "B",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p087_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "C",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p087_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "D",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p088_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "真正的好朋友应当？",
+    "answer": "B",
+    "explanation": "友谊要健康向上。"
+  },
+  "cnd_p088_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "说话要算数，意思是？",
+    "answer": "C",
+    "explanation": "诚信守诺。"
+  },
+  "cnd_p088_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "与同学发生冲突，正确做法？",
+    "answer": "D",
+    "explanation": "用和平方式解决冲突。"
+  },
+  "cnd_p088_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "同学遇到困难，你可以？",
+    "answer": "A",
+    "explanation": "同学要互助。"
+  },
+  "cnd_p089_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "勤俭节约的正确理解是？",
+    "answer": "C",
+    "explanation": "勤俭是合理使用资源。"
+  },
+  "cnd_p089_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "诚信的表现是？",
+    "answer": "D",
+    "explanation": "诚信是做人根本。"
+  },
+  "cnd_p089_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "购物时较合理的做法是？",
+    "answer": "A",
+    "explanation": "合理消费、注意质量。"
+  },
+  "cnd_p089_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "反对浪费，吃饭时可以？",
+    "answer": "B",
+    "explanation": "珍惜粮食反对浪费。"
+  },
+  "cnd_p090_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班集体需要大家怎样？",
+    "answer": "D",
+    "explanation": "班集体靠大家维护。"
+  },
+  "cnd_p090_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班级规则的作用是？",
+    "answer": "A",
+    "explanation": "规则保障秩序和公平。"
+  },
+  "cnd_p090_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "做值日生时应该？",
+    "answer": "B",
+    "explanation": "值日是为集体服务。"
+  },
+  "cnd_p090_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为班级作贡献，小学生可以？",
+    "answer": "C",
+    "explanation": "用行动为班级出力。"
+  },
+  "cnd_p091_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班集体需要大家怎样？",
+    "answer": "A",
+    "explanation": "班集体靠大家维护。"
+  },
+  "cnd_p091_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班级规则的作用是？",
+    "answer": "B",
+    "explanation": "规则保障秩序和公平。"
+  },
+  "cnd_p091_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "做值日生时应该？",
+    "answer": "C",
+    "explanation": "值日是为集体服务。"
+  },
+  "cnd_p091_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为班级作贡献，小学生可以？",
+    "answer": "D",
+    "explanation": "用行动为班级出力。"
+  },
+  "cnd_p092_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班集体需要大家怎样？",
+    "answer": "B",
+    "explanation": "班集体靠大家维护。"
+  },
+  "cnd_p092_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "班级规则的作用是？",
+    "answer": "C",
+    "explanation": "规则保障秩序和公平。"
+  },
+  "cnd_p092_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "做值日生时应该？",
+    "answer": "D",
+    "explanation": "值日是为集体服务。"
+  },
+  "cnd_p092_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为班级作贡献，小学生可以？",
+    "answer": "A",
+    "explanation": "用行动为班级出力。"
+  },
+  "cnd_p093_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "保持身心健康，应当？",
+    "answer": "C",
+    "explanation": "健康需要多方面维护。"
+  },
+  "cnd_p093_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到失败时，较好做法是？",
+    "answer": "D",
+    "explanation": "失败是成长的一部分。"
+  },
+  "cnd_p093_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "坚持才会有收获，意思是？",
+    "answer": "A",
+    "explanation": "持之以恒才能有收获。"
+  },
+  "cnd_p093_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "有梦想时，现在可以怎么做？",
+    "answer": "B",
+    "explanation": "梦想要从现在做起。"
+  },
+  "cnd_p094_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生命为什么最宝贵？",
+    "answer": "D",
+    "explanation": "要珍爱生命。"
+  },
+  "cnd_p094_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "有人诱骗你去偏僻处，应？",
+    "answer": "A",
+    "explanation": "自我保护，远离危险。"
+  },
+  "cnd_p094_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "发生火灾初起且可逃生时，应？",
+    "answer": "B",
+    "explanation": "火场逃生有正确方法。"
+  },
+  "cnd_p094_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "网络安全方面，不应做的是？",
+    "answer": "C",
+    "explanation": "保护个人信息不随意泄露。"
+  },
+  "cnd_p095_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生命为什么最宝贵？",
+    "answer": "A",
+    "explanation": "要珍爱生命。"
+  },
+  "cnd_p095_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "有人诱骗你去偏僻处，应？",
+    "answer": "B",
+    "explanation": "自我保护，远离危险。"
+  },
+  "cnd_p095_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "发生火灾初起且可逃生时，应？",
+    "answer": "C",
+    "explanation": "火场逃生有正确方法。"
+  },
+  "cnd_p095_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "网络安全方面，不应做的是？",
+    "answer": "D",
+    "explanation": "保护个人信息不随意泄露。"
+  },
+  "cnd_p096_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "信息社会给生活带来的便利有？",
+    "answer": "B",
+    "explanation": "信息社会带来便利也需正确使用。"
+  },
+  "cnd_p096_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "使用电子设备时应注意？",
+    "answer": "C",
+    "explanation": "合理使用电子设备。"
+  },
+  "cnd_p096_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "网上看到不实信息，应？",
+    "answer": "D",
+    "explanation": "不传播谣言。"
+  },
+  "cnd_p096_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "“别让它抢走太多”提醒我们？",
+    "answer": "A",
+    "explanation": "合理分配时间。"
+  },
+  "cnd_p097_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「别让它抢走太多」一课，最重要的是？",
+    "answer": "C",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p097_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "D",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p097_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "A",
+    "explanation": "本课围绕「生活与安全」展开。"
+  },
+  "cnd_p097_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "B",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p098_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生命为什么最宝贵？",
+    "answer": "D",
+    "explanation": "要珍爱生命。"
+  },
+  "cnd_p098_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "有人诱骗你去偏僻处，应？",
+    "answer": "A",
+    "explanation": "自我保护，远离危险。"
+  },
+  "cnd_p098_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "发生火灾初起且可逃生时，应？",
+    "answer": "B",
+    "explanation": "火场逃生有正确方法。"
+  },
+  "cnd_p098_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "网络安全方面，不应做的是？",
+    "answer": "C",
+    "explanation": "保护个人信息不随意泄露。"
+  },
+  "cnd_p099_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "勤俭节约的正确理解是？",
+    "answer": "A",
+    "explanation": "勤俭是合理使用资源。"
+  },
+  "cnd_p099_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "诚信的表现是？",
+    "answer": "B",
+    "explanation": "诚信是做人根本。"
+  },
+  "cnd_p099_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "购物时较合理的做法是？",
+    "answer": "C",
+    "explanation": "合理消费、注意质量。"
+  },
+  "cnd_p099_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "反对浪费，吃饭时可以？",
+    "answer": "D",
+    "explanation": "珍惜粮食反对浪费。"
+  },
+  "cnd_p100_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "勤俭节约的正确理解是？",
+    "answer": "B",
+    "explanation": "勤俭是合理使用资源。"
+  },
+  "cnd_p100_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "诚信的表现是？",
+    "answer": "C",
+    "explanation": "诚信是做人根本。"
+  },
+  "cnd_p100_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "购物时较合理的做法是？",
+    "answer": "D",
+    "explanation": "合理消费、注意质量。"
+  },
+  "cnd_p100_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "反对浪费，吃饭时可以？",
+    "answer": "A",
+    "explanation": "珍惜粮食反对浪费。"
+  },
+  "cnd_p101_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "勤俭节约的正确理解是？",
+    "answer": "C",
+    "explanation": "勤俭是合理使用资源。"
+  },
+  "cnd_p101_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "诚信的表现是？",
+    "answer": "D",
+    "explanation": "诚信是做人根本。"
+  },
+  "cnd_p101_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "购物时较合理的做法是？",
+    "answer": "A",
+    "explanation": "合理消费、注意质量。"
+  },
+  "cnd_p101_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "反对浪费，吃饭时可以？",
+    "answer": "B",
+    "explanation": "珍惜粮食反对浪费。"
+  },
+  "cnd_p102_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "真正的好朋友应当？",
+    "answer": "D",
+    "explanation": "友谊要健康向上。"
+  },
+  "cnd_p102_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "说话要算数，意思是？",
+    "answer": "A",
+    "explanation": "诚信守诺。"
+  },
+  "cnd_p102_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "与同学发生冲突，正确做法？",
+    "answer": "B",
+    "explanation": "用和平方式解决冲突。"
+  },
+  "cnd_p102_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "同学遇到困难，你可以？",
+    "answer": "C",
+    "explanation": "同学要互助。"
+  },
+  "cnd_p103_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "勤俭节约的正确理解是？",
+    "answer": "A",
+    "explanation": "勤俭是合理使用资源。"
+  },
+  "cnd_p103_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "诚信的表现是？",
+    "answer": "B",
+    "explanation": "诚信是做人根本。"
+  },
+  "cnd_p103_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "购物时较合理的做法是？",
+    "answer": "C",
+    "explanation": "合理消费、注意质量。"
+  },
+  "cnd_p103_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "反对浪费，吃饭时可以？",
+    "answer": "D",
+    "explanation": "珍惜粮食反对浪费。"
+  },
+  "cnd_p104_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "真正的好朋友应当？",
+    "answer": "B",
+    "explanation": "友谊要健康向上。"
+  },
+  "cnd_p104_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "说话要算数，意思是？",
+    "answer": "C",
+    "explanation": "诚信守诺。"
+  },
+  "cnd_p104_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "与同学发生冲突，正确做法？",
+    "answer": "D",
+    "explanation": "用和平方式解决冲突。"
+  },
+  "cnd_p104_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "同学遇到困难，你可以？",
+    "answer": "A",
+    "explanation": "同学要互助。"
+  },
+  "cnd_p105_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "勤俭节约的正确理解是？",
+    "answer": "C",
+    "explanation": "勤俭是合理使用资源。"
+  },
+  "cnd_p105_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "诚信的表现是？",
+    "answer": "D",
+    "explanation": "诚信是做人根本。"
+  },
+  "cnd_p105_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "购物时较合理的做法是？",
+    "answer": "A",
+    "explanation": "合理消费、注意质量。"
+  },
+  "cnd_p105_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "反对浪费，吃饭时可以？",
+    "answer": "B",
+    "explanation": "珍惜粮食反对浪费。"
+  },
+  "cnd_p106_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "勤俭节约的正确理解是？",
+    "answer": "D",
+    "explanation": "勤俭是合理使用资源。"
+  },
+  "cnd_p106_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "诚信的表现是？",
+    "answer": "A",
+    "explanation": "诚信是做人根本。"
+  },
+  "cnd_p106_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "购物时较合理的做法是？",
+    "answer": "B",
+    "explanation": "合理消费、注意质量。"
+  },
+  "cnd_p106_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "反对浪费，吃饭时可以？",
+    "answer": "C",
+    "explanation": "珍惜粮食反对浪费。"
+  },
+  "cnd_p107_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "勤俭节约的正确理解是？",
+    "answer": "A",
+    "explanation": "勤俭是合理使用资源。"
+  },
+  "cnd_p107_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "诚信的表现是？",
+    "answer": "B",
+    "explanation": "诚信是做人根本。"
+  },
+  "cnd_p107_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "购物时较合理的做法是？",
+    "answer": "C",
+    "explanation": "合理消费、注意质量。"
+  },
+  "cnd_p107_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "反对浪费，吃饭时可以？",
+    "answer": "D",
+    "explanation": "珍惜粮食反对浪费。"
+  },
+  "cnd_p108_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「我们的衣食之源」一课，最重要的是？",
+    "answer": "B",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p108_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "C",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p108_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "D",
+    "explanation": "本课围绕「自然与环境」展开。"
+  },
+  "cnd_p108_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "A",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p109_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「这些东西哪里来」一课，最重要的是？",
+    "answer": "C",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p109_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "D",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p109_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "A",
+    "explanation": "本课围绕「社会规则」展开。"
+  },
+  "cnd_p109_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "B",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p110_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「生活离不开他们」一课，最重要的是？",
+    "answer": "D",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p110_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "A",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p110_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "B",
+    "explanation": "本课围绕「社会规则」展开。"
+  },
+  "cnd_p110_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "C",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p111_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "爱家乡，可以怎么做？",
+    "answer": "A",
+    "explanation": "了解并爱护家乡。"
+  },
+  "cnd_p111_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家乡物产能告诉我们什么？",
+    "answer": "B",
+    "explanation": "物产养育一方人。"
+  },
+  "cnd_p111_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "家乡的变化说明了什么？",
+    "answer": "C",
+    "explanation": "关注家乡发展。"
+  },
+  "cnd_p111_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "可亲可敬的家乡人值得我们？",
+    "answer": "D",
+    "explanation": "尊重家乡的建设者。"
+  },
+  "cnd_p112_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "爱家乡，可以怎么做？",
+    "answer": "B",
+    "explanation": "了解并爱护家乡。"
+  },
+  "cnd_p112_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家乡物产能告诉我们什么？",
+    "answer": "C",
+    "explanation": "物产养育一方人。"
+  },
+  "cnd_p112_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "家乡的变化说明了什么？",
+    "answer": "D",
+    "explanation": "关注家乡发展。"
+  },
+  "cnd_p112_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "可亲可敬的家乡人值得我们？",
+    "answer": "A",
+    "explanation": "尊重家乡的建设者。"
+  },
+  "cnd_p113_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p113_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p113_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p113_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p114_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "D",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p114_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "A",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p114_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "B",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p114_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "C",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p115_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我们的祖国是？",
+    "answer": "A",
+    "explanation": "我们的祖国是中华人民共和国。"
+  },
+  "cnd_p115_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "作为中国人，应当？",
+    "answer": "B",
+    "explanation": "爱国守法、尊重各族同学。"
+  },
+  "cnd_p115_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "我国是统一的多民族国家，正确态度是？",
+    "answer": "C",
+    "explanation": "民族团结很重要。"
+  },
+  "cnd_p115_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为祖国自豪，小学生可以怎么做？",
+    "answer": "D",
+    "explanation": "用实际行动爱国。"
+  },
+  "cnd_p116_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "B",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p116_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "C",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p116_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "D",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p116_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "A",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p117_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "C",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p117_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "D",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p117_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "A",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p117_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "B",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p118_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我们的祖国是？",
+    "answer": "D",
+    "explanation": "我们的祖国是中华人民共和国。"
+  },
+  "cnd_p118_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "作为中国人，应当？",
+    "answer": "A",
+    "explanation": "爱国守法、尊重各族同学。"
+  },
+  "cnd_p118_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "我国是统一的多民族国家，正确态度是？",
+    "answer": "B",
+    "explanation": "民族团结很重要。"
+  },
+  "cnd_p118_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为祖国自豪，小学生可以怎么做？",
+    "answer": "C",
+    "explanation": "用实际行动爱国。"
+  },
+  "cnd_p119_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "A",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p119_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "B",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p119_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "C",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p119_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "D",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p120_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "B",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p120_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "C",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p120_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "D",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p120_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "A",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p121_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "C",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p121_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "D",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p121_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "A",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p121_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "B",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p122_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "D",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p122_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "A",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p122_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "B",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p122_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "C",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p123_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我们的祖国是？",
+    "answer": "A",
+    "explanation": "我们的祖国是中华人民共和国。"
+  },
+  "cnd_p123_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "作为中国人，应当？",
+    "answer": "B",
+    "explanation": "爱国守法、尊重各族同学。"
+  },
+  "cnd_p123_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "我国是统一的多民族国家，正确态度是？",
+    "answer": "C",
+    "explanation": "民族团结很重要。"
+  },
+  "cnd_p123_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为祖国自豪，小学生可以怎么做？",
+    "answer": "D",
+    "explanation": "用实际行动爱国。"
+  },
+  "cnd_p124_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "B",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p124_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "C",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p124_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "D",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p124_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "A",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p125_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "C",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p125_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "D",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p125_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "A",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p125_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "B",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p126_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "D",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p126_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "A",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p126_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "B",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p126_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "C",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p127_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「读懂彼此的心」一课，最重要的是？",
+    "answer": "A",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p127_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "B",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p127_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "C",
+    "explanation": "本课围绕「家庭与亲情」展开。"
+  },
+  "cnd_p127_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "D",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p128_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "B",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p128_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "C",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p128_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "D",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p128_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "A",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p129_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p129_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p129_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p129_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p130_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "D",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p130_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "A",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p130_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "B",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p130_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "C",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p131_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "A",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p131_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "B",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p131_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "C",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p131_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "D",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p132_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「我参与 我奉献」一课，最重要的是？",
+    "answer": "B",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p132_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "C",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p132_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "D",
+    "explanation": "本课围绕「社会规则」展开。"
+  },
+  "cnd_p132_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "A",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p133_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "C",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p133_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "D",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p133_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "A",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p133_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "B",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p134_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我们的祖国是？",
+    "answer": "D",
+    "explanation": "我们的祖国是中华人民共和国。"
+  },
+  "cnd_p134_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "作为中国人，应当？",
+    "answer": "A",
+    "explanation": "爱国守法、尊重各族同学。"
+  },
+  "cnd_p134_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "我国是统一的多民族国家，正确态度是？",
+    "answer": "B",
+    "explanation": "民族团结很重要。"
+  },
+  "cnd_p134_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为祖国自豪，小学生可以怎么做？",
+    "answer": "C",
+    "explanation": "用实际行动爱国。"
+  },
+  "cnd_p135_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我们的祖国是？",
+    "answer": "A",
+    "explanation": "我们的祖国是中华人民共和国。"
+  },
+  "cnd_p135_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "作为中国人，应当？",
+    "answer": "B",
+    "explanation": "爱国守法、尊重各族同学。"
+  },
+  "cnd_p135_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "我国是统一的多民族国家，正确态度是？",
+    "answer": "C",
+    "explanation": "民族团结很重要。"
+  },
+  "cnd_p135_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为祖国自豪，小学生可以怎么做？",
+    "answer": "D",
+    "explanation": "用实际行动爱国。"
+  },
+  "cnd_p136_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "1949年10月1日发生了什么大事？",
+    "answer": "B",
+    "explanation": "新中国成立，中国人民站起来了。"
+  },
+  "cnd_p136_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "中国共产党的成立对中国意味着？",
+    "answer": "C",
+    "explanation": "教材指出这是开天辟地的大事变。"
+  },
+  "cnd_p136_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "抗日战争胜利说明了？",
+    "answer": "D",
+    "explanation": "抗战胜利是中国人民伟大胜利。"
+  },
+  "cnd_p136_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "改革开放给人民生活带来的变化是？",
+    "answer": "A",
+    "explanation": "改革开放推动国家发展和民生改善。"
+  },
+  "cnd_p137_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "信息社会给生活带来的便利有？",
+    "answer": "C",
+    "explanation": "信息社会带来便利也需正确使用。"
+  },
+  "cnd_p137_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "使用电子设备时应注意？",
+    "answer": "D",
+    "explanation": "合理使用电子设备。"
+  },
+  "cnd_p137_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "网上看到不实信息，应？",
+    "answer": "A",
+    "explanation": "不传播谣言。"
+  },
+  "cnd_p137_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "“别让它抢走太多”提醒我们？",
+    "answer": "B",
+    "explanation": "合理分配时间。"
+  },
+  "cnd_p138_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「富起来到强起来」一课，最重要的是？",
+    "answer": "D",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p138_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "A",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p138_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "B",
+    "explanation": "本课围绕「公民与国家」展开。"
+  },
+  "cnd_p138_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "C",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p139_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "法律是什么？",
+    "answer": "A",
+    "explanation": "法律是特殊的行为规范。"
+  },
+  "cnd_p139_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我国的根本法是？",
+    "answer": "B",
+    "explanation": "宪法是国家的根本法。"
+  },
+  "cnd_p139_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "作为中国公民，既有权利也有？",
+    "answer": "C",
+    "explanation": "权利与义务相一致。"
+  },
+  "cnd_p139_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "未成年人受到特殊保护，遇到侵害应？",
+    "answer": "D",
+    "explanation": "依法求助，用法律保护自己。"
+  },
+  "cnd_p140_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "法律是什么？",
+    "answer": "B",
+    "explanation": "法律是特殊的行为规范。"
+  },
+  "cnd_p140_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我国的根本法是？",
+    "answer": "C",
+    "explanation": "宪法是国家的根本法。"
+  },
+  "cnd_p140_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "作为中国公民，既有权利也有？",
+    "answer": "D",
+    "explanation": "权利与义务相一致。"
+  },
+  "cnd_p140_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "未成年人受到特殊保护，遇到侵害应？",
+    "answer": "A",
+    "explanation": "依法求助，用法律保护自己。"
+  },
+  "cnd_p141_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "法律是什么？",
+    "answer": "C",
+    "explanation": "法律是特殊的行为规范。"
+  },
+  "cnd_p141_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我国的根本法是？",
+    "answer": "D",
+    "explanation": "宪法是国家的根本法。"
+  },
+  "cnd_p141_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "作为中国公民，既有权利也有？",
+    "answer": "A",
+    "explanation": "权利与义务相一致。"
+  },
+  "cnd_p141_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "未成年人受到特殊保护，遇到侵害应？",
+    "answer": "B",
+    "explanation": "依法求助，用法律保护自己。"
+  },
+  "cnd_p142_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我们的祖国是？",
+    "answer": "D",
+    "explanation": "我们的祖国是中华人民共和国。"
+  },
+  "cnd_p142_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "作为中国人，应当？",
+    "answer": "A",
+    "explanation": "爱国守法、尊重各族同学。"
+  },
+  "cnd_p142_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "我国是统一的多民族国家，正确态度是？",
+    "answer": "B",
+    "explanation": "民族团结很重要。"
+  },
+  "cnd_p142_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为祖国自豪，小学生可以怎么做？",
+    "answer": "C",
+    "explanation": "用实际行动爱国。"
+  },
+  "cnd_p143_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "法律是什么？",
+    "answer": "A",
+    "explanation": "法律是特殊的行为规范。"
+  },
+  "cnd_p143_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我国的根本法是？",
+    "answer": "B",
+    "explanation": "宪法是国家的根本法。"
+  },
+  "cnd_p143_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "作为中国公民，既有权利也有？",
+    "answer": "C",
+    "explanation": "权利与义务相一致。"
+  },
+  "cnd_p143_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "未成年人受到特殊保护，遇到侵害应？",
+    "answer": "D",
+    "explanation": "依法求助，用法律保护自己。"
+  },
+  "cnd_p144_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "B",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p144_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "C",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p144_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "D",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p144_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "A",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p145_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生命为什么最宝贵？",
+    "answer": "C",
+    "explanation": "要珍爱生命。"
+  },
+  "cnd_p145_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "有人诱骗你去偏僻处，应？",
+    "answer": "D",
+    "explanation": "自我保护，远离危险。"
+  },
+  "cnd_p145_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "发生火灾初起且可逃生时，应？",
+    "answer": "A",
+    "explanation": "火场逃生有正确方法。"
+  },
+  "cnd_p145_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "网络安全方面，不应做的是？",
+    "answer": "B",
+    "explanation": "保护个人信息不随意泄露。"
+  },
+  "cnd_p146_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生命为什么最宝贵？",
+    "answer": "D",
+    "explanation": "要珍爱生命。"
+  },
+  "cnd_p146_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "有人诱骗你去偏僻处，应？",
+    "answer": "A",
+    "explanation": "自我保护，远离危险。"
+  },
+  "cnd_p146_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "发生火灾初起且可逃生时，应？",
+    "answer": "B",
+    "explanation": "火场逃生有正确方法。"
+  },
+  "cnd_p146_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "网络安全方面，不应做的是？",
+    "answer": "C",
+    "explanation": "保护个人信息不随意泄露。"
+  },
+  "cnd_p147_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "学习「特殊关爱 助我成长」一课，最重要的是？",
+    "answer": "A",
+    "explanation": "道德与法治课重在践行。"
+  },
+  "cnd_p147_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "遇到本课相关情境，应优先选择？",
+    "answer": "B",
+    "explanation": "安全文明守规则。"
+  },
+  "cnd_p147_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "本课所属主题更接近？",
+    "answer": "C",
+    "explanation": "本课围绕「公民与国家」展开。"
+  },
+  "cnd_p147_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学完本课后，较好的行动是？",
+    "answer": "D",
+    "explanation": "学了就要用。"
+  },
+  "cnd_p148_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "法律是什么？",
+    "answer": "B",
+    "explanation": "法律是特殊的行为规范。"
+  },
+  "cnd_p148_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我国的根本法是？",
+    "answer": "C",
+    "explanation": "宪法是国家的根本法。"
+  },
+  "cnd_p148_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "作为中国公民，既有权利也有？",
+    "answer": "D",
+    "explanation": "权利与义务相一致。"
+  },
+  "cnd_p148_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "未成年人受到特殊保护，遇到侵害应？",
+    "answer": "A",
+    "explanation": "依法求助，用法律保护自己。"
+  },
+  "cnd_p149_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "法律是什么？",
+    "answer": "C",
+    "explanation": "法律是特殊的行为规范。"
+  },
+  "cnd_p149_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "我国的根本法是？",
+    "answer": "D",
+    "explanation": "宪法是国家的根本法。"
+  },
+  "cnd_p149_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "作为中国公民，既有权利也有？",
+    "answer": "A",
+    "explanation": "权利与义务相一致。"
+  },
+  "cnd_p149_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "未成年人受到特殊保护，遇到侵害应？",
+    "answer": "B",
+    "explanation": "依法求助，用法律保护自己。"
+  },
+  "cnd_p150_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "D",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p150_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "A",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p150_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "B",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p150_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "C",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p151_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "A",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p151_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "B",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p151_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "C",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p151_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "D",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p152_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "B",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p152_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "C",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p152_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "D",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p152_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "A",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p153_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "家人之所以珍贵，是因为？",
+    "answer": "C",
+    "explanation": "家是互相关爱的地方。"
+  },
+  "cnd_p153_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "父母辛苦工作，我们可以？",
+    "answer": "D",
+    "explanation": "体贴父母是爱家的表现。"
+  },
+  "cnd_p153_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "和家人意见不同，较好做法？",
+    "answer": "A",
+    "explanation": "家庭矛盾也要好好沟通。"
+  },
+  "cnd_p153_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "为什么要弘扬家庭美德？",
+    "answer": "B",
+    "explanation": "家庭美德让家更温暖。"
+  },
+  "cnd_p154_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "亲近大自然时，正确做法是？",
+    "answer": "D",
+    "explanation": "亲近自然也要保护自然。"
+  },
+  "cnd_p154_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "节约用纸，可以怎么做？",
+    "answer": "A",
+    "explanation": "节约纸张保护树木。"
+  },
+  "cnd_p154_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "关于水和资源，我们应？",
+    "answer": "B",
+    "explanation": "水资源需要珍惜。"
+  },
+  "cnd_p154_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "低碳生活，小学生可以？",
+    "answer": "C",
+    "explanation": "日常小事也能低碳。"
+  },
+  "cnd_p155_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "公共场所应做到？",
+    "answer": "A",
+    "explanation": "公共生活靠大家文明。"
+  },
+  "cnd_p155_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "生活中的规则作用是？",
+    "answer": "B",
+    "explanation": "规则保护每个人。"
+  },
+  "cnd_p155_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "看到有人需要帮助且自己能帮，应？",
+    "answer": "C",
+    "explanation": "做热心但注意安全。"
+  },
+  "cnd_p155_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学会倾听，最重要的是？",
+    "answer": "D",
+    "explanation": "倾听是交往的基本能力。"
+  },
+  "cnd_p156_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "爱护地球，我们可以？",
+    "answer": "B",
+    "explanation": "地球是共同家园。"
+  },
+  "cnd_p156_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "面对地震等自然灾害预警，应？",
+    "answer": "C",
+    "explanation": "科学避险。"
+  },
+  "cnd_p156_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "尊重不同文化，正确态度是？",
+    "answer": "D",
+    "explanation": "文化多样，相互尊重。"
+  },
+  "cnd_p156_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "我们爱和平，小学生可以？",
+    "answer": "A",
+    "explanation": "从小树立爱和平的观念。"
+  },
+  "cnd_p157_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "做学习的主人，意味着？",
+    "answer": "C",
+    "explanation": "主动学习更有效。"
+  },
+  "cnd_p157_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "科技改变生活的例子是？",
+    "answer": "D",
+    "explanation": "科技方便生活但仍需正确使用。"
+  },
+  "cnd_p157_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "走近科学家，我们应学习他们？",
+    "answer": "A",
+    "explanation": "学习科学家的精神。"
+  },
+  "cnd_p157_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "学习有困难时，较好做法？",
+    "answer": "B",
+    "explanation": "遇到困难寻求帮助并坚持。"
+  },
+  "cnd_p158_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "爱护地球，我们可以？",
+    "answer": "D",
+    "explanation": "地球是共同家园。"
+  },
+  "cnd_p158_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "面对地震等自然灾害预警，应？",
+    "answer": "A",
+    "explanation": "科学避险。"
+  },
+  "cnd_p158_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "尊重不同文化，正确态度是？",
+    "answer": "B",
+    "explanation": "文化多样，相互尊重。"
+  },
+  "cnd_p158_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "我们爱和平，小学生可以？",
+    "answer": "C",
+    "explanation": "从小树立爱和平的观念。"
+  },
+  "cnd_p159_q1": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "爱护地球，我们可以？",
+    "answer": "A",
+    "explanation": "地球是共同家园。"
+  },
+  "cnd_p159_q2": {
+    "difficulty": "basic",
+    "type": "choice",
+    "prompt": "面对地震等自然灾害预警，应？",
+    "answer": "B",
+    "explanation": "科学避险。"
+  },
+  "cnd_p159_q3": {
+    "difficulty": "standard",
+    "type": "choice",
+    "prompt": "尊重不同文化，正确态度是？",
+    "answer": "C",
+    "explanation": "文化多样，相互尊重。"
+  },
+  "cnd_p159_q4": {
+    "difficulty": "challenge",
+    "type": "choice",
+    "prompt": "我们爱和平，小学生可以？",
+    "answer": "D",
+    "explanation": "从小树立爱和平的观念。"
+  }
+}

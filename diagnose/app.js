@@ -173,6 +173,13 @@
       const qr = await fetch('../data/questions.json');
       if (qr.ok) questions = await qr.json();
     } catch (e) { questions = null; }
+    let oldMoralityQuestions = null;
+    if (subject === 'morality') {
+      try {
+        const old = await fetch('../data/morality-primary-answer-history-e4d6813.json');
+        if (old.ok) oldMoralityQuestions = await old.json();
+      } catch (e) { /* 不用新版题面替代查不到的旧题 */ }
+    }
     const topics = js[0].filter(function (t) { return E.subjectOf(t) === subject; });
     const allow = {};
     topics.forEach(function (t) { allow[t.id] = true; });
@@ -182,7 +189,7 @@
     js[2].items.forEach(function (x) { stdById[x.id] = x; });
     const graph = E.buildGraph(topics, deps, questions);
     const active = topics.filter(function (topic) { return !topic.archived; });
-    D = { topics: active, deps: deps, stdById: stdById, graph: graph, tree: buildTree(active), aliases: (js[3] && js[3].aliases) || {} };
+    D = { topics: active, deps: deps, stdById: stdById, graph: graph, tree: buildTree(active), aliases: (js[3] && js[3].aliases) || {}, oldMoralityQuestions: oldMoralityQuestions };
   }
 
   function buildTree(topics) {
@@ -250,10 +257,22 @@
     render();
   }
 
+  // 小学道法题保留原编号。记录当时的题面，避免更新后把旧答案与新版题配对。
+  function isUpdatedMoralityQuestion(qid) { return /^cnd_p\d+_q\d+$/.test(qid || ''); }
+
+  function questionForRecord(a) {
+    if (!isUpdatedMoralityQuestion(a.qid)) return E.questionById(D.graph, a.qid);
+    return a.questionSnapshot || (D.oldMoralityQuestions && D.oldMoralityQuestions[a.qid]);
+  }
+
   function commit(result) {
     const item = E.nextItem(D.graph, session);
     const beforeStatus = session.status[item.topicId] ? session.status[item.topicId].s : null;
-    session = E.applyAnswer(D.graph, session, item.topicId, result, { text: ui.answer });
+    const q = item.question;
+    const snapshot = isUpdatedMoralityQuestion(q.id) ? {
+      difficulty: q.difficulty, type: q.type, prompt: q.prompt, answer: q.answer, explanation: q.explanation || ''
+    } : null;
+    session = E.applyAnswer(D.graph, session, item.topicId, result, { text: ui.answer, questionSnapshot: snapshot });
     // 知识点刚得出结论时写错题本（weak / shaky 进，答对累计，够两次移出）
     const nowStatus = session.status[item.topicId] ? session.status[item.topicId].s : null;
     if (nowStatus && nowStatus !== beforeStatus && !demo) recordToBook(item.topicId, nowStatus);
@@ -958,7 +977,7 @@
 
   function logCard() {
     const rows = session.answers.map(function (a, i) {
-      const q = E.questionById(D.graph, a.qid) || { prompt: '旧题已更新', answer: '' };
+      const q = questionForRecord(a) || { prompt: '旧题已更新', answer: '' };
       const sel = h('select', {
         onchange: function (e) {
           const next = session.answers.map(function (x, j) { return j === i ? Object.assign({}, x, { result: e.target.value }) : x; });
@@ -1132,7 +1151,7 @@
       targets: session.targets.map(brief),
       limit: session.limit, seed: session.seed, asked: sum.asked, finished: sum.finished, limitReached: sum.limitReached,
       answers: session.answers.map(function (a, i) {
-        const q = E.questionById(D.graph, a.qid) || {};
+        const q = questionForRecord(a) || {};
         return {
           order: i + 1, topicId: a.id, name: nameOf(a.id), questionId: a.qid, difficulty: q.difficulty, type: q.type,
           prompt: q.prompt, userAnswer: a.text == null ? null : a.text, result: a.result,
